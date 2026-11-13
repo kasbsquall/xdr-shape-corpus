@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "0.1",
+  "generatedAt": "2026-11-13T00:07:08+00:00",
+  "entries": [
+    {
+      "id": "cap40-signed-payload-signer-max-payload",
+      "caps": [
+        "CAP-0040"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5699703,
+        "txHash": "68e7d54926b8265a33c76cc12dd9338569b1190e7081c10c9b5677ec42346928",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-12T22:22:38.809Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "signed-payload-signer",
+        "signed-payload-max-length-64",
+        "set-options-signer"
+      ],
+      "sightings": [
+        "https://github.com/stellar/wallet-backend/pull/729",
+        "https://github.com/stellar/wallet-backend/issues/716"
+      ],
+      "files": [
+        {
+          "path": "corpus/entries/cap40-signed-payload-signer-max-payload/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "b94a4d8f9cf6191f8296c9edd24c7fd5fe44c0e6fcf66215b32b44519d180b85"
+        },
+        {
+          "path": "corpus/entries/cap40-signed-payload-signer-max-payload/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "3b504316f80a7d32281ccdfd08b911ed624bed698151af5eedafefe003e263cd"
+        },
+        {
+          "path": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "63389a192deb1194d97c04d77ec87001d885086f550bca23cf1b88654fbe422a"
+        },
+        {
+          "path": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "96b3f2e17ae1e4d10bb296c804766653fb7acf1ddfacb5ba82e0ed4dfe41256c"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+        "values": [
+          {
+            "pointer": "/v4/operations/0/changes/1/updated/data/account/signers/0/key",
+            "value": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+            "note": "SEP-23 P... strkey; an indexer that stores it must keep all 64 payload bytes"
+          },
+          {
+            "pointer": "/v4/operations/0/changes/1/updated/data/account/signers/0/weight",
+            "value": 1
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap27-muxed-source-and-destination-id-extremes",
+      "caps": [
+        "CAP-0027"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5699707,
+        "txHash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-12T22:22:57.621Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "muxed-source",
+        "muxed-destination",
+        "muxed-id-max-u64",
+        "muxed-id-zero"
+      ],
+      "sightings": [
+        "https://github.com/stellar/wallet-backend/issues/716",
+        "https://github.com/stellar/js-stellar-sdk/issues/1785"
+      ],
+      "files": [
+        {
+          "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "c7c7ac1308f6dc8fdc6c90caec12b2fc233f1943eee309024697b9a01f7f8bca"
+        },
+        {
+          "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "af84e88b1979ab15bfcdbfde2fcd6c9d3a070d86f80cf0ee7fbe11107f998e06"
+        },
+        {
+          "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "5fc69ace01c25d279563e5311c6ad2c71bd145c075e8f152595ed0e0678d8ef8"
+        },
+        {
+          "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "99d99f88b2dc897a0355dae0bcc6c94e9f0848a47ff54d9d7ed5cb29a752d905"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+        "values": [
+          {
+            "pointer": "/tx/tx/source_account",
+            "value": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+            "note": "muxed id 18446744073709551615 (u64 max)"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/payment/destination",
+            "value": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+            "note": "muxed id 0"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/payment/amount",
+            "value": "10000000",
+            "note": "stroops, as a string in xdr-json"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap73-sac-created-trustline",
+      "caps": [
+        "CAP-0073"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5699714,
+        "txHash": "dab291a4c551aec6811085e9d0598038a66635a0ae01533af3ac230ae89d77b4",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-12T22:23:33.679Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "sac-created-trustline",
+        "trustline-without-change-trust",
+        "no-contract-event"
+      ],
+      "sightings": [
+        "https://github.com/stellar/wallet-backend/issues/731",
+        "https://github.com/stellar/stellar-etl/issues/460"
+      ],
+      "files": [
+        {
+          "path": "corpus/entries/cap73-sac-created-trustline/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "faea9482faaac5d123f4568f089364c32a6b38b5040cd4900833fd3f0ab2183d"
+        },
+        {
+          "path": "corpus/entries/cap73-sac-created-trustline/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "50bcdc330d430e8fbce949eb1057d6b8eec29ee077bbe8b1ca14f4db90d0f462"
+        },
+        {
+          "path": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "993d2aeb06551af8111988cf014bc5a53fd1f38786fb1301cfe9a52270017eb4"
+        },
+        {
+          "path": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "53a2635e35878e05a9e7273eef66e41c30c06690e29ec8f0ab55b437347e1c06"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+        "values": [
+          {
+            "pointer": "/v4/operations/0/changes/0/created/data/trustline/account_id",
+            "value": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ"
+          },
+          {
+            "pointer": "/v4/operations/0/changes/0/created/data/trustline/asset/credit_alphanum4/asset_code",
+            "value": "XDRK"
+          },
+          {
+            "pointer": "/v4/operations/0/changes/0/created/data/trustline/limit",
+            "value": "9223372036854775807",
+            "note": "i64::MAX, set by SAC trust()"
+          },
+          {
+            "pointer": "/v4/operations/0/events",
+            "value": [],
+            "note": "trust() emits no contract event; only fee events exist at transaction level"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "label": "fix-731",
+  "module": "github.com/stellar/wallet-backend",
+  "vcsRevision": "c152783c054c765c8b51fd26ed313fd1ebc1c50c",
+  "goStellarSdk": "v0.7.3",
+  "entries": [
+    {
+      "id": "cap40-signed-payload-signer-max-payload",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    },
+    {
+      "id": "cap27-muxed-source-and-destination-id-extremes",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    },
+    {
+      "id": "cap73-sac-created-trustline",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    }
+  ]
+}

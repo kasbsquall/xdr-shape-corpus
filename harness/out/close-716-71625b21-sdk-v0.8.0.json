@@ -1,0 +1,278 @@
+{
+  "label": "close-716",
+  "module": "github.com/stellar/wallet-backend",
+  "vcsRevision": "71625b21f832478aece23c2212ddf458c8a2f134",
+  "goStellarSdk": "v0.8.0",
+  "entries": [
+    {
+      "id": "cap40-signed-payload-signer-max-payload",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "SIGNER state change stores the full P key and reads it back unchanged",
+      "evidence": {
+        "expectedSignerKey": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+        "ledgerCloseMetaVersion": 2,
+        "signerRoundTrip": [
+          {
+            "where": "state_changes[0] SIGNER/ADD",
+            "column": "signer_account_id",
+            "goType": "NullSignerKeyBytea",
+            "in": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+            "out": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+            "storedBytes": 101,
+            "status": "exact"
+          }
+        ],
+        "stateChanges": [
+          "SIGNER/ADD account=GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT signer=PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+          "BALANCE/DEBIT account=GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] SIGNER/ADD",
+          "column": "signer_account_id",
+          "goType": "NullSignerKeyBytea",
+          "in": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+          "out": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+          "storedBytes": 101,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] SIGNER/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "out": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "out": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "out": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    },
+    {
+      "id": "cap27-muxed-source-and-destination-id-extremes",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "payment indexed under base accounts; 0 M-address values reached an address column; all stored addresses read back",
+      "evidence": {
+        "creditForBaseDestination": true,
+        "creditToMuxedID": null,
+        "debitForBaseSource": true,
+        "destination": {
+          "base": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "muxed": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K"
+        },
+        "ledgerCloseMetaVersion": 2,
+        "muxedValuesReachingAddressColumns": 0,
+        "source": {
+          "base": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "muxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4"
+        },
+        "stateChanges": [
+          "BALANCE/DEBIT account=GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77 token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/DEBIT account=GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77 token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/CREDIT account=GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "out": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "out": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/CREDIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/CREDIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "out": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "out": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "out": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    },
+    {
+      "id": "cap73-sac-created-trustline",
+      "outcome": "pass",
+      "stage": "state_changes",
+      "detail": "TRUSTLINE/ADD recorded for the trustor (BALANCE_AUTHORIZATION: true)",
+      "evidence": {
+        "asset": "XDRK:GBK3DQNGUZES22QBAJDX5QFUCQR4C5XT254X3BUF24ET5LASBPJK2BO4",
+        "balanceAuthorizationStateChange": true,
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "TRUSTLINE/ADD account=GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ token=CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "BALANCE_AUTHORIZATION/SET account=GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ token=CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "BALANCE/DEBIT account=GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "trustlineAddStateChange": true,
+        "trustlineBalanceChanges": [
+          "{AccountID:GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ TrustlineID:5bce3cb0-9763-5537-9cbc-a462f1840735} -\u003e {AccountID:GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ Asset:XDRK:GBK3DQNGUZES22QBAJDX5QFUCQR4C5XT254X3BUF24ET5LASBPJK2BO4 OperationID:24480085226582017 LedgerNumber:5699714 Operation:ADD Balance:0 Limit:9223372036854775807 BuyingLiabilities:0 SellingLiabilities:0 Flags:1}"
+        ],
+        "trustor": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] TRUSTLINE/ADD",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "out": "CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] TRUSTLINE/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "out": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE_AUTHORIZATION/SET",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "out": "CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE_AUTHORIZATION/SET",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "out": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "out": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "out": "CDKKXMWT4GY2YV7WAQVHXZUPJMDGW6BWVEWBGDTIOHE2JSJWF3LX7VCU",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "out": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    }
+  ]
+}

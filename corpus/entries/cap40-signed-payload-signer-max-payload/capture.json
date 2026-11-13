@@ -1,0 +1,38 @@
+{
+  "id": "cap40-signed-payload-signer-max-payload",
+  "txHash": "68e7d54926b8265a33c76cc12dd9338569b1190e7081c10c9b5677ec42346928",
+  "ledger": 5699703,
+  "ledgerCloseTime": "1794522159",
+  "capturedAt": "2026-11-12T22:22:38.809Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "b94a4d8f9cf6191f8296c9edd24c7fd5fe44c0e6fcf66215b32b44519d180b85"
+    },
+    {
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "3b504316f80a7d32281ccdfd08b911ed624bed698151af5eedafefe003e263cd"
+    },
+    {
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "63389a192deb1194d97c04d77ec87001d885086f550bca23cf1b88654fbe422a"
+    },
+    {
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "96b3f2e17ae1e4d10bb296c804766653fb7acf1ddfacb5ba82e0ed4dfe41256c"
+    }
+  ],
+  "signedPayloadSigner": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+  "payloadLength": 64
+}

@@ -1,0 +1,40 @@
+{
+  "id": "cap27-muxed-source-and-destination-id-extremes",
+  "txHash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+  "ledger": 5699707,
+  "ledgerCloseTime": "1794522179",
+  "capturedAt": "2026-11-12T22:22:57.621Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "c7c7ac1308f6dc8fdc6c90caec12b2fc233f1943eee309024697b9a01f7f8bca"
+    },
+    {
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "af84e88b1979ab15bfcdbfde2fcd6c9d3a070d86f80cf0ee7fbe11107f998e06"
+    },
+    {
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "5fc69ace01c25d279563e5311c6ad2c71bd145c075e8f152595ed0e0678d8ef8"
+    },
+    {
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "99d99f88b2dc897a0355dae0bcc6c94e9f0848a47ff54d9d7ed5cb29a752d905"
+    }
+  ],
+  "muxedSource": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+  "muxedSourceId": "18446744073709551615",
+  "muxedDestination": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+  "muxedDestinationId": "0"
+}

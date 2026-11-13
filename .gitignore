@@ -1,0 +1,11 @@
+node_modules/
+target/
+__pycache__/
+.venv/
+*.log
+.env
+*.exe
+hallazgos/
+corpus/probes.json
+tools/probes.mjs
+tools/matrix.py

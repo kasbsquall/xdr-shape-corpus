@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "0.1",
+  "adapter": "xdr-kit/harness/go/xdrkitreplay (wallet-backend internal/indexer + BatchCopy column encoders, no database)",
+  "outcomeVocabulary": [
+    "pass",
+    "mishandled",
+    "dropped"
+  ],
+  "commits": [
+    {
+      "label": "close-716",
+      "commit": "71625b21f832478aece23c2212ddf458c8a2f134",
+      "goStellarSdk": "v0.7.3",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "dropped",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "close-716",
+      "commit": "71625b21f832478aece23c2212ddf458c8a2f134",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass"
+      }
+    },
+    {
+      "label": "fix-729",
+      "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+      "goStellarSdk": "v0.7.3",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "dropped",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "fix-729",
+      "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "fix-731",
+      "commit": "c152783c054c765c8b51fd26ed313fd1ebc1c50c",
+      "goStellarSdk": "v0.7.3",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "dropped",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "fix-731",
+      "commit": "c152783c054c765c8b51fd26ed313fd1ebc1c50c",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass"
+      }
+    },
+    {
+      "label": "main",
+      "commit": "3e22515a44979fdc3a558fda3991ca2b48e38cef",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass"
+      }
+    },
+    {
+      "label": "pre-716",
+      "commit": "79ea2acd1dc65a07166133cc04b12e76db314db0",
+      "goStellarSdk": "v0.7.3",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "dropped",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "pre-716",
+      "commit": "79ea2acd1dc65a07166133cc04b12e76db314db0",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "mishandled",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "pre-729",
+      "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+      "goStellarSdk": "v0.7.3",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "dropped",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "pre-729",
+      "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "pre-731",
+      "commit": "764a4f5bcbff5abb0949d93da37f769063013ea0",
+      "goStellarSdk": "v0.7.3",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "dropped",
+        "cap27-muxed-source-and-destination-id-extremes": "dropped",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    },
+    {
+      "label": "pre-731",
+      "commit": "764a4f5bcbff5abb0949d93da37f769063013ea0",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "dropped"
+      }
+    }
+  ],
+  "sightings": [
+    {
+      "sighting": "wallet-backend#731",
+      "entry": "cap73-sac-created-trustline",
+      "dependencyMode": "pinned go-stellar-sdk",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-731",
+          "commit": "764a4f5bcbff5abb0949d93da37f769063013ea0",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-731",
+          "commit": "c152783c054c765c8b51fd26ed313fd1ebc1c50c",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        }
+      ],
+      "reproduced": false
+    },
+    {
+      "sighting": "wallet-backend#731",
+      "entry": "cap73-sac-created-trustline",
+      "dependencyMode": "go-stellar-sdk bumped to v0.8.0",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-731",
+          "commit": "764a4f5bcbff5abb0949d93da37f769063013ea0",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "dropped",
+          "stage": "state_changes",
+          "detail": "no TRUSTLINE/ADD state change for the SAC-created trustline (trustline_balances rows: 1)"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-731",
+          "commit": "c152783c054c765c8b51fd26ed313fd1ebc1c50c",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "state_changes",
+          "detail": "TRUSTLINE/ADD recorded for the trustor (BALANCE_AUTHORIZATION: true)"
+        }
+      ],
+      "reproduced": true
+    },
+    {
+      "sighting": "wallet-backend#729",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "dependencyMode": "pinned go-stellar-sdk",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-729",
+          "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-729",
+          "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        }
+      ],
+      "reproduced": false
+    },
+    {
+      "sighting": "wallet-backend#729",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "dependencyMode": "go-stellar-sdk bumped to v0.8.0",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-729",
+          "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "dropped",
+          "stage": "persist-encode",
+          "detail": "signer_account_id fails to encode, so the COPY and the whole persist transaction fail and ingestion halts at this ledger: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-729",
+          "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "SIGNER state change stores the full P key and reads it back unchanged"
+        }
+      ],
+      "reproduced": true
+    },
+    {
+      "sighting": "wallet-backend#716",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "dependencyMode": "pinned go-stellar-sdk",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-716",
+          "commit": "79ea2acd1dc65a07166133cc04b12e76db314db0",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-729",
+          "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        },
+        {
+          "role": "fixed",
+          "label": "close-716",
+          "commit": "71625b21f832478aece23c2212ddf458c8a2f134",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        }
+      ],
+      "reproduced": false
+    },
+    {
+      "sighting": "wallet-backend#716",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "dependencyMode": "go-stellar-sdk bumped to v0.8.0",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-716",
+          "commit": "79ea2acd1dc65a07166133cc04b12e76db314db0",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "mishandled",
+          "stage": "persist-roundtrip",
+          "detail": "signer_account_id is stored as 33 bytes and reads back as \"PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUDF6\" (undecodable), not the 64-byte-payload P key"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-729",
+          "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "SIGNER state change stores the full P key and reads it back unchanged"
+        },
+        {
+          "role": "fixed",
+          "label": "close-716",
+          "commit": "71625b21f832478aece23c2212ddf458c8a2f134",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "SIGNER state change stores the full P key and reads it back unchanged"
+        }
+      ],
+      "reproduced": true
+    },
+    {
+      "sighting": "wallet-backend#716",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "dependencyMode": "pinned go-stellar-sdk",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-716",
+          "commit": "79ea2acd1dc65a07166133cc04b12e76db314db0",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-729",
+          "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        },
+        {
+          "role": "fixed",
+          "label": "close-716",
+          "commit": "71625b21f832478aece23c2212ddf458c8a2f134",
+          "goStellarSdk": "v0.7.3",
+          "outcome": "dropped",
+          "stage": "decode-ledger-close-meta",
+          "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value"
+        }
+      ],
+      "reproduced": false
+    },
+    {
+      "sighting": "wallet-backend#716",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "dependencyMode": "go-stellar-sdk bumped to v0.8.0",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-716",
+          "commit": "79ea2acd1dc65a07166133cc04b12e76db314db0",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "payment indexed under base accounts; 0 M-address values reached an address column; all stored addresses read back"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-729",
+          "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "payment indexed under base accounts; 0 M-address values reached an address column; all stored addresses read back"
+        },
+        {
+          "role": "fixed",
+          "label": "close-716",
+          "commit": "71625b21f832478aece23c2212ddf458c8a2f134",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "payment indexed under base accounts; 0 M-address values reached an address column; all stored addresses read back"
+        }
+      ],
+      "reproduced": false
+    }
+  ]
+}

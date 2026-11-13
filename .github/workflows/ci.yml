@@ -1,0 +1,40 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  corpus:
+    name: Corpus round trip, manifest and schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build xdr-roundtrip (rs-stellar-xdr 30.0.0)
+        run: cargo build --release --locked --manifest-path tools/roundtrip/Cargo.toml
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "jsonschema>=4.18,<5"
+      - name: Every corpus file decodes and re-encodes byte-identical; manifest values match the bytes
+        run: python tools/build_manifest.py --check
+      - name: Manifest validates against the JSON Schema; file hashes match
+        run: python tools/check_schema.py
+
+  linter:
+    name: xdrlint tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: linter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: linter/go.mod
+          cache-dependency-path: linter/go.sum
+      - run: go vet ./...
+      - run: go test ./...
