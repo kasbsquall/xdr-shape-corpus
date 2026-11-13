@@ -2,7 +2,7 @@
 
 The harness takes real corpus entries (XDR emitted by stellar-core, captured on testnet at protocol 30) and runs them through the `stellar/wallet-backend` indexer at commits before and after each fix. For each entry it returns a verdict in the RFP's vocabulary: `pass`, `mishandled` or `dropped`.
 
-It targets the RFP acceptance check for the replay harness: the reference adapter reproduces wallet-backend #729, #731 and #716 on pre-fix commits and passes on the fixed ones.
+It targets the RFP acceptance check for the replay harness: the reference adapter reproduces wallet-backend #729, #731 and #716 on pre-fix commits and passes on the fixed ones. It also reproduces the muxed-destination gap that wallet-backend #792 closed.
 
 ## What the adapter does
 
@@ -16,6 +16,7 @@ Input: a `corpus/entries/<id>/` folder with `ledger-close-meta.b64`, `capture.js
    - `cap73-sac-created-trustline`: a `TRUSTLINE/ADD` state change must exist for the trustor in `capture.json`.
    - `cap40-signed-payload-signer-max-payload`: a `SIGNER` state change must exist whose `signer_account_id` is the expected `P...` key from the manifest, and the key must survive the round trip.
    - `cap27-muxed-source-and-destination-id-extremes`: the debit of the source base account and the credit of the destination base account must exist, and every stored address must read back.
+   - `cap67-sac-transfer-to-muxed-address-max-id`: the debit of the sender and the credit of the destination base account must exist, and the credit must keep `to_muxed_id` = 18446744073709551615. A credit without it is `mishandled`: the payment lands, but the muxed destination it was sent to is lost.
 
 | Verdict | Meaning |
 | --- | --- |
@@ -55,6 +56,8 @@ No Docker or Postgres needed. Network access is needed the first time for `go mo
 | `pre-731` | `764a4f5bcbff5abb0949d93da37f769063013ea0` | Parent of the merge of #734, the PR that closed #731. |
 | `fix-731` | `c152783c054c765c8b51fd26ed313fd1ebc1c50c` | Merge of #734. |
 | `close-716` | `71625b21f832478aece23c2212ddf458c8a2f134` | Tip of `main` when #716 was closed (2026-09-18T20:09Z). |
+| `pre-792` | `a9bac8d2f59f7590d393c3e72e67d95b7cb2fba1` | Base of #792 (2026-10-29). Already pins go-stellar-sdk v0.8.0, so the pinned mode decodes protocol 30. |
+| `fix-792` | `09303667545a1effb09c779ff29d271c6c812de3` | Last commit of #792, which records `to_muxed_id` on SAC and classic credits. |
 | `main` | `3e22515a44979fdc3a558fda3991ca2b48e38cef` | Tip of `main` on 2026-11-12, for reference. Already pins go-stellar-sdk v0.8.0. |
 
 #716 has no linked fix PR; GitHub's timeline shows only the cross-reference from #715 and a "completed" close. For the signed-payload producer in #716, the behavior changed with #693 (truncate becomes reject) and then #729 (store the full key), so the #716 fix is measured at `fix-729` and `close-716`.
@@ -89,16 +92,19 @@ Bumped-SDK mode = go-stellar-sdk v0.8.0 on every commit. Pinned mode = each comm
 | #716 | `cap27-muxed-source-and-destination-id-extremes` | `79ea2acd` | pre-fix | dropped (LCM decode) | pass |
 | #716 | `cap27-muxed-source-and-destination-id-extremes` | `2c873353` | fixed | dropped (LCM decode) | pass |
 | #716 | `cap27-muxed-source-and-destination-id-extremes` | `71625b21` | fixed (close) | dropped (LCM decode) | pass |
+| #792 | `cap67-sac-transfer-to-muxed-address-max-id` | `a9bac8d2` | pre-fix | **mishandled**: credit recorded for the base G account, `to_muxed_id` not kept | **mishandled** (same) |
+| #792 | `cap67-sac-transfer-to-muxed-address-max-id` | `09303667` | fixed | **pass**: credit carries `to_muxed_id` 18446744073709551615 | **pass** |
 
-On `main` (`3e22515a`, already on v0.8.0) all three entries pass.
+On `main` (`3e22515a`, already on v0.8.0) all four entries pass. The six earlier commits, run with the bumped SDK, are also `mishandled` on the `cap67` entry, since they predate #792.
 
 Against the RFP check, in bumped-SDK mode:
 - **#731: reproduced.** `dropped` at `764a4f5b`, `pass` at `c152783c`.
 - **#729: reproduced.** `dropped` at `2a0a84ea`, `pass` at `2c873353`.
+- **#792: reproduced in both modes, with no change at all to wallet-backend.** `mishandled` at `a9bac8d2`, `pass` at `09303667`. The PR description says that without the change "the id is dropped and clients cannot show the muxed destination", and that "the same gap already existed for `M...` destinations".
 - **#716: reproduced for signed-payload keys.** `mishandled` at `79ea2acd` with the symptom the issue describes (silent truncation to 32 bytes, unreadable value), `pass` at `2c873353` and `71625b21`. The same entry shows the whole evolution: `mishandled`, then `dropped` (`2a0a84ea`), then `pass`.
 
 ## Not reproduced yet
 
-- **#716 with muxed addresses.** The `cap27` entry is a classic payment, and wallet-backend's classic path reduces source and destination to their G account before any column; no `M...` value reaches an address column at any commit. The muxed producers named in #716 are Soroban operations with a muxed source and muxed `ScAddress` in SEP-41 events. A corpus entry with that shape (for example `ExtendFootprintTtl` with a muxed source account) is the next capture.
+- **#716 with muxed addresses.** Neither muxed entry puts an `M...` value into an address column at any commit. The `cap27` entry is a classic payment, and the classic path reduces source and destination to their G account first. The `cap67` entry sends a SAC `transfer()` to a muxed `ScAddress`; core emits the event with the base G account in the topic and the id in `to_muxed_id`, so the column truncation in #716 is not reached there either. js-stellar-sdk refuses to build a Soroban transaction with a muxed source account ("Soroban transactions cannot use a muxed source account"); whether stellar-core would accept one built by hand was not tested. The remaining candidate is a custom SEP-41 token that emits an `M...` address in its own event topics.
 - **Ingestion halt at `pre-729` is inferred, not observed.** The harness checks that `Value()` on `signer_account_id` returns an error, which is the call `StateChangeModel.BatchCopy` makes inside the COPY callback. That this rolls back the persist transaction and that ingestion retries the same ledger comes from the description of PR #729; Postgres was not run.
 - **Column scope.** The round trip covers address columns of `state_changes` and participants in `transactions_accounts` / `operations_accounts`. Balance rows are reported as context only.

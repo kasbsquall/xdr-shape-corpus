@@ -236,6 +236,8 @@ func runEntry(dir, id, passphrase, txHash string, expected map[string]string) en
 		return checkSignedPayloadSigner(res, scs, expected)
 	case "cap27-muxed-source-and-destination-id-extremes":
 		return checkMuxedPayment(res, tx, scs)
+	case "cap67-sac-transfer-to-muxed-address-max-id":
+		return checkMuxedSACTransfer(res, dir, scs)
 	default:
 		return genericCheck(res)
 	}
@@ -389,6 +391,63 @@ func checkMuxedPayment(res entryResult, tx *ingest.LedgerTransaction, scs []type
 	}
 	res.Outcome, res.Stage = "pass", "persist-roundtrip"
 	res.Detail = fmt.Sprintf("payment indexed under base accounts; %d M-address values reached an address column; all stored addresses read back", len(muxedIn))
+	return res
+}
+
+// checkMuxedSACTransfer: a SAC transfer() whose `to` is an M address (CAP-0067). Core emits the
+// SEP-41 transfer event with the base G account in the topic and `to_muxed_id` in the data map.
+func checkMuxedSACTransfer(res entryResult, dir string, scs []types.StateChange) entryResult {
+	var capture struct {
+		From               string `json:"from"`
+		DestinationAccount string `json:"destinationAccount"`
+		MuxedDestinationID string `json:"muxedDestinationId"`
+	}
+	raw, err := os.ReadFile(filepath.Join(dir, "capture.json"))
+	must(err)
+	must(json.Unmarshal(raw, &capture))
+	res.Evidence["expected"] = capture
+
+	var debit, credit bool
+	var toMuxed []string
+	for _, sc := range scs {
+		if sc.StateChangeCategory != types.StateChangeCategoryBalance {
+			continue
+		}
+		if string(sc.AccountID) == capture.From && sc.StateChangeReason == types.StateChangeReasonDebit && sc.OperationID != 0 {
+			debit = true
+		}
+		if string(sc.AccountID) == capture.DestinationAccount && sc.StateChangeReason == types.StateChangeReasonCredit {
+			credit = true
+			if sc.ToMuxedID.Valid {
+				toMuxed = append(toMuxed, sc.ToMuxedID.String)
+			}
+		}
+	}
+	res.Evidence["debitForSender"] = debit
+	res.Evidence["creditForBaseDestination"] = credit
+	res.Evidence["creditToMuxedID"] = toMuxed
+	if !debit || !credit {
+		res.Outcome, res.Stage = "dropped", "state_changes"
+		res.Detail = fmt.Sprintf("transfer balance state changes missing (debit=%v credit=%v)", debit, credit)
+		return res
+	}
+	if bad := firstBad(res.StoredValues); bad != nil {
+		return classifyBad(res, bad)
+	}
+	if len(toMuxed) == 0 {
+		res.Outcome, res.Stage = "mishandled", "state_changes"
+		res.Detail = "credit recorded for the base account but to_muxed_id " + capture.MuxedDestinationID + " is not kept"
+		return res
+	}
+	for _, id := range toMuxed {
+		if id != capture.MuxedDestinationID {
+			res.Outcome, res.Stage = "mishandled", "state_changes"
+			res.Detail = fmt.Sprintf("to_muxed_id stored as %q, expected %q", id, capture.MuxedDestinationID)
+			return res
+		}
+	}
+	res.Outcome, res.Stage = "pass", "persist-roundtrip"
+	res.Detail = "credit recorded for the base account with to_muxed_id " + capture.MuxedDestinationID + "; all stored addresses read back"
 	return res
 }
 

@@ -1,6 +1,6 @@
 // Captures core-emitted XDR for corpus entries from Stellar testnet.
 // Keys are ephemeral, generated in memory, funded by friendbot and never printed or stored.
-// Usage: node capture-testnet.mjs <entry> [<entry> ...]   entries: cap40, muxed
+// Usage: node capture-testnet.mjs <entry> [<entry> ...]   entries: cap40, muxed, sac, muxedSac
 import { writeFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import * as sdk from "@stellar/stellar-sdk";
@@ -150,7 +150,47 @@ async function sac() {
   });
 }
 
-const tasks = { cap40, muxed, sac };
+// Muxed address in a Soroban call: native SAC transfer() to an M address with the maximum muxed ID,
+// sent from a muxed transaction source when the network accepts it.
+async function muxedSac() {
+  const server = new sdk.rpc.Server(RPC);
+  const [from, to] = [await newAccount(), await newAccount()];
+  const MAX = "18446744073709551615";
+  const dest = new MuxedAccount(new Account(to.publicKey(), "0"), MAX).accountId();
+  const contractId = Asset.native().contractId(PASSPHRASE);
+  const op = Operation.invokeContractFunction({
+    contract: contractId,
+    function: "transfer",
+    args: [
+      new sdk.Address(from.publicKey()).toScVal(),
+      sdk.Address.fromString(dest).toScVal(),
+      sdk.nativeToScVal(10000000n, { type: "i128" }),
+    ],
+  });
+  const attempt = async (muxedSource) => {
+    const acc = await server.getAccount(from.publicKey());
+    const src = muxedSource ? new MuxedAccount(acc, MAX) : acc;
+    const raw = new TransactionBuilder(src, { fee: "1000", networkPassphrase: PASSPHRASE }).setTimeout(120).addOperation(op).build();
+    const tx = await server.prepareTransaction(raw);
+    tx.sign(from);
+    return submit(tx);
+  };
+  let got, muxedSource = true;
+  try {
+    got = await attempt(true);
+  } catch (e) {
+    console.log(`muxed transaction source not accepted (${String(e.message).slice(0, 160)}); retrying with a G source`);
+    muxedSource = false;
+    got = await attempt(false);
+  }
+  save("cap67-sac-transfer-to-muxed-address-max-id", got, await ledgerCloseMeta(got.ledger), {
+    from: from.publicKey(), muxedDestination: dest, muxedDestinationId: MAX, destinationAccount: to.publicKey(),
+    muxedTransactionSource: muxedSource ? new MuxedAccount(new Account(from.publicKey(), "0"), MAX).accountId() : null,
+    sacContractId: contractId, amountStroops: "10000000",
+  });
+}
+
+const tasks = { cap40, muxed, sac, muxedSac };
 for (const name of process.argv.slice(2)) {
   if (!tasks[name]) throw new Error(`unknown entry ${name}`);
   await tasks[name]();

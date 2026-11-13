@@ -17,6 +17,7 @@ SIGHTINGS = {
         "pre-716",
         ["fix-729", "close-716"],
     ),
+    "wallet-backend#792": (["cap67-sac-transfer-to-muxed-address-max-id"], "pre-792", ["fix-792"]),
 }
 
 

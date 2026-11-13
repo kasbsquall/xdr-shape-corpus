@@ -42,6 +42,19 @@
           "result.b64": "decodes"
         }
       }
+    },
+    {
+      "id": "cap67-sac-transfer-to-muxed-address-max-id",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
     }
   ]
 }

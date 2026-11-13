@@ -1,0 +1,43 @@
+{
+  "id": "cap67-sac-transfer-to-muxed-address-max-id",
+  "txHash": "713e56b3d26dbe9c20e2fc556f2375bad07221d4eb1d04f0401ae637a919d41c",
+  "ledger": 5701159,
+  "ledgerCloseTime": "1794529439",
+  "capturedAt": "2026-11-13T00:23:56.948Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "10cf668065e69f9bbdcf6ec2432cec8ad54d36bdc9387a3a7efbe7e0daea4cac"
+    },
+    {
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "23e5e0ed19900b59b8f976631a0686facc3834884970c90d43f42bd3c4efa2b8"
+    },
+    {
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "6d7fc9441cc200240a4ca297f428abe77518c745f3136cdbe4818736f3a4fbd6"
+    },
+    {
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "ccf9c2d917bf4e98db9bc8deddc55699cd2b02d40922a50f9f56615b99bd6dee"
+    }
+  ],
+  "from": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+  "muxedDestination": "MBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOX7777777777776XDY",
+  "muxedDestinationId": "18446744073709551615",
+  "destinationAccount": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+  "muxedTransactionSource": null,
+  "sacContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+  "amountStroops": "10000000"
+}

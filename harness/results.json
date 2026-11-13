@@ -15,7 +15,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
       }
     },
     {
@@ -26,7 +27,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "pass"
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
       }
     },
     {
@@ -37,7 +39,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
       }
     },
     {
@@ -48,7 +51,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
       }
     },
     {
@@ -59,7 +63,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
       }
     },
     {
@@ -70,7 +75,32 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "pass"
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+      }
+    },
+    {
+      "label": "fix-792",
+      "commit": "09303667545a1effb09c779ff29d271c6c812de3",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
+      }
+    },
+    {
+      "label": "fix-792",
+      "commit": "09303667545a1effb09c779ff29d271c6c812de3",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
       }
     },
     {
@@ -81,7 +111,20 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "pass"
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
+      }
+    },
+    {
+      "label": "main",
+      "commit": "3e22515a44979fdc3a558fda3991ca2b48e38cef",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
       }
     },
     {
@@ -92,7 +135,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
       }
     },
     {
@@ -103,7 +147,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "mishandled",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
       }
     },
     {
@@ -114,7 +159,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
       }
     },
     {
@@ -125,7 +171,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
       }
     },
     {
@@ -136,7 +183,8 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
       }
     },
     {
@@ -147,7 +195,32 @@
       "outcomes": {
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
-        "cap73-sac-created-trustline": "dropped"
+        "cap73-sac-created-trustline": "dropped",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+      }
+    },
+    {
+      "label": "pre-792",
+      "commit": "a9bac8d2f59f7590d393c3e72e67d95b7cb2fba1",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "pinned",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+      }
+    },
+    {
+      "label": "pre-792",
+      "commit": "a9bac8d2f59f7590d393c3e72e67d95b7cb2fba1",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcomes": {
+        "cap40-signed-payload-signer-max-payload": "pass",
+        "cap27-muxed-source-and-destination-id-extremes": "pass",
+        "cap73-sac-created-trustline": "pass",
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
       }
     }
   ],
@@ -395,6 +468,58 @@
         }
       ],
       "reproduced": false
+    },
+    {
+      "sighting": "wallet-backend#792",
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "dependencyMode": "pinned go-stellar-sdk",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-792",
+          "commit": "a9bac8d2f59f7590d393c3e72e67d95b7cb2fba1",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "mishandled",
+          "stage": "state_changes",
+          "detail": "credit recorded for the base account but to_muxed_id 18446744073709551615 is not kept"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-792",
+          "commit": "09303667545a1effb09c779ff29d271c6c812de3",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "credit recorded for the base account with to_muxed_id 18446744073709551615; all stored addresses read back"
+        }
+      ],
+      "reproduced": true
+    },
+    {
+      "sighting": "wallet-backend#792",
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "dependencyMode": "go-stellar-sdk bumped to v0.8.0",
+      "runs": [
+        {
+          "role": "pre-fix",
+          "label": "pre-792",
+          "commit": "a9bac8d2f59f7590d393c3e72e67d95b7cb2fba1",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "mishandled",
+          "stage": "state_changes",
+          "detail": "credit recorded for the base account but to_muxed_id 18446744073709551615 is not kept"
+        },
+        {
+          "role": "fixed",
+          "label": "fix-792",
+          "commit": "09303667545a1effb09c779ff29d271c6c812de3",
+          "goStellarSdk": "v0.8.0",
+          "outcome": "pass",
+          "stage": "persist-roundtrip",
+          "detail": "credit recorded for the base account with to_muxed_id 18446744073709551615; all stored addresses read back"
+        }
+      ],
+      "reproduced": true
     }
   ]
 }

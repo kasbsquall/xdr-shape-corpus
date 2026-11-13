@@ -233,6 +233,112 @@
           "status": "exact"
         }
       ]
+    },
+    {
+      "id": "cap67-sac-transfer-to-muxed-address-max-id",
+      "outcome": "mishandled",
+      "stage": "state_changes",
+      "detail": "credit recorded for the base account but to_muxed_id 18446744073709551615 is not kept",
+      "evidence": {
+        "creditForBaseDestination": true,
+        "creditToMuxedID": null,
+        "debitForSender": true,
+        "expected": {
+          "from": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "destinationAccount": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+          "muxedDestinationId": "18446744073709551615"
+        },
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "BALANCE/DEBIT account=GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/DEBIT account=GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/CREDIT account=GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "out": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "out": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/CREDIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/CREDIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+          "out": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+          "out": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "out": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
     }
   ]
 }

@@ -25,6 +25,8 @@ COMMITS=(
   "pre-731=764a4f5b"   # parent of #734 merge (fix for #731)
   "fix-731=c152783c"   # #734 merge
   "close-716=71625b21" # main tip when #716 was closed (2026-09-18T20:09Z); #716 has no linked PR
+  "pre-792=a9bac8d2"   # parent of #792 (2026-10-29); already pins go-stellar-sdk v0.8.0
+  "fix-792=09303667"   # last commit of #792: records to_muxed_id on SAC and classic credits
   "main=3e22515a"      # main tip on 2026-11-12, for reference
 )
 if [ "$#" -gt 0 ]; then

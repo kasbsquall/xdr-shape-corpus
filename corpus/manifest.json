@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1",
-  "generatedAt": "2026-11-13T00:07:08+00:00",
+  "generatedAt": "2026-11-13T00:27:01+00:00",
   "entries": [
     {
       "id": "cap40-signed-payload-signer-max-payload",
@@ -233,6 +233,90 @@
             "pointer": "/v4/operations/0/events",
             "value": [],
             "note": "trust() emits no contract event; only fee events exist at transaction level"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap67-sac-transfer-to-muxed-address-max-id",
+      "caps": [
+        "CAP-0067"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5701159,
+        "txHash": "713e56b3d26dbe9c20e2fc556f2375bad07221d4eb1d04f0401ae637a919d41c",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-13T00:23:56.948Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "sc-address-muxed-account",
+        "sac-transfer-to-muxed",
+        "sep41-event-to-muxed-id",
+        "muxed-id-max-u64"
+      ],
+      "sightings": [
+        "https://github.com/stellar/wallet-backend/pull/792"
+      ],
+      "files": [
+        {
+          "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "10cf668065e69f9bbdcf6ec2432cec8ad54d36bdc9387a3a7efbe7e0daea4cac"
+        },
+        {
+          "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "23e5e0ed19900b59b8f976631a0686facc3834884970c90d43f42bd3c4efa2b8"
+        },
+        {
+          "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "6d7fc9441cc200240a4ca297f428abe77518c745f3136cdbe4818736f3a4fbd6"
+        },
+        {
+          "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "ccf9c2d917bf4e98db9bc8deddc55699cd2b02d40922a50f9f56615b99bd6dee"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+        "values": [
+          {
+            "pointer": "/v4/operations/0/events/0/body/v0/topics/0/symbol",
+            "value": "transfer"
+          },
+          {
+            "pointer": "/v4/operations/0/events/0/body/v0/topics/2/address",
+            "value": "GBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOXSZI",
+            "note": "the event topic carries the base G account, not the M address"
+          },
+          {
+            "pointer": "/v4/operations/0/events/0/body/v0/data/map/1/key/symbol",
+            "value": "to_muxed_id"
+          },
+          {
+            "pointer": "/v4/operations/0/events/0/body/v0/data/map/1/val/u64",
+            "value": "18446744073709551615",
+            "note": "u64 max; an indexer that keeps the muxed ID must not narrow it to i64"
           }
         ],
         "roundTrip": true

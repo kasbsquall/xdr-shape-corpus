@@ -53,6 +53,20 @@ SPEC = {
             ("/v4/operations/0/events", [], "trust() emits no contract event; only fee events exist at transaction level"),
         ],
     },
+    "cap67-sac-transfer-to-muxed-address-max-id": {
+        "caps": ["CAP-0067"],
+        "shapes": ["sc-address-muxed-account", "sac-transfer-to-muxed", "sep41-event-to-muxed-id", "muxed-id-max-u64"],
+        "sightings": ["https://github.com/stellar/wallet-backend/pull/792"],
+        "expected_file": "meta.b64",
+        "values": [
+            ("/v4/operations/0/events/0/body/v0/topics/0/symbol", "transfer", None),
+            ("/v4/operations/0/events/0/body/v0/topics/2/address", "@destinationAccount",
+             "the event topic carries the base G account, not the M address"),
+            ("/v4/operations/0/events/0/body/v0/data/map/1/key/symbol", "to_muxed_id", None),
+            ("/v4/operations/0/events/0/body/v0/data/map/1/val/u64", "@muxedDestinationId",
+             "u64 max; an indexer that keeps the muxed ID must not narrow it to i64"),
+        ],
+    },
 }
 
 XDR_TYPES = {"envelope.b64": "TransactionEnvelope", "result.b64": "TransactionResult",
@@ -107,7 +121,15 @@ def main():
         })
     manifest = {"schemaVersion": "0.1", "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 "entries": entries}
-    (ROOT / "corpus" / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    path = ROOT / "corpus" / "manifest.json"
+    if "--check" in sys.argv:
+        if json.loads(path.read_text())["entries"] != entries:
+            sys.exit("corpus/manifest.json does not match the corpus bytes; run tools/build_manifest.py")
+        if not all(e["checks"]["rsStellarXdrRoundTrip"] for e in entries):
+            sys.exit("a corpus file does not round-trip byte-identical")
+        print(f"manifest check ok: {len(entries)} entries, all round-trips identical")
+        return
+    path.write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"manifest: {len(entries)} entries, all round-trips identical: {all(e['checks']['rsStellarXdrRoundTrip'] for e in entries)}")
 
 
