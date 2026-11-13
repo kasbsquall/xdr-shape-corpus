@@ -1,6 +1,10 @@
 {
-  "schemaVersion": "0.1",
-  "description": "Vectors that reproduce SDK sightings. Each one names the behaviour every SDK must show; a runner reports 'defect', 'ok' or 'n/a' for its SDK.",
+  "schemaVersion": "0.2",
+  "description": "Checks that reproduce SDK sightings. Each one names the behaviour every SDK must show; a runner reports 'defect', 'ok' or 'n/a' for its SDK. An XDR vector has 'file' and 'xdrType'; an API check has 'inputs' instead. A matrix row is the sighting plus its vector file or, for an API check, its check name.",
+  "inputConventions": {
+    "integers": "IDs are decimal strings, so no JSON parser rounds them. An SDK that takes IDs as native integers runs only the inputs that are canonical decimal integers its integer type can hold.",
+    "scValKeys": "A map key is a one-field object: {\"u32\": 9}, {\"i32\": -1}, {\"bytes\": \"<hex>\"}, {\"string\": \"aa\"} or {\"symbol\": \"a\"}."
+  },
   "sightings": [
     {
       "id": "js-stellar-sdk#1789",
@@ -12,7 +16,77 @@
       "check": "native-map-conversion-keeps-every-entry",
       "mapEntries": 2,
       "expected": "A native conversion keeps both entries or throws; it never returns fewer entries silently.",
+      "fixedIn": "17.3.0",
       "siblings": ["https://github.com/StellarCN/py-stellar-base/issues/1250"]
+    },
+    {
+      "id": "js-stellar-sdk#1789",
+      "url": "https://github.com/stellar/js-stellar-sdk/issues/1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "xdrType": "ScVal",
+      "synthetic": true,
+      "description": "scvMap with two distinct keys, string \"1\" -> 10 and symbol \"1\" -> 20, that both convert to the text \"1\"",
+      "check": "native-map-conversion-keeps-every-entry",
+      "mapEntries": 2,
+      "expected": "A native conversion keeps both entries or throws; it never returns fewer entries silently.",
+      "fixedIn": "17.3.0",
+      "siblings": ["https://github.com/StellarCN/py-stellar-base/issues/1250"]
+    },
+    {
+      "id": "js-stellar-sdk#1766",
+      "url": "https://github.com/stellar/js-stellar-sdk/pull/1766",
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "synthetic": true,
+      "description": "Two USD assets whose issuers sort one way by key bytes (0x01... < 0x34...) and the other way by strkey text (GA2... < GAA...)",
+      "inputs": {
+        "code": "USD",
+        "issuerFirstByBytes": "GAAXLRWIATWIFLXWIW5NIC62LUDV32YCNDGPFA7XUAQWEGVCJR72NCWM",
+        "issuerSecondByBytes": "GA2DRZL5M2EVFO3QWCNHRXIXK6Q2EQZWXPBK7BRHPK4VKESTNHGDOZF4"
+      },
+      "expected": "The asset whose issuer comes first by key bytes sorts first: a liquidity pool from (first, second) is accepted and one from (second, first) is refused.",
+      "fixedIn": "17.2.1"
+    },
+    {
+      "id": "js-stellar-sdk#1766",
+      "url": "https://github.com/stellar/js-stellar-sdk/pull/1766",
+      "check": "scmap-keys-sorted-like-host",
+      "synthetic": true,
+      "description": "Map keys whose native string order, raw XDR byte order and host order all differ: mixed types, u32 10 and 9, i32 -1 and 1, bytes 0a and 09, strings \"aa\" and \"b\"",
+      "inputs": {
+        "keys": [{"symbol": "a"}, {"string": "b"}, {"u32": 10}, {"u32": 9}, {"i32": 1}, {"i32": -1}, {"string": "aa"}, {"bytes": "0a"}, {"bytes": "09"}],
+        "hostOrder": [{"u32": 9}, {"u32": 10}, {"i32": -1}, {"i32": 1}, {"bytes": "09"}, {"bytes": "0a"}, {"string": "aa"}, {"string": "b"}, {"symbol": "a"}]
+      },
+      "expected": "The SDK's sorted-map constructor puts the keys in host order: by ScVal type, then by value, with integers compared as numbers and bytes, strings and symbols by their raw bytes.",
+      "fixedIn": "17.2.1"
+    },
+    {
+      "id": "js-stellar-sdk#1785",
+      "url": "https://github.com/stellar/js-stellar-sdk/issues/1785",
+      "check": "muxed-id-encodes-the-id-given",
+      "description": "Muxed account IDs that BigInt() parses but that are not canonical decimal, or that are outside uint64",
+      "inputs": {
+        "account": "GAAXLRWIATWIFLXWIW5NIC62LUDV32YCNDGPFA7XUAQWEGVCJR72NCWM",
+        "accepted": ["16", "016", "18446744073709551615"],
+        "rejected": ["0x10", " 16 ", "", "-1", "18446744073709551616"]
+      },
+      "expected": "Every 'accepted' ID builds an M-address that encodes its decimal value, and the SDK reports that same value as the ID. Every 'rejected' ID throws.",
+      "fixedIn": "17.3.0",
+      "siblings": ["https://github.com/StellarCN/py-stellar-base/issues/1251"]
+    },
+    {
+      "id": "js-stellar-sdk#1785",
+      "url": "https://github.com/stellar/js-stellar-sdk/issues/1785",
+      "check": "offer-id-encodes-the-id-given",
+      "description": "manageSellOffer offer IDs above 2^53 - 1, empty, negative, hexadecimal or outside int64",
+      "inputs": {
+        "issuer": "GAAXLRWIATWIFLXWIW5NIC62LUDV32YCNDGPFA7XUAQWEGVCJR72NCWM",
+        "accepted": ["9007199254740993", "9223372036854775807"],
+        "rejected": ["", "0x10", "-1", "9223372036854775808", "18446744073709551616"],
+        "rejectedAsFloat": ["9007199254740993"]
+      },
+      "expected": "Every 'accepted' ID encodes exactly its decimal value. Every 'rejected' ID throws. An SDK that takes a floating-point number throws for 'rejectedAsFloat', which a double cannot hold exactly.",
+      "fixedIn": "17.3.0",
+      "siblings": ["https://github.com/StellarCN/py-stellar-base/issues/1251"]
     }
   ]
 }

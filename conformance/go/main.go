@@ -10,8 +10,10 @@ import (
 	"os"
 	"path/filepath"
 	"runtime/debug"
+	"strconv"
 	"strings"
 
+	"github.com/stellar/go-stellar-sdk/txnbuild"
 	"github.com/stellar/go-stellar-sdk/xdr"
 )
 
@@ -27,6 +29,14 @@ type result struct {
 	Check              string `json:"check,omitempty"`
 	Result             string `json:"result,omitempty"`
 	Detail             string `json:"detail,omitempty"`
+}
+
+// apiResult is the outcome of an API check, which has no vector to decode.
+type apiResult struct {
+	Sighting string `json:"sighting"`
+	Check    string `json:"check"`
+	Result   string `json:"result"`
+	Detail   string `json:"detail"`
 }
 
 func newValue(xdrType string) (any, error) {
@@ -63,6 +73,101 @@ func roundTrip(xdrType, b64 string) (result, any) {
 	}
 	r.Decode, r.RoundTripIdentical = "ok", again == b64
 	return r, v
+}
+
+// apiChecks run the API checks of sightings.json (entries with "inputs" instead of a vector file).
+// Each returns "defect", "ok" or "n/a" and a short detail.
+var apiChecks = map[string]func(json.RawMessage) (string, string){
+	"asset-pair-ordered-by-issuer-bytes": assetPairOrder,
+	"scmap-keys-sorted-like-host": func(json.RawMessage) (string, string) {
+		return "n/a", "no sorted-map constructor in go-stellar-sdk; xdr.ScMap is a slice kept in the order given"
+	},
+	"muxed-id-encodes-the-id-given": func(json.RawMessage) (string, string) {
+		return "n/a", "muxed IDs are uint64 in xdr and strkey (xdr.MuxedAccountFromAccountId, strkey.MuxedAccount.SetID) and txnbuild takes M-addresses, so no rejected ID can be passed"
+	},
+	"offer-id-encodes-the-id-given": offerID,
+}
+
+// js-stellar-sdk#1766: assets with the same code order by issuer key bytes.
+func assetPairOrder(raw json.RawMessage) (string, string) {
+	var in struct {
+		Code   string `json:"code"`
+		First  string `json:"issuerFirstByBytes"`
+		Second string `json:"issuerSecondByBytes"`
+	}
+	if err := json.Unmarshal(raw, &in); err != nil {
+		panic(err)
+	}
+	first := txnbuild.CreditAsset{Code: in.Code, Issuer: in.First}
+	second := txnbuild.CreditAsset{Code: in.Code, Issuer: in.Second}
+	var failures []string
+	if _, err := txnbuild.NewLiquidityPoolId(first, second); err != nil {
+		failures = append(failures, "NewLiquidityPoolId(first, second) fails: "+err.Error())
+	}
+	if _, err := txnbuild.NewLiquidityPoolId(second, first); err == nil {
+		failures = append(failures, "NewLiquidityPoolId(second, first) accepted")
+	}
+	return verdict(failures, "NewLiquidityPoolId accepts (first, second) and fails for (second, first)")
+}
+
+// js-stellar-sdk#1785: ManageSellOffer encodes the offer ID it was given, or fails validation.
+// OfferID is an int64, so only the IDs that are canonical int64 decimals can be passed.
+func offerID(raw json.RawMessage) (string, string) {
+	var in struct {
+		Issuer   string   `json:"issuer"`
+		Accepted []string `json:"accepted"`
+		Rejected []string `json:"rejected"`
+	}
+	if err := json.Unmarshal(raw, &in); err != nil {
+		panic(err)
+	}
+	op := func(id int64) *txnbuild.ManageSellOffer {
+		return &txnbuild.ManageSellOffer{Selling: txnbuild.NativeAsset{}, Buying: txnbuild.CreditAsset{Code: "USD", Issuer: in.Issuer},
+			Amount: "1", Price: xdr.Price{N: 1, D: 1}, OfferID: id}
+	}
+	var failures, tested []string
+	for _, s := range in.Accepted {
+		id, ok := canonicalInt64(s)
+		if !ok {
+			continue
+		}
+		o := op(id)
+		x, err := o.BuildXDR()
+		if err == nil {
+			err = o.Validate()
+		}
+		if err != nil {
+			failures = append(failures, s+" fails: "+err.Error())
+		} else if got := int64(x.Body.MustManageSellOfferOp().OfferId); got != id {
+			failures = append(failures, fmt.Sprintf("%s encodes %d", s, got))
+		}
+	}
+	for _, s := range in.Rejected {
+		id, ok := canonicalInt64(s)
+		if !ok {
+			continue
+		}
+		tested = append(tested, s)
+		if op(id).Validate() == nil {
+			failures = append(failures, s+" passes Validate()")
+		}
+	}
+	if len(tested) == 0 {
+		return "n/a", "no rejected ID fits OfferID int64"
+	}
+	return verdict(failures, "OfferID is int64; Validate(), which NewTransaction runs, fails for "+strings.Join(tested, ", "))
+}
+
+func canonicalInt64(s string) (int64, bool) {
+	v, err := strconv.ParseInt(s, 10, 64)
+	return v, err == nil && strconv.FormatInt(v, 10) == s
+}
+
+func verdict(failures []string, okDetail string) (string, string) {
+	if len(failures) > 0 {
+		return "defect", strings.Join(failures, "; ")
+	}
+	return "ok", okDetail
 }
 
 func read(path string) string {
@@ -103,17 +208,24 @@ func main() {
 
 	var sightings struct {
 		Sightings []struct {
-			ID      string `json:"id"`
-			File    string `json:"file"`
-			XDRType string `json:"xdrType"`
-			Check   string `json:"check"`
+			ID      string          `json:"id"`
+			File    string          `json:"file"`
+			XDRType string          `json:"xdrType"`
+			Check   string          `json:"check"`
+			Inputs  json.RawMessage `json:"inputs"`
 		} `json:"sightings"`
 	}
 	if err := json.Unmarshal([]byte(read(filepath.Join(kit, "conformance", "sightings.json"))), &sightings); err != nil {
 		panic(err)
 	}
-	var vectors []result
+	var vectors []any
 	for _, s := range sightings.Sightings {
+		if s.File == "" {
+			r := apiResult{Sighting: s.ID, Check: s.Check}
+			r.Result, r.Detail = apiChecks[s.Check](s.Inputs)
+			vectors = append(vectors, r)
+			continue
+		}
 		r, _ := roundTrip(s.XDRType, read(filepath.Join(kit, "conformance", s.File)))
 		r.Sighting, r.File, r.Check, r.Result = s.ID, s.File, s.Check, "n/a"
 		if s.Check == "native-map-conversion-keeps-every-entry" {

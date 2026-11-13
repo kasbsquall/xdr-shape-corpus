@@ -125,6 +125,40 @@
       "check": "native-map-conversion-keeps-every-entry",
       "result": "n/a",
       "detail": "no native map conversion in stellar-xdr; ScMap is a vector of entries"
+    },
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "xdrType": "ScVal",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "n/a",
+      "detail": "no native map conversion in stellar-xdr; ScMap is a vector of entries"
+    },
+    {
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "detail": "Asset's Ord puts the first issuer by key bytes first",
+      "result": "ok",
+      "sighting": "js-stellar-sdk#1766"
+    },
+    {
+      "check": "scmap-keys-sorted-like-host",
+      "detail": "ScMap::sorted_from puts all 9 keys in host order",
+      "result": "ok",
+      "sighting": "js-stellar-sdk#1766"
+    },
+    {
+      "check": "muxed-id-encodes-the-id-given",
+      "detail": "MuxedAccountMed25519.id is a u64 and muxed strkeys parse into it; no API takes an ID as text",
+      "result": "n/a",
+      "sighting": "js-stellar-sdk#1785"
+    },
+    {
+      "check": "offer-id-encodes-the-id-given",
+      "detail": "ManageSellOfferOp.offer_id is a plain Int64 and stellar-xdr has no operation builder to validate it",
+      "result": "n/a",
+      "sighting": "js-stellar-sdk#1785"
     }
   ]
 }

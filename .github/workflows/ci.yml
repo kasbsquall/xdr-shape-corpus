@@ -39,8 +39,23 @@ jobs:
       - run: go vet ./...
       - run: go test ./...
 
+  mockrpc:
+    name: Replay harness mock RPC (getLedgers)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: harness/mockrpc
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: harness/mockrpc/go.mod
+          cache-dependency-path: harness/mockrpc/go.sum
+      - run: go vet ./...
+      - run: go test ./...
+
   conformance:
-    name: Conformance runner (JS, Go, Rust)
+    name: Conformance runner (JS, Go, Rust, Python)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,9 +69,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: JS SDK 17.2.1 and 17.4.0
+      - name: JS SDK 17.2.0, 17.2.1 and 17.4.0
         run: |
-          for v in 17.2.1 17.4.0; do
+          for v in 17.2.0 17.2.1 17.4.0; do
             (cd conformance/js/sdk-$v && npm ci --no-audit --no-fund)
             node conformance/js/run.mjs conformance/js/sdk-$v conformance/results/js-$v.json
           done
@@ -66,6 +81,11 @@ jobs:
       - name: Rust stellar-xdr 30.0.0
         run: |
           cargo build --release --locked --manifest-path tools/roundtrip/Cargo.toml
+          cargo build --release --locked --manifest-path conformance/rust/Cargo.toml
           python conformance/rust.py conformance/results/rust-30.0.0.json
+      - name: Python stellar-sdk 17.0.1
+        run: |
+          pip install -r conformance/python/requirements.txt
+          python conformance/python/run.py conformance/results/python-17.0.1.json
       - name: Divergence matrix and expectations
         run: python conformance/matrix.py

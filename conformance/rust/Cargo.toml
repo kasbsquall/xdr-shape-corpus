@@ -1,0 +1,10 @@
+[package]
+name = "xdr-checks"
+version = "0.1.0"
+edition = "2021"
+description = "Runs the API checks of conformance/sightings.json against rs-stellar-xdr"
+publish = false
+
+[dependencies]
+stellar-xdr = { version = "=30.0.0", features = ["std", "base64", "serde_json", "type_enum"] }
+serde_json = "1"

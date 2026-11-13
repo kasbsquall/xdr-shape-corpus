@@ -124,6 +124,39 @@
       "check": "native-map-conversion-keeps-every-entry",
       "result": "ok",
       "detail": "throws: scvMap has more than one key that converts to \"1\"; read the raw map entries instead"
+    },
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "ok",
+      "detail": "throws: scvMap has more than one key that converts to \"1\"; read the raw map entries instead"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "result": "ok",
+      "detail": "LiquidityPoolAsset accepts (first, second) and throws for (second, first)"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "scmap-keys-sorted-like-host",
+      "result": "ok",
+      "detail": "scvSortedMap puts all 9 keys in host order"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "muxed-id-encodes-the-id-given",
+      "result": "ok",
+      "detail": "MuxedAccount keeps 3 IDs and throws for 5"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "offer-id-encodes-the-id-given",
+      "result": "ok",
+      "detail": "manageSellOffer keeps 2 IDs and throws for 6"
     }
   ]
 }

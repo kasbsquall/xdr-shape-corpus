@@ -124,6 +124,39 @@
       "check": "native-map-conversion-keeps-every-entry",
       "result": "defect",
       "detail": "2 entries in XDR, 1 after scValToNative"
+    },
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "defect",
+      "detail": "2 entries in XDR, 1 after scValToNative"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "result": "ok",
+      "detail": "LiquidityPoolAsset accepts (first, second) and throws for (second, first)"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "scmap-keys-sorted-like-host",
+      "result": "ok",
+      "detail": "scvSortedMap puts all 9 keys in host order"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "muxed-id-encodes-the-id-given",
+      "result": "defect",
+      "detail": "\"016\": id() is \"016\", M-address encodes 16; \"0x10\" accepted as ID 16; \" 16 \" accepted as ID 16; \"\" accepted as ID 0"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "offer-id-encodes-the-id-given",
+      "result": "defect",
+      "detail": "\"\" accepted as offer 0; \"0x10\" accepted as offer 16; \"-1\" accepted as offer -1; number 9007199254740993 accepted as offer 9007199254740992"
     }
   ]
 }

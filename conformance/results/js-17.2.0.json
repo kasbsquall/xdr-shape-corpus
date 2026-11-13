@@ -1,0 +1,162 @@
+{
+  "sdk": "js-stellar-sdk",
+  "version": "17.2.0",
+  "corpus": [
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "error",
+      "error": "LedgerCloseMeta.v2.v2.ledgerHeader.header.scpValue.ext.v: unknown enum value 3"
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "error",
+      "error": "LedgerCloseMeta.v2.v2.ledgerHeader.header.scpValue.ext.v: unknown enum value 3"
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "error",
+      "error": "LedgerCloseMeta.v2.v2.ledgerHeader.header.scpValue.ext.v: unknown enum value 3"
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "error",
+      "error": "LedgerCloseMeta.v2.v2.ledgerHeader.header.scpValue.ext.v: unknown enum value 3"
+    }
+  ],
+  "vectors": [
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-u32-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "defect",
+      "detail": "2 entries in XDR, 1 after scValToNative"
+    },
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "defect",
+      "detail": "2 entries in XDR, 1 after scValToNative"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "result": "defect",
+      "detail": "LiquidityPoolAsset(first, second) throws: Assets are not in lexicographic order; LiquidityPoolAsset(second, first) accepted"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "scmap-keys-sorted-like-host",
+      "result": "defect",
+      "detail": "scvSortedMap puts bytes 09 at position 1; host order has u32 9"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "muxed-id-encodes-the-id-given",
+      "result": "defect",
+      "detail": "\"016\": id() is \"016\", M-address encodes 16; \"0x10\" accepted as ID 16; \" 16 \" accepted as ID 16; \"\" accepted as ID 0"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "offer-id-encodes-the-id-given",
+      "result": "defect",
+      "detail": "\"\" accepted as offer 0; \"0x10\" accepted as offer 16; \"-1\" accepted as offer -1; number 9007199254740993 accepted as offer 9007199254740992"
+    }
+  ]
+}

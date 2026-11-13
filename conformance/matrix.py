@@ -9,15 +9,46 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 COLUMNS = [  # (results file, column label, role)
+    ("js-17.2.0.json", "JS 17.2.0", "pre-fix"),
     ("js-17.2.1.json", "JS 17.2.1", "pre-fix"),
     ("js-17.4.0.json", "JS 17.4.0", "current"),
     ("go-v0.9.0.json", "Go v0.9.0", "current"),
     ("rust-30.0.0.json", "Rust stellar-xdr 30.0.0", "current"),
+    ("python-17.0.1.json", "Python 17.0.1", "current"),
 ]
-# Behaviour each sighting must show per column: the pre-fix tag reproduces the defect, current releases do not.
+JS_17_2_0, JS_17_2_1, JS_17_4_0, GO, RUST, PY = (label for _, label, _ in COLUMNS)
+
+# Behaviour each row must show per column. A row is a sighting plus its vector file or, for an API check,
+# its check name. Pre-fix tags reproduce the defect; current releases do not, unless a sibling issue is open.
 EXPECT = {
-    "js-stellar-sdk#1789": {"JS 17.2.1": "defect", "JS 17.4.0": "ok", "Go v0.9.0": "n/a", "Rust stellar-xdr 30.0.0": "n/a"},
+    "js-stellar-sdk#1789 js-1789-map-u32-and-symbol-key.b64": {
+        JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "n/a", RUST: "n/a",
+        PY: "ok",  # u32 1 and symbol "1" become int 1 and str "1", which are distinct dict keys
+    },
+    "js-stellar-sdk#1789 js-1789-map-string-and-symbol-key.b64": {
+        JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "n/a", RUST: "n/a",
+        PY: "defect",  # open: https://github.com/StellarCN/py-stellar-base/issues/1250
+    },
+    "js-stellar-sdk#1766 asset-pair-ordered-by-issuer-bytes": {
+        JS_17_2_0: "defect", JS_17_2_1: "ok", JS_17_4_0: "ok", GO: "ok", RUST: "ok", PY: "ok",
+    },
+    "js-stellar-sdk#1766 scmap-keys-sorted-like-host": {
+        JS_17_2_0: "defect", JS_17_2_1: "ok", JS_17_4_0: "ok", GO: "n/a", RUST: "ok", PY: "ok",
+    },
+    "js-stellar-sdk#1785 muxed-id-encodes-the-id-given": {
+        JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "n/a", RUST: "n/a",
+        PY: "defect",  # open: https://github.com/StellarCN/py-stellar-base/issues/1251 (2^64 wraps to 0)
+    },
+    "js-stellar-sdk#1785 offer-id-encodes-the-id-given": {
+        JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "ok", RUST: "n/a",
+        # open: https://github.com/StellarCN/py-stellar-base/issues/1251 (2^63 and 2^64 wrap); -1 is also accepted
+        PY: "defect",
+    },
 }
+
+
+def row_key(v):
+    return f"{v['sighting']} {Path(v['file']).name if v.get('file') else v['check']}"
 
 
 def cell(r):
@@ -29,6 +60,7 @@ def cell(r):
 def main():
     runs = {label: (json.loads((HERE / "results" / f).read_text(encoding="utf-8")), role) for f, label, role in COLUMNS}
     labels = [label for _, label, _ in COLUMNS]
+    sightings = json.loads((HERE / "sightings.json").read_text(encoding="utf-8"))["sightings"]
     failures = []
 
     lines = ["# Conformance matrix", "",
@@ -52,18 +84,31 @@ def main():
         lines += ["", "Pre-fix tags predate protocol 30, so they cannot read its ledger headers: " +
                   "; ".join(f"`{n}`" for n in notes)]
 
-    lines += ["", "## Sightings", "", "| Sighting | " + " | ".join(labels) + " | Reproduced |", "|" + " --- |" * (len(labels) + 2)]
-    for sid, expect in EXPECT.items():
-        row = []
+    lines += ["", "## Sightings", "",
+              "`defect`: the sighting's bug is present. `ok`: the SDK behaves as the fix requires. "
+              "`n/a`: the SDK has no API for that behaviour. JS 17.2.0 is the last release before the fix for "
+              "#1766; JS 17.2.1 is the last one before the fixes for #1785 and #1789.", "",
+              "| Sighting | Vector or check | " + " | ".join(labels) + " | Reproduced |", "|" + " --- |" * (len(labels) + 3)]
+    details = []
+    for key, expect in EXPECT.items():
+        row, reproduced = [], True
+        found = {label: next(v for v in runs[label][0]["vectors"] if row_key(v) == key) for label in labels}
         for label in labels:
-            v = next(x for x in runs[label][0]["vectors"] if x["sighting"] == sid)
-            got = v.get("result", "n/a")
-            row.append(got + (f" ({v['detail']})" if v.get("detail") and got != "n/a" else ""))
+            got = found[label].get("result", "n/a")
+            row.append(got)
             if got != expect[label]:
-                failures.append(f"{label}: {sid} is {got}, expected {expect[label]}")
-        reproduced = all(next(x for x in runs[l][0]["vectors"] if x["sighting"] == sid).get("result") == expect[l] for l in labels)
-        lines.append(f"| {sid} | " + " | ".join(row) + f" | {'yes' if reproduced else 'no'} |")
+                failures.append(f"{label}: {key} is {got}, expected {expect[label]}")
+                reproduced = False
+        sid, what = key.split(" ", 1)
+        lines.append(f"| {sid} | `{what}` | " + " | ".join(row) + f" | {'yes' if reproduced else 'no'} |")
 
+        s = next(x for x in sightings if row_key({"sighting": x["id"], **x}) == key)
+        details += ["", f"### {sid} `{what}`", "", f"{s['description']}. [{sid}]({s['url']}), fixed in js-stellar-sdk "
+                    f"{s['fixedIn']}." + "".join(f" Sibling: {u}." for u in s.get("siblings", [])), ""]
+        details += [f"- {label}: `{found[label].get('result', 'n/a')}`, {found[label].get('detail', 'no detail')}"
+                    for label in labels]
+
+    lines += ["", "## Details"] + details
     (HERE / "MATRIX.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
     if failures:

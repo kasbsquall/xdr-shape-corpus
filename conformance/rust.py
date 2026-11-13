@@ -1,4 +1,5 @@
-"""Conformance runner for rs-stellar-xdr, through tools/roundtrip (stellar-xdr pinned in its Cargo.toml).
+"""Conformance runner for rs-stellar-xdr. Round trips go through tools/roundtrip and API checks through
+conformance/rust; both pin stellar-xdr in their Cargo.toml.
 
 Usage: python conformance/rust.py <out.json>
 """
@@ -8,7 +9,9 @@ import sys
 from pathlib import Path
 
 KIT = Path(__file__).resolve().parents[1]
-RT = KIT / "tools" / "roundtrip" / "target" / "release" / ("xdr-roundtrip.exe" if sys.platform == "win32" else "xdr-roundtrip")
+EXE = ".exe" if sys.platform == "win32" else ""
+RT = KIT / "tools" / "roundtrip" / "target" / "release" / f"xdr-roundtrip{EXE}"
+CHECKS = KIT / "conformance" / "rust" / "target" / "release" / f"xdr-checks{EXE}"
 VERSION = "30.0.0"
 
 
@@ -27,9 +30,14 @@ def main():
     manifest = json.loads((KIT / "corpus" / "manifest.json").read_text(encoding="utf-8"))
     corpus = [{"entry": e["id"], "path": f["path"], "xdrType": f["xdrType"], **round_trip(f["xdrType"], KIT / f["path"])}
               for e in manifest["entries"] for f in e["files"]]
-    sightings = json.loads((KIT / "conformance" / "sightings.json").read_text(encoding="utf-8"))["sightings"]
+    sightings_path = KIT / "conformance" / "sightings.json"
+    sightings = json.loads(sightings_path.read_text(encoding="utf-8"))["sightings"]
+    api = json.loads(subprocess.run([str(CHECKS), str(sightings_path)], capture_output=True, text=True, check=True).stdout)
     vectors = []
     for s in sightings:
+        if "inputs" in s:
+            vectors.append(api.pop(0))
+            continue
         v = {"sighting": s["id"], "file": s["file"], "xdrType": s["xdrType"],
              **round_trip(s["xdrType"], KIT / "conformance" / s["file"]), "check": s["check"], "result": "n/a"}
         if s["check"] == "native-map-conversion-keeps-every-entry":

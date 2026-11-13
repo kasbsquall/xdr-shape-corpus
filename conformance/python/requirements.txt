@@ -1,0 +1,17 @@
+annotated-types==0.8.0
+certifi==2026.10.23
+cffi==2.1.1
+charset-normalizer==3.5.2
+idna==3.20
+mnemonic==0.21
+pycparser==3.12
+pydantic==2.14.3
+pydantic_core==2.50.4
+PyNaCl==1.6.2
+requests==2.34.2
+requests-sse==0.5.3
+stellar-sdk==17.0.1
+typing-inspection==0.4.5
+typing_extensions==4.16.0
+urllib3==2.8.0
+xdrlib3==0.1.1

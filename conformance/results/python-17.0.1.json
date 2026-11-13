@@ -1,0 +1,162 @@
+{
+  "sdk": "py-stellar-base",
+  "version": "17.0.1",
+  "corpus": [
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    }
+  ],
+  "vectors": [
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-u32-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "ok",
+      "detail": "2 entries in XDR, 2 after scval.to_native"
+    },
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "defect",
+      "detail": "2 entries in XDR, 1 after scval.to_native"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "result": "ok",
+      "detail": "LiquidityPoolAsset accepts (first, second) and raises for (second, first)"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "scmap-keys-sorted-like-host",
+      "result": "ok",
+      "detail": "scval.to_map puts all 9 keys in host order"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "muxed-id-encodes-the-id-given",
+      "result": "defect",
+      "detail": "18446744073709551616 accepted as 0"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "offer-id-encodes-the-id-given",
+      "result": "defect",
+      "detail": "-1 accepted as -1; 9223372036854775808 accepted as -9223372036854775808; 18446744073709551616 accepted as 0"
+    }
+  ]
+}
