@@ -1,6 +1,6 @@
 # Stellar XDR Shape Corpus
 
-A language-neutral corpus of rare but valid Stellar ledger shapes, captured from the network as raw XDR, with the values a correct decoder must produce. Around it: a replay harness that runs the corpus through a real indexer and reports `pass`, `mishandled` or `dropped` per shape, a Go linter for indexer code, and the outline of an indexer-hardening guide.
+A language-neutral corpus of rare but valid Stellar ledger shapes, captured from the network as raw XDR, with the values a correct decoder must produce. Around it: a replay harness that serves the corpus over a mock RPC `getLedgers` endpoint to a real indexer and reports `pass`, `mishandled` or `dropped` per shape, a Go linter for indexer code, and the outline of an indexer-hardening guide.
 
 This repository is the working prototype for the SCF RFP *XDR/CAP-Coverage Audit Tool and Indexer-Hardening Guide*. Everything here runs today; what is still planned is marked as planned.
 
@@ -12,7 +12,7 @@ This repository is the working prototype for the SCF RFP *XDR/CAP-Coverage Audit
 | Corpus | 4 entries captured on testnet at protocol 30, each with envelope, result, `TransactionMeta` v4 and the full `LedgerCloseMeta` |
 | Byte check | Every file decodes and re-encodes byte-identical with rs-stellar-xdr 30.0.0; checked in CI |
 | Replay harness | Reference adapter for `stellar/wallet-backend`; reproduces #731, #729, #716 (signed-payload) and the muxed-destination gap closed by #792 on pre-fix commits, and passes on the fixed ones |
-| Conformance runner | First slice: every corpus file through js-stellar-sdk, go-stellar-sdk and rs-stellar-xdr in CI; reproduces js-stellar-sdk#1789 on 17.2.1 and passes on 17.4.0 ([conformance/](conformance/)) |
+| Conformance runner | Every corpus file and six sighting checks through js-stellar-sdk, go-stellar-sdk, rs-stellar-xdr and py-stellar-base in CI; js-stellar-sdk#1766, #1785 and #1789 reproduce on their pre-fix tags and pass on 17.4.0 ([conformance/MATRIX.md](conformance/MATRIX.md)) |
 | Linter | `xdrlint`, rule XDRL002 working; XDRL001 and XDRL003 planned |
 | Guide | Outline ([guide/OUTLINE.md](guide/OUTLINE.md)) |
 
@@ -29,7 +29,7 @@ Each entry lives in `corpus/entries/<id>/`. [corpus/manifest.json](corpus/manife
 
 ## Replay harness
 
-[harness/](harness/) runs the corpus through wallet-backend's real indexer at the commits before and after each fix. No Docker or Postgres: the adapter calls the same `Value()` and `Scan()` that the COPY path uses, so it shows which bytes would be stored and what reads back. Full method, commits and per-commit evidence are in [harness/README.md](harness/README.md).
+[harness/](harness/) runs the corpus through wallet-backend's real indexer at the commits before and after each fix. Ledgers reach it through a mock RPC `getLedgers` endpoint that only listens on localhost; [harness/ADAPTER.md](harness/ADAPTER.md) is the contract for plugging in another indexer. No Docker or Postgres: the adapter calls the same `Value()` and `Scan()` that the COPY path uses, so it shows which bytes would be stored and what reads back. Full method, commits and per-commit evidence are in [harness/README.md](harness/README.md).
 
 | Sighting | Pre-fix commit | Fixed commit |
 | --- | --- | --- |
@@ -66,7 +66,7 @@ cd tools && npm ci && node capture-testnet.mjs cap40
 | `tools/roundtrip/` | `xdr-roundtrip`: decode, re-encode and JSON output with rs-stellar-xdr |
 | `tools/build_manifest.py`, `tools/check_schema.py` | Manifest generation and validation |
 | `harness/` | Replay harness and the wallet-backend reference adapter |
-| `conformance/` | Conformance runner for JS, Go and Rust, sighting vectors and the divergence matrix |
+| `conformance/` | Conformance runner for JS, Go, Rust and Python, sighting checks and the divergence matrix |
 | `linter/` | `xdrlint` (go/analysis) |
 | `guide/` | Indexer-hardening guide outline |
 
