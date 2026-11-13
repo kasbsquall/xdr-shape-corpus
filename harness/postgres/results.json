@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "0.1",
+  "method": "wallet-backend's own `migrate up` and `ingest` commands (live mode, LedgerBackendType rpc) against TimescaleDB, ledger served by harness/mockrpc over getLedgers; read back with StateChangeModel.BatchGetByAccountAddress",
+  "postgresImage": "timescale/timescaledb:2.28.2-pg17@sha256:909e2c7577c074517c8936b6d8799294b33f25fb5bad978a2199250665f1ce1a",
+  "entry": "cap40-signed-payload-signer-max-payload",
+  "ledger": 5699703,
+  "outcomeVocabulary": [
+    "pass",
+    "mishandled",
+    "dropped"
+  ],
+  "ingestionVocabulary": [
+    "halted",
+    "advanced",
+    "advanced-without-row",
+    "unexpected"
+  ],
+  "commits": [
+    {
+      "label": "pre-729",
+      "role": "pre-fix",
+      "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcome": "dropped",
+      "ingestion": "halted",
+      "rollbackObserved": true,
+      "cursorBefore": {
+        "latest_ingest_ledger": 5699702,
+        "oldest_ingest_ledger": 5699702
+      },
+      "cursorAfter": {
+        "latest_ingest_ledger": 5699702,
+        "oldest_ingest_ledger": 5699702
+      },
+      "ledgerRowsAfter": {
+        "operations": 0,
+        "state_changes": 0,
+        "transactions": 0
+      },
+      "tableRowsChanged": {},
+      "signerRowsAfter": [],
+      "readBack": null,
+      "runs": [
+        {
+          "run": 1,
+          "exitCode": 2,
+          "stoppedBy": "self",
+          "startedAtLedger": [
+            5699703
+          ],
+          "ingestedLedgers": [],
+          "persistAttemptsMade": 5,
+          "persistRetryWarnings": 4,
+          "persistError": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+          "finalError": "running 'ingest' from 0 to 0: processing ledger 5699703: ingesting processed data failed after 5 attempts: persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+          "shutdownRequested": false
+        },
+        {
+          "run": 2,
+          "exitCode": 2,
+          "stoppedBy": "self",
+          "startedAtLedger": [
+            5699703
+          ],
+          "ingestedLedgers": [],
+          "persistAttemptsMade": 5,
+          "persistRetryWarnings": 4,
+          "persistError": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+          "finalError": "running 'ingest' from 0 to 0: processing ledger 5699703: ingesting processed data failed after 5 attempts: persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+          "shutdownRequested": false
+        }
+      ],
+      "detail": "ledger 5699703 never commits: 2 run(s) of `wallet-backend ingest` each started at 5699703 and failed to persist it (persist attempts per run: 5, 5); every table has the same row count as before, no row has ledger_number 5699703, and latest_ingest_ledger stays at 5699702. Last error: running 'ingest' from 0 to 0: processing ledger 5699703: ingesting processed data failed after 5 attempts: persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+    },
+    {
+      "label": "fix-729",
+      "role": "fixed",
+      "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+      "goStellarSdk": "v0.8.0",
+      "dependencyMode": "v0.8.0",
+      "outcome": "pass",
+      "ingestion": "advanced",
+      "rollbackObserved": false,
+      "cursorBefore": {
+        "latest_ingest_ledger": 5699702,
+        "oldest_ingest_ledger": 5699702
+      },
+      "cursorAfter": {
+        "latest_ingest_ledger": 5699703,
+        "oldest_ingest_ledger": 5699702
+      },
+      "ledgerRowsAfter": {
+        "operations": 15,
+        "state_changes": 38,
+        "transactions": 15
+      },
+      "tableRowsChanged": {
+        "native_balances": [
+          0,
+          16
+        ],
+        "operations": [
+          0,
+          15
+        ],
+        "operations_accounts": [
+          0,
+          37
+        ],
+        "state_changes": [
+          0,
+          38
+        ],
+        "transactions": [
+          0,
+          15
+        ],
+        "transactions_accounts": [
+          0,
+          38
+        ],
+        "trustline_assets": [
+          0,
+          3
+        ],
+        "trustline_balances": [
+          0,
+          4
+        ]
+      },
+      "signerRowsAfter": [
+        {
+          "reason": "ADD",
+          "account": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+          "signer": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+          "storedBytes": 101
+        }
+      ],
+      "readBack": {
+        "via": "StateChangeModel.BatchGetByAccountAddress (category SIGNER)",
+        "account": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+        "expected": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+        "signers": [
+          "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2"
+        ],
+        "exactMatch": true,
+        "storedBytes": [
+          101
+        ]
+      },
+      "runs": [
+        {
+          "run": 1,
+          "exitCode": 0,
+          "stoppedBy": "harness-after-cursor-reached-ledger",
+          "startedAtLedger": [
+            5699703
+          ],
+          "ingestedLedgers": [
+            5699703
+          ],
+          "persistAttemptsMade": 0,
+          "persistRetryWarnings": 0,
+          "persistError": null,
+          "finalError": null,
+          "shutdownRequested": true
+        }
+      ],
+      "detail": "ledger 5699703 commits (15 transactions, 15 operations, 38 state_changes rows), latest_ingest_ledger 5699702 -> 5699703, and the SIGNER row reads back through the API query as the full P key ([101] stored bytes)"
+    }
+  ],
+  "sighting": {
+    "sighting": "wallet-backend#729",
+    "entry": "cap40-signed-payload-signer-max-payload",
+    "reproduced": true,
+    "haltObserved": true,
+    "runs": [
+      {
+        "label": "pre-729",
+        "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+        "outcome": "dropped",
+        "ingestion": "halted"
+      },
+      {
+        "label": "fix-729",
+        "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+        "outcome": "pass",
+        "ingestion": "advanced"
+      }
+    ]
+  }
+}

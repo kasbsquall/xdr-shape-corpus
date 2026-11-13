@@ -36,6 +36,7 @@ Input: the entry's ledger, served by the harness mock RPC over `getLedgers` (see
 | `out/<label>-<sha>-<mode>.json` | Full per-commit result with evidence (state changes, per-column round trip). |
 | `results.json` | Machine-readable result per (sighting, entry, commit). |
 | `sdk-bump-v0.8.0.go.mod.diff` | Exact `go.mod` change used in the bumped-SDK mode. |
+| `postgres/` | #729 observed with wallet-backend's own `migrate` and `ingest` against TimescaleDB (needs Docker). |
 
 ## Run
 
@@ -117,8 +118,11 @@ Against the RFP check, in bumped-SDK mode:
 - **#792: reproduced in both modes, with no change at all to wallet-backend.** `mishandled` at `a9bac8d2`, `pass` at `09303667`. The PR description says that without the change "the id is dropped and clients cannot show the muxed destination", and that "the same gap already existed for `M...` destinations".
 - **#716: reproduced for signed-payload keys.** `mishandled` at `79ea2acd` with the symptom the issue describes (silent truncation to 32 bytes, unreadable value), `pass` at `2c873353` and `71625b21`. The same entry shows the whole evolution: `mishandled`, then `dropped` (`2a0a84ea`), then `pass`.
 
+## Ingestion halt at `pre-729`: observed against Postgres
+
+This adapter checks that `Value()` on `signer_account_id` returns an error, the call `StateChangeModel.BatchCopy` makes inside the COPY callback; it does not run a database. [`postgres/`](postgres/README.md) runs wallet-backend's own `migrate up` and `ingest` commands against TimescaleDB for the same entry, with go-stellar-sdk raised to v0.8.0 as here. At `2a0a84ea` the COPY fails with SQLSTATE 57014, the persist transaction rolls back (row counts unchanged, `latest_ingest_ledger` stays at 5699702), ingest retries 5 times and exits with code 2, and a restart resumes at ledger 5699703 and fails the same way. At `2c873353` the ledger commits, the cursor advances to 5699703 and the signer reads back from Postgres as the full `P...` key.
+
 ## Not reproduced yet
 
 - **#716 with muxed addresses.** Neither muxed entry puts an `M...` value into an address column at any commit. The `cap27` entry is a classic payment, and the classic path reduces source and destination to their G account first. The `cap67` entry sends a SAC `transfer()` to a muxed `ScAddress`; core emits the event with the base G account in the topic and the id in `to_muxed_id`, so the column truncation in #716 is not reached there either. js-stellar-sdk refuses to build a Soroban transaction with a muxed source account ("Soroban transactions cannot use a muxed source account"); whether stellar-core would accept one built by hand was not tested. The remaining candidate is a custom SEP-41 token that emits an `M...` address in its own event topics.
-- **Ingestion halt at `pre-729` is inferred, not observed.** The harness checks that `Value()` on `signer_account_id` returns an error, which is the call `StateChangeModel.BatchCopy` makes inside the COPY callback. That this rolls back the persist transaction and that ingestion retries the same ledger comes from the description of PR #729; Postgres was not run.
 - **Column scope.** The round trip covers address columns of `state_changes` and participants in `transactions_accounts` / `operations_accounts`. Balance rows are reported as context only.

@@ -1,0 +1,161 @@
+{
+  "label": "pre-729",
+  "commit": "2a0a84ea12523b6c92e278c0c84b443041240095",
+  "module": "github.com/stellar/wallet-backend",
+  "goStellarSdk": "v0.8.0",
+  "postgresImage": "timescale/timescaledb:2.28.2-pg17@sha256:909e2c7577c074517c8936b6d8799294b33f25fb5bad978a2199250665f1ce1a",
+  "entry": "cap40-signed-payload-signer-max-payload",
+  "ledger": 5699703,
+  "outcome": "dropped",
+  "ingestion": "halted",
+  "detail": "ledger 5699703 never commits: 2 run(s) of `wallet-backend ingest` each started at 5699703 and failed to persist it (persist attempts per run: 5, 5); every table has the same row count as before, no row has ledger_number 5699703, and latest_ingest_ledger stays at 5699702. Last error: running 'ingest' from 0 to 0: processing ledger 5699703: ingesting processed data failed after 5 attempts: persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+  "before": {
+    "takenAt": "2026-11-13T17:30:28Z",
+    "cursors": {
+      "latest_ingest_ledger": 5699702,
+      "oldest_ingest_ledger": 5699702
+    },
+    "tableRows": {
+      "contract_tokens": 0,
+      "gorp_migrations": 17,
+      "ingest_store": 2,
+      "liquidity_pool_balances": 0,
+      "liquidity_pools": 0,
+      "native_balances": 0,
+      "operations": 0,
+      "operations_accounts": 0,
+      "protocol_contracts": 0,
+      "protocol_wasms": 0,
+      "protocols": 1,
+      "sac_balances": 0,
+      "sep41_allowances": 0,
+      "sep41_balances": 0,
+      "state_changes": 0,
+      "transactions": 0,
+      "transactions_accounts": 0,
+      "trustline_assets": 0,
+      "trustline_balances": 0
+    },
+    "ledgerRows": {
+      "operations": 0,
+      "state_changes": 0,
+      "transactions": 0
+    },
+    "signerRows": []
+  },
+  "after": {
+    "takenAt": "2026-11-13T17:31:19Z",
+    "cursors": {
+      "latest_ingest_ledger": 5699702,
+      "oldest_ingest_ledger": 5699702
+    },
+    "tableRows": {
+      "contract_tokens": 0,
+      "gorp_migrations": 17,
+      "ingest_store": 2,
+      "liquidity_pool_balances": 0,
+      "liquidity_pools": 0,
+      "native_balances": 0,
+      "operations": 0,
+      "operations_accounts": 0,
+      "protocol_contracts": 0,
+      "protocol_wasms": 0,
+      "protocols": 1,
+      "sac_balances": 0,
+      "sep41_allowances": 0,
+      "sep41_balances": 0,
+      "state_changes": 0,
+      "transactions": 0,
+      "transactions_accounts": 0,
+      "trustline_assets": 0,
+      "trustline_balances": 0
+    },
+    "ledgerRows": {
+      "operations": 0,
+      "state_changes": 0,
+      "transactions": 0
+    },
+    "signerRows": []
+  },
+  "runs": [
+    {
+      "run": 1,
+      "exitCode": 2,
+      "stoppedBy": "self",
+      "startedAtLedger": [
+        5699703
+      ],
+      "ingestedLedgers": [],
+      "persistAttempts": [
+        {
+          "ledger": 5699703,
+          "attempt": 1,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        },
+        {
+          "ledger": 5699703,
+          "attempt": 2,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        },
+        {
+          "ledger": 5699703,
+          "attempt": 3,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        },
+        {
+          "ledger": 5699703,
+          "attempt": 4,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        }
+      ],
+      "persistAttemptsMade": 5,
+      "finalError": "running 'ingest' from 0 to 0: processing ledger 5699703: ingesting processed data failed after 5 attempts: persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+      "shutdownRequested": false,
+      "logFile": "ingest-1.log"
+    },
+    {
+      "run": 2,
+      "exitCode": 2,
+      "stoppedBy": "self",
+      "startedAtLedger": [
+        5699703
+      ],
+      "ingestedLedgers": [],
+      "persistAttempts": [
+        {
+          "ledger": 5699703,
+          "attempt": 1,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        },
+        {
+          "ledger": 5699703,
+          "attempt": 2,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        },
+        {
+          "ledger": 5699703,
+          "attempt": 3,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        },
+        {
+          "ledger": 5699703,
+          "attempt": 4,
+          "of": 5,
+          "error": "persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)"
+        }
+      ],
+      "persistAttemptsMade": 5,
+      "finalError": "running 'ingest' from 0 to 0: processing ledger 5699703: ingesting processed data failed after 5 attempts: persisting ledger data for ledger 5699703: running atomic function in RunInTransaction: inserting processed data into db for ledger 5699703: batch inserting state changes: pgx CopyFrom state_changes: ERROR: COPY from stdin failed: converting signer_account_id: converting address to bytes: stellar address PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2 has a 100-byte key payload; the account_id column stores only 32-byte account/contract keys (SQLSTATE 57014)",
+      "shutdownRequested": false,
+      "logFile": "ingest-2.log"
+    }
+  ],
+  "rollbackObserved": true
+}

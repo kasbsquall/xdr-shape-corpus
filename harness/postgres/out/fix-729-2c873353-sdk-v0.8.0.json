@@ -1,0 +1,116 @@
+{
+  "label": "fix-729",
+  "commit": "2c873353c1f0f3c9b145e25a7d009023ad104a1c",
+  "module": "github.com/stellar/wallet-backend",
+  "goStellarSdk": "v0.8.0",
+  "postgresImage": "timescale/timescaledb:2.28.2-pg17@sha256:909e2c7577c074517c8936b6d8799294b33f25fb5bad978a2199250665f1ce1a",
+  "entry": "cap40-signed-payload-signer-max-payload",
+  "ledger": 5699703,
+  "outcome": "pass",
+  "ingestion": "advanced",
+  "detail": "ledger 5699703 commits (15 transactions, 15 operations, 38 state_changes rows), latest_ingest_ledger 5699702 -\u003e 5699703, and the SIGNER row reads back through the API query as the full P key ([101] stored bytes)",
+  "before": {
+    "takenAt": "2026-11-13T17:31:40Z",
+    "cursors": {
+      "latest_ingest_ledger": 5699702,
+      "oldest_ingest_ledger": 5699702
+    },
+    "tableRows": {
+      "contract_tokens": 0,
+      "gorp_migrations": 17,
+      "ingest_store": 2,
+      "liquidity_pool_balances": 0,
+      "liquidity_pools": 0,
+      "native_balances": 0,
+      "operations": 0,
+      "operations_accounts": 0,
+      "protocol_contracts": 0,
+      "protocol_wasms": 0,
+      "protocols": 1,
+      "sac_balances": 0,
+      "sep41_allowances": 0,
+      "sep41_balances": 0,
+      "state_changes": 0,
+      "transactions": 0,
+      "transactions_accounts": 0,
+      "trustline_assets": 0,
+      "trustline_balances": 0
+    },
+    "ledgerRows": {
+      "operations": 0,
+      "state_changes": 0,
+      "transactions": 0
+    },
+    "signerRows": []
+  },
+  "after": {
+    "takenAt": "2026-11-13T17:31:52Z",
+    "cursors": {
+      "latest_ingest_ledger": 5699703,
+      "oldest_ingest_ledger": 5699702
+    },
+    "tableRows": {
+      "contract_tokens": 0,
+      "gorp_migrations": 17,
+      "ingest_store": 2,
+      "liquidity_pool_balances": 0,
+      "liquidity_pools": 0,
+      "native_balances": 16,
+      "operations": 15,
+      "operations_accounts": 37,
+      "protocol_contracts": 0,
+      "protocol_wasms": 0,
+      "protocols": 1,
+      "sac_balances": 0,
+      "sep41_allowances": 0,
+      "sep41_balances": 0,
+      "state_changes": 38,
+      "transactions": 15,
+      "transactions_accounts": 38,
+      "trustline_assets": 3,
+      "trustline_balances": 4
+    },
+    "ledgerRows": {
+      "operations": 15,
+      "state_changes": 38,
+      "transactions": 15
+    },
+    "signerRows": [
+      {
+        "reason": "ADD",
+        "account": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+        "signer": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+        "storedBytes": 101
+      }
+    ]
+  },
+  "runs": [
+    {
+      "run": 1,
+      "exitCode": 0,
+      "stoppedBy": "harness-after-cursor-reached-ledger",
+      "startedAtLedger": [
+        5699703
+      ],
+      "ingestedLedgers": [
+        5699703
+      ],
+      "persistAttempts": [],
+      "shutdownRequested": true,
+      "logFile": "ingest-1.log"
+    }
+  ],
+  "readBack": {
+    "via": "StateChangeModel.BatchGetByAccountAddress (category SIGNER)",
+    "account": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+    "expected": "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2",
+    "signers": [
+      "PCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GUAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFYTC2"
+    ],
+    "exactMatch": true,
+    "storedBytes": [
+      101
+    ]
+  },
+  "rollbackObserved": false
+}
