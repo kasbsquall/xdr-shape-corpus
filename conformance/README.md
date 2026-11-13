@@ -48,7 +48,7 @@ The pre-fix tags reproduce all three js-stellar-sdk sightings, and 17.4.0 passes
 
 The Python defects are open issues filed in py-stellar-base, and `matrix.py` expects them until they are fixed: StellarCN/py-stellar-base#1250 (`scval.to_native` drops entries whose keys collide, here string `"1"` and symbol `"1"`) and StellarCN/py-stellar-base#1251 (an offer ID or muxed ID above the 64-bit range wraps, so 2^64 encodes as 0). Python also accepts an offer ID of -1.
 
-All 16 corpus files round-trip byte-identical in JS 17.4.0, Go v0.9.0, Rust 30.0.0 and Python 17.0.1. JS 17.2.0 and 17.2.1 decode the transaction files but not the protocol 30 ledger headers, which they predate.
+All 36 corpus files round-trip byte-identical in JS 17.4.0, Go v0.9.0, Rust 30.0.0 and Python 17.0.1. JS 17.2.0 and 17.2.1 decode the transaction files but not the protocol 30 ledger headers, which they predate.
 
 ## Run
 

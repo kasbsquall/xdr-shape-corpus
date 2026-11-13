@@ -1,0 +1,38 @@
+{
+  "id": "cap46-scmap-keys-collide-after-native-conversion",
+  "txHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+  "ledger": 5704261,
+  "ledgerCloseTime": "1794544949",
+  "capturedAt": "2026-11-13T04:42:28.256Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "e501b14f238730c7bde6417483a7d91c3b838bb478a3b9e96284061f54d83075"
+    },
+    {
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "6b82ca61f90019e132ee72f6621265f56d5fbd88ca90e5ec9641541e668fa685"
+    },
+    {
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "091e480d837da6b0e98a43a8e4b2576613906cf8b98ae8c10b11b24c21046afa"
+    },
+    {
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "00675f1e34e9cd14794d24d9b380087ebecec02f772ec1a07db4a1605f9c9c3e"
+    }
+  ],
+  "probeContractId": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+  "probeWasmSha256": "920a2c772354ede715ab3fa418fafc7bec5efa3108cfc98376656adf4cb698e7"
+}

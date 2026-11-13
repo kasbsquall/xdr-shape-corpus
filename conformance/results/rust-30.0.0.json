@@ -113,6 +113,146 @@
       "xdrType": "LedgerCloseMeta",
       "decode": "ok",
       "roundTripIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
     }
   ],
   "vectors": [

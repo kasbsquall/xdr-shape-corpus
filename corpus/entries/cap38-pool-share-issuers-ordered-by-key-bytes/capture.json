@@ -1,0 +1,41 @@
+{
+  "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+  "txHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+  "ledger": 5704246,
+  "ledgerCloseTime": "1794544874",
+  "capturedAt": "2026-11-13T04:41:11.929Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "a8bea0710b1acc571a8d4d2c51733670f99723f05adb4197d1a0355eaec2f059"
+    },
+    {
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "e52d5f4e9cf259e3c8238c31b1a450a9971f3364d7f2bc35bc12d790ac58e9ef"
+    },
+    {
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "a7eabf1c234f39b04a47a29af8753b3f55b80dfb33edfe4e4706ee57fc30b4ee"
+    },
+    {
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "417ec8a75dbd2789caa72653b0c665c1e519a34ceb00c269fc9e9e4dd590b996"
+    }
+  ],
+  "assetCode": "PAIR",
+  "issuerFirstByBytes": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+  "issuerSecondByBytes": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+  "liquidityPoolId": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+  "depositor": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+}

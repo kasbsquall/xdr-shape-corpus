@@ -56,6 +56,71 @@
           "result.b64": "decodes"
         }
       }
+    },
+    {
+      "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    },
+    {
+      "id": "cap46-scmap-keys-collide-after-native-conversion",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    },
+    {
+      "id": "cap46-nested-authorization-contract-calls-sac",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    },
+    {
+      "id": "cap21-vectors-at-max-length",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
+    },
+    {
+      "id": "cap06-manage-buy-offer-update-by-id",
+      "outcome": "dropped",
+      "stage": "decode-ledger-close-meta",
+      "detail": "pinned XDR cannot decode the LedgerCloseMeta: decoding LedgerCloseMetaV2: decoding LedgerHeaderHistoryEntry: decoding LedgerHeader: decoding StellarValue: decoding StellarValueExt: decoding StellarValueType: '3' is not a valid StellarValueType enum value",
+      "evidence": {
+        "perTransactionXdr": {
+          "envelope.b64": "decodes",
+          "meta.b64": "decodes",
+          "result.b64": "decodes"
+        }
+      }
     }
   ]
 }

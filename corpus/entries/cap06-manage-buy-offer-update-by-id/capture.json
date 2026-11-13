@@ -1,0 +1,40 @@
+{
+  "id": "cap06-manage-buy-offer-update-by-id",
+  "txHash": "10ac5cc19088debe082cad46e728f385e8ff78c114a7de839bf4a453e2e5149c",
+  "ledger": 5704280,
+  "ledgerCloseTime": "1794545044",
+  "capturedAt": "2026-11-13T04:44:02.871Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "2753d53e5d51bffd63a1c2c2b26178abe192c0d2f2305ce41786659f636b503c"
+    },
+    {
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "5910e00f19c01a2d79b5bb54e1c309f0f0fcc7f9b59ff0064251005e43051af2"
+    },
+    {
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "e2deef54370087f9cab798c27754691491bc13cb8c701f30d8c66f6bcb318f48"
+    },
+    {
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "84b73c99aa3edded05adbfd54e96611d16c79364dcb80d7ed483da6cf916b56c"
+    }
+  ],
+  "seller": "GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM",
+  "offerId": "971392",
+  "createdInTx": "550a2b9153d37978c9618403758dab2992a2b2920cbc6aee5c58231cb79fcba8",
+  "createdInLedger": 5704279
+}

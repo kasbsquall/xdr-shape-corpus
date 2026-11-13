@@ -1,0 +1,23 @@
+[package]
+name = "xdr-corpus-probe"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Minimal Soroban contract that makes testnet core emit corpus shapes (ScMap arguments, nested authorization)"
+license = "Apache-2.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+soroban-sdk = "=27.0.6"
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true

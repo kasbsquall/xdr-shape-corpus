@@ -109,6 +109,8 @@ Bumped-SDK mode = go-stellar-sdk v0.8.0 on every commit. Pinned mode = each comm
 
 On `main` (`3e22515a`, already on v0.8.0) all four entries pass. The six earlier commits, run with the bumped SDK, are also `mishandled` on the `cap67` entry, since they predate #792.
 
+The five entries added for the RFP's list of shapes (pool-share issuer order, colliding map keys, nested authorization, vectors at maximum length, offer update by ID) pass the address check at every commit that can read a protocol 30 ledger header: all nine with the bumped SDK, plus `pre-792`, `fix-792` and `main` with their own pins. With go-stellar-sdk v0.7.3 they are `dropped` at the ledger decode, like every other entry.
+
 Against the RFP check, in bumped-SDK mode:
 - **#731: reproduced.** `dropped` at `764a4f5b`, `pass` at `c152783c`.
 - **#729: reproduced.** `dropped` at `2a0a84ea`, `pass` at `2c873353`.

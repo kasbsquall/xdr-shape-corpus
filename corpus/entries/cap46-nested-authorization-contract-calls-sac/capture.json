@@ -1,0 +1,43 @@
+{
+  "id": "cap46-nested-authorization-contract-calls-sac",
+  "txHash": "de6c1555994c0e8ca5d839b9ba3b7af95be5b3cb0f77a5446020defe5c249e11",
+  "ledger": 5704270,
+  "ledgerCloseTime": "1794544994",
+  "capturedAt": "2026-11-13T04:43:11.612Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "a6f2d95100872e5e63ec38de9977e8b917e62db10c5470c33467c14cafb3ff99"
+    },
+    {
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "3d8d0d4046db9f46cab0c1fc61acef02018cb64c970270172f21841a9626c9d9"
+    },
+    {
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "ab36ac8b16f15c3e642e53fd45024c5666f03cda9547e081e843f73b17327508"
+    },
+    {
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "31954b28939d5820d0e6983e68f0b9073bc08f6eb7b70f15994a48c5cbc44bb0"
+    }
+  ],
+  "probeContractId": "CDKQGU7YL3QYBDCGX6QXZXNTUTU34343OCV4KOVROPHTZ7W3Y6KIK4FM",
+  "probeWasmSha256": "920a2c772354ede715ab3fa418fafc7bec5efa3108cfc98376656adf4cb698e7",
+  "sacContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+  "authorizer": "GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN",
+  "recipient": "GANJKPBYIE3U7KZRO5ZA456ZJIMNHA7THHJKF4GXFU5E2OV73YI6EBM5",
+  "transactionSource": "GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT",
+  "amountStroops": "10000000"
+}

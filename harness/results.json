@@ -17,7 +17,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "dropped",
+        "cap46-scmap-keys-collide-after-native-conversion": "dropped",
+        "cap46-nested-authorization-contract-calls-sac": "dropped",
+        "cap21-vectors-at-max-length": "dropped",
+        "cap06-manage-buy-offer-update-by-id": "dropped"
       }
     },
     {
@@ -30,7 +35,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -43,7 +53,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "dropped",
+        "cap46-scmap-keys-collide-after-native-conversion": "dropped",
+        "cap46-nested-authorization-contract-calls-sac": "dropped",
+        "cap21-vectors-at-max-length": "dropped",
+        "cap06-manage-buy-offer-update-by-id": "dropped"
       }
     },
     {
@@ -56,7 +71,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -69,7 +89,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "dropped",
+        "cap46-scmap-keys-collide-after-native-conversion": "dropped",
+        "cap46-nested-authorization-contract-calls-sac": "dropped",
+        "cap21-vectors-at-max-length": "dropped",
+        "cap06-manage-buy-offer-update-by-id": "dropped"
       }
     },
     {
@@ -82,7 +107,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -95,7 +125,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -108,7 +143,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -121,7 +161,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -134,7 +179,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "pass"
+        "cap67-sac-transfer-to-muxed-address-max-id": "pass",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -147,7 +197,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "dropped",
+        "cap46-scmap-keys-collide-after-native-conversion": "dropped",
+        "cap46-nested-authorization-contract-calls-sac": "dropped",
+        "cap21-vectors-at-max-length": "dropped",
+        "cap06-manage-buy-offer-update-by-id": "dropped"
       }
     },
     {
@@ -160,7 +215,12 @@
         "cap40-signed-payload-signer-max-payload": "mishandled",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -173,7 +233,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "dropped",
+        "cap46-scmap-keys-collide-after-native-conversion": "dropped",
+        "cap46-nested-authorization-contract-calls-sac": "dropped",
+        "cap21-vectors-at-max-length": "dropped",
+        "cap06-manage-buy-offer-update-by-id": "dropped"
       }
     },
     {
@@ -186,7 +251,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -199,7 +269,12 @@
         "cap40-signed-payload-signer-max-payload": "dropped",
         "cap27-muxed-source-and-destination-id-extremes": "dropped",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "dropped"
+        "cap67-sac-transfer-to-muxed-address-max-id": "dropped",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "dropped",
+        "cap46-scmap-keys-collide-after-native-conversion": "dropped",
+        "cap46-nested-authorization-contract-calls-sac": "dropped",
+        "cap21-vectors-at-max-length": "dropped",
+        "cap06-manage-buy-offer-update-by-id": "dropped"
       }
     },
     {
@@ -212,7 +287,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "dropped",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -225,7 +305,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     },
     {
@@ -238,7 +323,12 @@
         "cap40-signed-payload-signer-max-payload": "pass",
         "cap27-muxed-source-and-destination-id-extremes": "pass",
         "cap73-sac-created-trustline": "pass",
-        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled"
+        "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+        "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+        "cap46-scmap-keys-collide-after-native-conversion": "pass",
+        "cap46-nested-authorization-contract-calls-sac": "pass",
+        "cap21-vectors-at-max-length": "pass",
+        "cap06-manage-buy-offer-update-by-id": "pass"
       }
     }
   ],

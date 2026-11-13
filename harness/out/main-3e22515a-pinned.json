@@ -366,6 +366,1330 @@
           "status": "exact"
         }
       ]
+    },
+    {
+      "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "all stored addresses read back",
+      "evidence": {
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "TRUSTLINE/ADD account=GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "BALANCE_AUTHORIZATION/SET account=GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "BALANCE/DEBIT account=GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/DEBIT account=GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV token=CC6LMEAWSLJDGJEXEG7NJVUVQ4DMQZUY7MQPPFL5CQLRQ7NTRHQUIXJN",
+          "BALANCE/DEBIT account=GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV token=CDI7G25I5OCJIEOUMN7ILHQFE6ICIVCTY72WYMYIZY4W5THVF33DJNP5"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] TRUSTLINE/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "out": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE_AUTHORIZATION/SET",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "out": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "out": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[3] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CC6LMEAWSLJDGJEXEG7NJVUVQ4DMQZUY7MQPPFL5CQLRQ7NTRHQUIXJN",
+          "out": "CC6LMEAWSLJDGJEXEG7NJVUVQ4DMQZUY7MQPPFL5CQLRQ7NTRHQUIXJN",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[3] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "out": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[4] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDI7G25I5OCJIEOUMN7ILHQFE6ICIVCTY72WYMYIZY4W5THVF33DJNP5",
+          "out": "CDI7G25I5OCJIEOUMN7ILHQFE6ICIVCTY72WYMYIZY4W5THVF33DJNP5",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[4] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "out": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "out": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    },
+    {
+      "id": "cap46-scmap-keys-collide-after-native-conversion",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "all stored addresses read back",
+      "evidence": {
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "BALANCE/DEBIT account=GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "out": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "out": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    },
+    {
+      "id": "cap46-nested-authorization-contract-calls-sac",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "all stored addresses read back",
+      "evidence": {
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "BALANCE/DEBIT account=GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/DEBIT account=GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "BALANCE/CREDIT account=GANJKPBYIE3U7KZRO5ZA456ZJIMNHA7THHJKF4GXFU5E2OV73YI6EBM5 token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT",
+          "out": "GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN",
+          "out": "GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/CREDIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] BALANCE/CREDIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GANJKPBYIE3U7KZRO5ZA456ZJIMNHA7THHJKF4GXFU5E2OV73YI6EBM5",
+          "out": "GANJKPBYIE3U7KZRO5ZA456ZJIMNHA7THHJKF4GXFU5E2OV73YI6EBM5",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT",
+          "out": "GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GANJKPBYIE3U7KZRO5ZA456ZJIMNHA7THHJKF4GXFU5E2OV73YI6EBM5",
+          "out": "GANJKPBYIE3U7KZRO5ZA456ZJIMNHA7THHJKF4GXFU5E2OV73YI6EBM5",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN",
+          "out": "GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    },
+    {
+      "id": "cap21-vectors-at-max-length",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "all stored addresses read back",
+      "evidence": {
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "DATA_ENTRY/ADD account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "BALANCE/DEBIT account=GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[1] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[2] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[3] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[4] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[5] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[6] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[7] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[8] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[9] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[10] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[11] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[12] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[13] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[14] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[15] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[16] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[17] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[18] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[19] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[20] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[21] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[22] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[23] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[24] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[25] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[26] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[27] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[28] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[29] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[30] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[31] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[32] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[33] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[34] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[35] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[36] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[37] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[38] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[39] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[40] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[41] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[42] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[43] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[44] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[45] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[46] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[47] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[48] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[49] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[50] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[51] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[52] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[53] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[54] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[55] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[56] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[57] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[58] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[59] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[60] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[61] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[62] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[63] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[64] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[65] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[66] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[67] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[68] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[69] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[70] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[71] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[72] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[73] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[74] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[75] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[76] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[77] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[78] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[79] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[80] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[81] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[82] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[83] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[84] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[85] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[86] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[87] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[88] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[89] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[90] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[91] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[92] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[93] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[94] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[95] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[96] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[97] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[98] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[99] DATA_ENTRY/ADD",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[100] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[100] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "out": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
+    },
+    {
+      "id": "cap06-manage-buy-offer-update-by-id",
+      "outcome": "pass",
+      "stage": "persist-roundtrip",
+      "detail": "all stored addresses read back",
+      "evidence": {
+        "ledgerCloseMetaVersion": 2,
+        "stateChanges": [
+          "BALANCE/DEBIT account=GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM token=CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+        ],
+        "txMetaVersion": 4
+      },
+      "storedValues": [
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "token_id",
+          "goType": "NullAddressBytea",
+          "in": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "out": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "state_changes[0] BALANCE/DEBIT",
+          "column": "account_id",
+          "goType": "AddressBytea",
+          "in": "GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM",
+          "out": "GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM",
+          "storedBytes": 33,
+          "status": "exact"
+        },
+        {
+          "where": "participants",
+          "column": "account_id (transactions_accounts / operations_accounts)",
+          "goType": "AddressBytea",
+          "in": "GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM",
+          "out": "GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM",
+          "storedBytes": 33,
+          "status": "exact"
+        }
+      ]
     }
   ]
 }

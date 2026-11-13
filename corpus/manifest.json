@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1",
-  "generatedAt": "2026-11-13T00:27:01+00:00",
+  "generatedAt": "2026-11-13T04:44:43+00:00",
   "entries": [
     {
       "id": "cap40-signed-payload-signer-max-payload",
@@ -317,6 +317,445 @@
             "pointer": "/v4/operations/0/events/0/body/v0/data/map/1/val/u64",
             "value": "18446744073709551615",
             "note": "u64 max; an indexer that keeps the muxed ID must not narrow it to i64"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "caps": [
+        "CAP-0038"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5704246,
+        "txHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-13T04:41:11.929Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "asset-pair-issuer-order-differs-strkey-vs-bytes",
+        "pool-share-trustline",
+        "liquidity-pool-deposit"
+      ],
+      "sightings": [
+        "https://github.com/stellar/js-stellar-sdk/pull/1766"
+      ],
+      "files": [
+        {
+          "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "a8bea0710b1acc571a8d4d2c51733670f99723f05adb4197d1a0355eaec2f059"
+        },
+        {
+          "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "e52d5f4e9cf259e3c8238c31b1a450a9971f3364d7f2bc35bc12d790ac58e9ef"
+        },
+        {
+          "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "a7eabf1c234f39b04a47a29af8753b3f55b80dfb33edfe4e4706ee57fc30b4ee"
+        },
+        {
+          "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "417ec8a75dbd2789caa72653b0c665c1e519a34ceb00c269fc9e9e4dd590b996"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+        "values": [
+          {
+            "pointer": "/tx/tx/operations/0/body/change_trust/line/pool_share/liquidity_pool_constant_product/asset_a/credit_alphanum4/issuer",
+            "value": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+            "note": "first by key bytes, second by G... text"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/change_trust/line/pool_share/liquidity_pool_constant_product/asset_b/credit_alphanum4/issuer",
+            "value": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+            "note": "second by key bytes, first by G... text"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/change_trust/line/pool_share/liquidity_pool_constant_product/asset_a/credit_alphanum4/asset_code",
+            "value": "PAIR",
+            "note": "both assets share the code, so the issuer decides the order"
+          },
+          {
+            "pointer": "/tx/tx/operations/1/body/liquidity_pool_deposit/liquidity_pool_id",
+            "value": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+            "note": "pool ID derived from the pair in byte order"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap46-scmap-keys-collide-after-native-conversion",
+      "caps": [
+        "CAP-0046"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5704261,
+        "txHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-13T04:42:28.256Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "scmap-key-collision",
+        "scmap-u32-string-symbol-same-text",
+        "contract-event-map-data",
+        "contract-return-map"
+      ],
+      "sightings": [
+        "https://github.com/stellar/js-stellar-sdk/issues/1789",
+        "https://github.com/StellarCN/py-stellar-base/issues/1250"
+      ],
+      "files": [
+        {
+          "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "e501b14f238730c7bde6417483a7d91c3b838bb478a3b9e96284061f54d83075"
+        },
+        {
+          "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "6b82ca61f90019e132ee72f6621265f56d5fbd88ca90e5ec9641541e668fa685"
+        },
+        {
+          "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "091e480d837da6b0e98a43a8e4b2576613906cf8b98ae8c10b11b24c21046afa"
+        },
+        {
+          "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "00675f1e34e9cd14794d24d9b380087ebecec02f772ec1a07db4a1605f9c9c3e"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+        "values": [
+          {
+            "pointer": "/v4/operations/0/events/0/body/v0/data/map",
+            "value": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ],
+            "note": "three distinct keys that all print as 1; a native conversion must keep all three or throw"
+          },
+          {
+            "pointer": "/v4/soroban_meta/return_value/map/0/key/u32",
+            "value": 1
+          },
+          {
+            "pointer": "/v4/soroban_meta/return_value/map/1/key/string",
+            "value": "1"
+          },
+          {
+            "pointer": "/v4/soroban_meta/return_value/map/2/key/symbol",
+            "value": "1"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap46-nested-authorization-contract-calls-sac",
+      "caps": [
+        "CAP-0046"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5704270,
+        "txHash": "de6c1555994c0e8ca5d839b9ba3b7af95be5b3cb0f77a5446020defe5c249e11",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-13T04:43:11.612Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "nested-authorization",
+        "auth-sub-invocation",
+        "auth-address-credentials-signature"
+      ],
+      "sightings": [],
+      "files": [
+        {
+          "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "a6f2d95100872e5e63ec38de9977e8b917e62db10c5470c33467c14cafb3ff99"
+        },
+        {
+          "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "3d8d0d4046db9f46cab0c1fc61acef02018cb64c970270172f21841a9626c9d9"
+        },
+        {
+          "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "ab36ac8b16f15c3e642e53fd45024c5666f03cda9547e081e843f73b17327508"
+        },
+        {
+          "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "31954b28939d5820d0e6983e68f0b9073bc08f6eb7b70f15994a48c5cbc44bb0"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+        "values": [
+          {
+            "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/credentials/address_v2/address",
+            "value": "GCBE2FPPM3Z4POWTUMSICW6NOENYNPPQWMD56M746QO2PKQKRB6M32UN",
+            "note": "address credentials signed by an account other than the transaction source"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/function/contract_fn/function_name",
+            "value": "pay"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/sub_invocations/0/function/contract_fn/contract_address",
+            "value": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+            "note": "native SAC"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/sub_invocations/0/function/contract_fn/function_name",
+            "value": "transfer",
+            "note": "sub-invocation one level below the root"
+          },
+          {
+            "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/sub_invocations/0/sub_invocations",
+            "value": []
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap21-vectors-at-max-length",
+      "caps": [
+        "CAP-0021",
+        "CAP-0040"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5704274,
+        "txHash": "55b5451757aa5770281b43e8b25c6730b03f565288d80f3e2f80b40fe5b416fb",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-13T04:43:33.341Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "operations-at-max-100",
+        "extra-signers-at-max-2",
+        "signed-payload-max-length-64",
+        "manage-data-name-max-64",
+        "manage-data-value-max-64",
+        "memo-text-max-28"
+      ],
+      "sightings": [],
+      "files": [
+        {
+          "path": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "3cb719c5f80395e50788e000115f2d39bb3bcfc56f3e20142d5685e08bc12550"
+        },
+        {
+          "path": "corpus/entries/cap21-vectors-at-max-length/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "e9766ac7e59b5ffec218489f2b8dba9a042b43039f190d727ee1aa06e698e3db"
+        },
+        {
+          "path": "corpus/entries/cap21-vectors-at-max-length/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "c03c56a3ef1582fa3dfeaff1fa9ffa97b4cfb2f8d128fb8ab781e7a566981d32"
+        },
+        {
+          "path": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "5b5d9dad0a9c04857c26c3cfcf9fc2aa4650e877686d7205f22f49c63617da84"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+        "values": [
+          {
+            "pointer": "/tx/tx/operations/99/body/manage_data/data_name",
+            "value": "xdr-shape-corpus-max-length-op-099-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            "note": "operation 100 of 100 (MAX_OPS_PER_TX); 64-character name"
+          },
+          {
+            "pointer": "/tx/tx/operations/99/body/manage_data/data_value",
+            "value": "636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2",
+            "note": "64-byte DataValue, hex in xdr-json"
+          },
+          {
+            "pointer": "/tx/tx/memo/text",
+            "value": "xdr-shape-corpus max memo 28",
+            "note": "28 bytes"
+          },
+          {
+            "pointer": "/tx/tx/cond/v2/extra_signers/0",
+            "value": "PDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFQAAAABAAAAICAMCAKBQHBAEQUCYMBUHA6EARCIJRIFIWC4MBSGQ3DQOR4HZAEERCGJBFEYTSQKJKFMWC2LRPGAYTEMZUGU3DOOBZHI5TYPJ6H4Z6W",
+            "note": "signed-payload signer, 64-byte payload"
+          },
+          {
+            "pointer": "/tx/tx/cond/v2/extra_signers/1",
+            "value": "PDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFQAAAABAEAQKCINCEKRSHJBEUUS2MJVHE6UCRKJJVIVKWK5MFSWS3LROV4X3AMFRGGZDFMZTWQ2LKNNWG23TPOBYXE43UOV3HO6DZPJ5XY7L6P7KV2",
+            "note": "second of at most two extra signers"
+          }
+        ],
+        "roundTrip": true
+      },
+      "checks": {
+        "rsStellarXdrRoundTrip": true,
+        "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "checkLcmGolden": "not-run"
+      }
+    },
+    {
+      "id": "cap06-manage-buy-offer-update-by-id",
+      "caps": [
+        "CAP-0006"
+      ],
+      "protocolVersion": 30,
+      "network": {
+        "name": "testnet",
+        "passphrase": "Test SDF Network ; September 2015"
+      },
+      "source": {
+        "kind": "network-history",
+        "ledger": 5704280,
+        "txHash": "10ac5cc19088debe082cad46e728f385e8ff78c114a7de839bf4a453e2e5149c",
+        "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+        "capturedAt": "2026-11-13T04:44:02.871Z",
+        "generator": "tools/capture-testnet.mjs"
+      },
+      "synthetic": false,
+      "shapes": [
+        "manage-buy-offer-update",
+        "offer-id-in-envelope"
+      ],
+      "sightings": [],
+      "files": [
+        {
+          "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/envelope.b64",
+          "xdrType": "TransactionEnvelope",
+          "encoding": "base64",
+          "sha256": "2753d53e5d51bffd63a1c2c2b26178abe192c0d2f2305ce41786659f636b503c"
+        },
+        {
+          "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/result.b64",
+          "xdrType": "TransactionResult",
+          "encoding": "base64",
+          "sha256": "5910e00f19c01a2d79b5bb54e1c309f0f0fcc7f9b59ff0064251005e43051af2"
+        },
+        {
+          "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/meta.b64",
+          "xdrType": "TransactionMeta",
+          "encoding": "base64",
+          "sha256": "e2deef54370087f9cab798c27754691491bc13cb8c701f30d8c66f6bcb318f48"
+        },
+        {
+          "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+          "xdrType": "LedgerCloseMeta",
+          "encoding": "base64",
+          "sha256": "84b73c99aa3edded05adbfd54e96611d16c79364dcb80d7ed483da6cf916b56c"
+        }
+      ],
+      "expected": {
+        "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/envelope.b64",
+        "values": [
+          {
+            "pointer": "/tx/tx/operations/0/body/manage_buy_offer/offer_id",
+            "value": "971392",
+            "note": "ID core assigned when the offer was created; in range, since the network only emits IDs it allocated"
           }
         ],
         "roundTrip": true

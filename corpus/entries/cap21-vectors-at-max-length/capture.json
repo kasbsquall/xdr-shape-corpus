@@ -1,0 +1,42 @@
+{
+  "id": "cap21-vectors-at-max-length",
+  "txHash": "55b5451757aa5770281b43e8b25c6730b03f565288d80f3e2f80b40fe5b416fb",
+  "ledger": 5704274,
+  "ledgerCloseTime": "1794545014",
+  "capturedAt": "2026-11-13T04:43:33.341Z",
+  "capturedVia": "stellar-rpc sendTransaction/getTransaction/getLedgers",
+  "rpc": "https://soroban-testnet.stellar.org",
+  "passphrase": "Test SDF Network ; September 2015",
+  "files": [
+    {
+      "path": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "3cb719c5f80395e50788e000115f2d39bb3bcfc56f3e20142d5685e08bc12550"
+    },
+    {
+      "path": "corpus/entries/cap21-vectors-at-max-length/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "e9766ac7e59b5ffec218489f2b8dba9a042b43039f190d727ee1aa06e698e3db"
+    },
+    {
+      "path": "corpus/entries/cap21-vectors-at-max-length/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "c03c56a3ef1582fa3dfeaff1fa9ffa97b4cfb2f8d128fb8ab781e7a566981d32"
+    },
+    {
+      "path": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "5b5d9dad0a9c04857c26c3cfcf9fc2aa4650e877686d7205f22f49c63617da84"
+    }
+  ],
+  "source": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+  "operationCount": 100,
+  "memoText": "xdr-shape-corpus max memo 28",
+  "extraSigner0": "PDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFQAAAABAAAAICAMCAKBQHBAEQUCYMBUHA6EARCIJRIFIWC4MBSGQ3DQOR4HZAEERCGJBFEYTSQKJKFMWC2LRPGAYTEMZUGU3DOOBZHI5TYPJ6H4Z6W",
+  "extraSigner1": "PDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFQAAAABAEAQKCINCEKRSHJBEUUS2MJVHE6UCRKJJVIVKWK5MFSWS3LROV4X3AMFRGGZDFMZTWQ2LKNNWG23TPOBYXE43UOV3HO6DZPJ5XY7L6P7KV2",
+  "lastDataName": "xdr-shape-corpus-max-length-op-099-xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}

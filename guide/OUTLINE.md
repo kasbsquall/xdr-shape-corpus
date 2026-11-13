@@ -19,6 +19,7 @@ One row per transaction and operation field: validated by core (yes / partially 
 - Recommended caps per structure, with the limits core and the host already enforce cited from source, and the decoder limits each SDK exposes (rs-stellar-xdr `Limits`, go-stellar-sdk decoder options, js-xdr).
 - Memory: decode with a byte budget; never pre-allocate from an untrusted length prefix (rs-stellar-xdr#581, #598).
 - Linter rule XDRL002 enforces the recursion bound in Go code.
+- Corpus entries: `cap46-nested-authorization-contract-calls-sac` (an authorization tree with a sub-invocation) and `cap21-vectors-at-max-length` (var-arrays at their bound: 100 operations, two extra signers, 64-byte names and values, a 28-byte memo).
 
 ## 4. Participants from meta
 
