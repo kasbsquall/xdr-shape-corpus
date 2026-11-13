@@ -38,3 +38,34 @@ jobs:
           cache-dependency-path: linter/go.sum
       - run: go vet ./...
       - run: go test ./...
+
+  conformance:
+    name: Conformance runner (JS, Go, Rust)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: conformance/go/go.mod
+          cache-dependency-path: conformance/go/go.sum
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: JS SDK 17.2.1 and 17.4.0
+        run: |
+          for v in 17.2.1 17.4.0; do
+            (cd conformance/js/sdk-$v && npm ci --no-audit --no-fund)
+            node conformance/js/run.mjs conformance/js/sdk-$v conformance/results/js-$v.json
+          done
+      - name: Go SDK v0.9.0
+        working-directory: conformance/go
+        run: go run . ../.. ../results/go-v0.9.0.json
+      - name: Rust stellar-xdr 30.0.0
+        run: |
+          cargo build --release --locked --manifest-path tools/roundtrip/Cargo.toml
+          python conformance/rust.py conformance/results/rust-30.0.0.json
+      - name: Divergence matrix and expectations
+        run: python conformance/matrix.py

@@ -1,0 +1,7 @@
+{
+  "name": "conformance-js-17.2.1",
+  "private": true,
+  "dependencies": {
+    "@stellar/stellar-sdk": "17.2.1"
+  }
+}

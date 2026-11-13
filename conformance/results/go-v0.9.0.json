@@ -1,0 +1,130 @@
+{
+  "corpus": [
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true
+    }
+  ],
+  "sdk": "go-stellar-sdk",
+  "vectors": [
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-u32-and-symbol-key.b64",
+      "xdrType": "ScVal",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "n/a",
+      "detail": "no native map conversion in go-stellar-sdk; ScMap is a slice of entries"
+    }
+  ],
+  "version": "v0.9.0"
+}

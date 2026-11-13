@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "0.1",
+  "description": "Vectors that reproduce SDK sightings. Each one names the behaviour every SDK must show; a runner reports 'defect', 'ok' or 'n/a' for its SDK.",
+  "sightings": [
+    {
+      "id": "js-stellar-sdk#1789",
+      "url": "https://github.com/stellar/js-stellar-sdk/issues/1789",
+      "file": "vectors/js-1789-map-u32-and-symbol-key.b64",
+      "xdrType": "ScVal",
+      "synthetic": true,
+      "description": "scvMap with two distinct keys, u32 1 -> 10 and symbol \"1\" -> 20, that print the same",
+      "check": "native-map-conversion-keeps-every-entry",
+      "mapEntries": 2,
+      "expected": "A native conversion keeps both entries or throws; it never returns fewer entries silently.",
+      "siblings": ["https://github.com/StellarCN/py-stellar-base/issues/1250"]
+    }
+  ]
+}
