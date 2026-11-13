@@ -4,13 +4,14 @@ A language-neutral corpus of rare but valid Stellar ledger shapes, captured from
 
 This repository is the working prototype for the SCF RFP *XDR/CAP-Coverage Audit Tool and Indexer-Hardening Guide*. Everything here runs today; what is still planned is marked as planned.
 
-## Status (2026-11-12)
+## Status (2026-11-13)
 
 | Piece | State |
 | --- | --- |
 | Manifest schema | Draft 0.1, JSON Schema 2020-12 ([schema/manifest.schema.json](schema/manifest.schema.json)) |
 | Corpus | 9 entries captured on testnet at protocol 30, each with envelope, result, `TransactionMeta` v4 and the full `LedgerCloseMeta`; none synthetic |
 | Byte check | Every file decodes and re-encodes byte-identical with rs-stellar-xdr 30.0.0; checked in CI |
+| stellar-core goldens | Every `--check-lcm` golden at a pinned core commit decodes byte-identical, and each entry's shapes are reported against what core emits: 13 agree, 1 elsewhere, 18 with no golden ([below](#stellar-core---check-lcm-goldens)) |
 | Replay harness | Reference adapter for `stellar/wallet-backend`; reproduces #731, #729, #716 (signed-payload) and the muxed-destination gap closed by #792 on pre-fix commits, and passes on the fixed ones |
 | Conformance runner | Every corpus file and six sighting checks through js-stellar-sdk, go-stellar-sdk, rs-stellar-xdr and py-stellar-base in CI; js-stellar-sdk#1766, #1785 and #1789 reproduce on their pre-fix tags and pass on 17.4.0 ([conformance/MATRIX.md](conformance/MATRIX.md)) |
 | Linter | `xdrlint`, rule XDRL002 working; XDRL001 and XDRL003 planned |
