@@ -22,7 +22,7 @@ The work has already started, in public. The reviewability package the RFP requi
 | Conformance runner | Running in CI across JS, Go, Rust and Python: all 36 corpus files round-trip byte-identical in the current releases (JS 17.2.x predates protocol 30 and cannot decode the ledgers), and js-stellar-sdk#1766, #1785 and #1789 reproduce on their pre-fix tags and pass on 17.4.0. The sighting checks use small vectors and SDK API calls, marked `synthetic` in `conformance/sightings.json`; tranche 2 moves them onto corpus entries |
 | Mock `getLedgers` input | The wallet-backend adapter reads every ledger through a mock RPC `getLedgers` endpoint, with the adapter contract documented in `harness/ADAPTER.md` |
 | Reproducible generation (tranche 1 item, started) | In CI (`corpus generator` workflow): `cap40` and `cap27` are regenerated on a local stellar-core 30.0.0 under the testnet and the mainnet passphrase, with no network contacted, and checked against the committed entries: 108 checks match, 6 are skipped because they depend on generated keys, ledger or time, 0 differ |
-| Second SDF pipeline (tranche 2 item, started) | In CI (`stellar-etl replay` workflow): the corpus runs through stellar-etl's own export code at a pinned commit. 6 entries pass; the other 3 reproduce stellar-etl#460 (open) and the legacy column that #330 replaced |
+| Second SDF pipeline (tranche 2 item, started) | In CI (`stellar-etl replay` workflow): the corpus runs through stellar-etl's own export code at a pinned commit. 6 entries pass; the other 3 reproduce stellar-etl#460 (open) and the legacy `parameters_decoded` column, which #330 complemented with `parameters_json_decoded` but which is still exported |
 
 ## 2. Design and Stellar integration
 
