@@ -36,7 +36,7 @@ One row per transaction and operation field: validated by core (yes / partially 
 
 ## 6. Checklist for indexers in any language
 
-The same three checks the linter enforces in Go, written so a reviewer can apply them by hand:
+The three checks from the RFP, written so a reviewer can apply them by hand in any language (the Go linter enforces the second one today, as XDRL002):
 1. Every field you store or act on: is it validated by core? If not, treat it as untrusted.
 2. Every recursive walk: does it take and enforce a depth bound and a size budget?
 3. Every participant list: is it built from ledger meta?

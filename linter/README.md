@@ -4,9 +4,9 @@ Go analyzer for indexer source code. The RFP asks for three rules; this prototyp
 
 | Rule | Mistake it flags | Status |
 | --- | --- | --- |
-| XDRL001 | Trusting fields stellar-core does not validate (memos, Soroban auth trees, muxed IDs) | planned |
+| XDRL001 | Trusting fields stellar-core does not validate (memos, Soroban auth trees, muxed IDs) | not in current scope (guide checklist) |
 | XDRL002 | Recursive walks over ScVal, ScMap, ScVec or SorobanAuthorizedInvocation without a depth bound | working prototype |
-| XDRL003 | Deriving transaction participants from the envelope instead of the ledger meta | planned |
+| XDRL003 | Deriving transaction participants from the envelope instead of the ledger meta | not in current scope (guide checklist) |
 
 ## XDRL002
 

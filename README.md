@@ -14,7 +14,7 @@ This repository is the working prototype for the SCF RFP *XDR/CAP-Coverage Audit
 | stellar-core goldens | Every `--check-lcm` golden at a pinned core commit decodes byte-identical, and each entry's shapes are reported against what core emits: 13 agree, 1 elsewhere, 18 with no golden ([below](#stellar-core---check-lcm-goldens)) |
 | Replay harness | Reference adapter for `stellar/wallet-backend`; reproduces #731, #729, #716 (signed-payload) and the muxed-destination gap closed by #792 on pre-fix commits, and passes on the fixed ones |
 | Conformance runner | Every corpus file and six sighting checks through js-stellar-sdk, go-stellar-sdk, rs-stellar-xdr and py-stellar-base in CI; js-stellar-sdk#1766, #1785 and #1789 reproduce on their pre-fix tags and pass on 17.4.0 ([conformance/MATRIX.md](conformance/MATRIX.md)) |
-| Linter | `xdrlint`, rule XDRL002 working; XDRL001 and XDRL003 planned |
+| Linter | `xdrlint`, rule XDRL002 working; XDRL001 and XDRL003 are outside the current scope, and the guide checklist covers all three by hand |
 | Guide | Outline ([guide/OUTLINE.md](guide/OUTLINE.md)) |
 
 ## Corpus entries
@@ -46,7 +46,7 @@ Each entry lives in `corpus/entries/<id>/`. [corpus/manifest.json](corpus/manife
 | wallet-backend#716 (signed payload) | `mishandled` at `79ea2acd` | `pass` at `2c873353` and `71625b21` |
 | wallet-backend#792 (`to_muxed_id` on a muxed destination) | `mishandled` at `a9bac8d2` | `pass` at `09303667` |
 
-The harness also surfaced one finding of its own: every commit in that window pins go-stellar-sdk v0.7.3, which cannot decode a protocol 30 ledger header (`STELLAR_VALUE_SIGNED_MS`, CAP-0088). An indexer left on that version stops at the upgrade. The fixes were measured by bumping only that dependency to v0.8.0.
+A note on method: every commit in that window pins go-stellar-sdk v0.7.3, which cannot decode a protocol 30 ledger header (`STELLAR_VALUE_SIGNED_MS`, CAP-0088). The go-stellar-sdk v0.8.0 changelog says versions before it cannot decode those headers, so this is expected and is not reported as a finding. The fixes were measured by bumping only that dependency to v0.8.0, on both sides of each fix.
 
 ## stellar-core `--check-lcm` goldens
 
