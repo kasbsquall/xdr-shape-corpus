@@ -1,0 +1,10 @@
+[package]
+name = "lcm-goldens"
+version = "0.1.0"
+edition = "2021"
+description = "Decodes stellar-core --check-lcm golden files (stream-framed LedgerCloseMeta) with rs-stellar-xdr and checks byte-identical re-encoding"
+
+[dependencies]
+stellar-xdr = { version = "=30.0.0", features = ["std", "base64", "serde_json"] }
+serde_json = "1"
+sha2 = "=0.10.9"

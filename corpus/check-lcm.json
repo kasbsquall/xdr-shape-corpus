@@ -1,0 +1,514 @@
+{
+  "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+  "goldenTier": "test-lcm-current",
+  "decoder": "stellar-xdr 30.0.0",
+  "goldens": {
+    "files": 866,
+    "ledgers": 15306,
+    "transactions": 13107,
+    "transactionsAtOtherProtocols": 1368
+  },
+  "entries": [
+    {
+      "id": "cap40-signed-payload-signer-max-payload",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "signed-payload-signer",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/set_options/signer/key",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/updated/data/account/signers/*/key"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "signed-payload-max-length-64",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/set_options/signer/key",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/updated/data/account/signers/*/key"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "set-options-signer",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/set_options/signer"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/set_options/signer"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/set_options/signer"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/BeginSponsoringFutureReservesTests/1467a37ff2a1e960.xdr",
+            "test": "sponsor future reserves|protocol version 30|add sponsored entry before adding first sponsored signer"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cap27-muxed-source-and-destination-id-extremes",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "muxed-source",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/source_account"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "muxed-destination",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/payment/destination"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "muxed-id-max-u64",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/source_account"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "muxed-id-zero",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/payment/destination",
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        }
+      ]
+    },
+    {
+      "id": "cap73-sac-created-trustline",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "sac-created-trustline",
+          "status": "agrees",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline"
+          ],
+          "commonLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline"
+          ],
+          "goldenLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/4c437318f87437c5.xdr",
+            "test": "Trustline stellar asset contract|protocol version 30"
+          }
+        },
+        {
+          "shape": "trustline-without-change-trust",
+          "status": "agrees",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline"
+          ],
+          "commonLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline"
+          ],
+          "goldenLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/4c437318f87437c5.xdr",
+            "test": "Trustline stellar asset contract|protocol version 30"
+          }
+        },
+        {
+          "shape": "no-contract-event",
+          "status": "agrees",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events"
+          ],
+          "commonLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events"
+          ],
+          "goldenLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/4c437318f87437c5.xdr",
+            "test": "Trustline stellar asset contract|protocol version 30"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cap67-sac-transfer-to-muxed-address-max-id",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "sc-address-muxed-account",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/function/contract_fn/args/*/address",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract/args/*/address",
+            "tx_processing/tx_apply_processing/v4/diagnostic_events/*/event/body/v0/data/vec/*/address"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/function/contract_fn/args/*/address",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract/args/*/address",
+            "tx_processing/tx_apply_processing/v4/diagnostic_events/*/event/body/v0/data/vec/*/address"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/function/contract_fn/args/*/address",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract/args/*/address",
+            "tx_processing/tx_apply_processing/v4/diagnostic_events/*/event/body/v0/data/vec/*/address"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/8fe0b7272f3a072f.xdr",
+            "test": "Stellar asset contract transfer with CAP-67 address types|custom asset"
+          }
+        },
+        {
+          "shape": "sac-transfer-to-muxed",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/8fe0b7272f3a072f.xdr",
+            "test": "Stellar asset contract transfer with CAP-67 address types|custom asset"
+          }
+        },
+        {
+          "shape": "sep41-event-to-muxed-id",
+          "status": "agrees",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*"
+          ],
+          "commonLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*"
+          ],
+          "goldenLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/6c3fc64cf8dffa5d.xdr",
+            "test": "Stellar asset contract transfer to muxed contract (CAP-0084)|native asset transfer"
+          }
+        },
+        {
+          "shape": "muxed-id-max-u64",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/function/contract_fn/args/*/address",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract/args/*/address",
+            "tx_processing/tx_apply_processing/v4/diagnostic_events/*/event/body/v0/data/vec/*/address",
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        }
+      ]
+    },
+    {
+      "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "asset-pair-issuer-order-differs-strkey-vs-bytes",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/change_trust/line/pool_share/liquidity_pool_constant_product",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/liquidity_pool/body/liquidity_pool_constant_product/params",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/state/data/liquidity_pool/body/liquidity_pool_constant_product/params",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/updated/data/liquidity_pool/body/liquidity_pool_constant_product/params"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "pool-share-trustline",
+          "status": "agrees",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/state/data/trustline",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/updated/data/trustline"
+          ],
+          "commonLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/state/data/trustline",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/updated/data/trustline"
+          ],
+          "goldenLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/created/data/trustline",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/state/data/trustline",
+            "tx_processing/tx_apply_processing/v4/operations/*/changes/*/updated/data/trustline"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/FrozenLedgerKeysTests/0d70bfa2dc91b602.xdr",
+            "test": "frozen ledger keys apply time validation|liquidity pool withdraw assetA trustline frozen"
+          }
+        },
+        {
+          "shape": "liquidity-pool-deposit",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/liquidity_pool_deposit"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/liquidity_pool_deposit"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/liquidity_pool_deposit"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/FrozenLedgerKeysTests/0d70bfa2dc91b602.xdr",
+            "test": "frozen ledger keys apply time validation|liquidity pool withdraw assetA trustline frozen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cap46-scmap-keys-collide-after-native-conversion",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "scmap-key-collision",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract/args/*/map",
+            "tx_processing/tx_apply_processing/v4/diagnostic_events/*/event/body/v0/data/map",
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*/body/v0/data/map",
+            "tx_processing/tx_apply_processing/v4/soroban_meta/return_value/map"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "scmap-u32-string-symbol-same-text",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/host_function/invoke_contract/args/*/map",
+            "tx_processing/tx_apply_processing/v4/diagnostic_events/*/event/body/v0/data/map",
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*/body/v0/data/map",
+            "tx_processing/tx_apply_processing/v4/soroban_meta/return_value/map"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "contract-event-map-data",
+          "status": "agrees",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*/body/v0/data"
+          ],
+          "commonLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*/body/v0/data"
+          ],
+          "goldenLocations": [
+            "tx_processing/tx_apply_processing/v4/operations/*/events/*/body/v0/data"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/426337b02a4e2a17.xdr",
+            "test": "Stellar asset contract transfer to muxed contract (CAP-0084)|custom asset|issuer transfer emits mint"
+          }
+        },
+        {
+          "shape": "contract-return-map",
+          "status": "no-golden",
+          "entryLocations": [
+            "tx_processing/tx_apply_processing/v4/soroban_meta/return_value"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        }
+      ]
+    },
+    {
+      "id": "cap46-nested-authorization-contract-calls-sac",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "nested-authorization",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/017d69627da0cec8.xdr",
+            "test": "Soroban authorization|custom account|deep tree|success"
+          }
+        },
+        {
+          "shape": "auth-sub-invocation",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/sub_invocations/*"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/sub_invocations/*"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/sub_invocations/*",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/sub_invocations/*/sub_invocations/*",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/sub_invocations/*/sub_invocations/*/sub_invocations/*",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/root_invocation/sub_invocations/*/sub_invocations/*/sub_invocations/*/sub_invocations/*"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/017d69627da0cec8.xdr",
+            "test": "Soroban authorization|custom account|deep tree|success"
+          }
+        },
+        {
+          "shape": "auth-address-credentials-signature",
+          "status": "agrees",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/credentials/address_v2"
+          ],
+          "commonLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/credentials/address_v2"
+          ],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/credentials/address",
+            "envelope/tx/tx/operations/*/body/invoke_host_function/auth/*/credentials/address_v2"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/InvokeHostFunctionTests/017d69627da0cec8.xdr",
+            "test": "Soroban authorization|custom account|deep tree|success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cap21-vectors-at-max-length",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "operations-at-max-100",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "extra-signers-at-max-2",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/cond/v2/extra_signers"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "signed-payload-max-length-64",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/cond/v2/extra_signers/*"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "manage-data-name-max-64",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/manage_data/data_name"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "manage-data-value-max-64",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/manage_data/data_value"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "memo-text-max-28",
+          "status": "no-golden",
+          "entryLocations": [
+            "envelope/tx/tx/memo/text"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        }
+      ]
+    },
+    {
+      "id": "cap06-manage-buy-offer-update-by-id",
+      "protocolVersion": 30,
+      "shapes": [
+        {
+          "shape": "manage-buy-offer-update",
+          "status": "no-golden",
+          "entryLocations": [
+            "tx_processing/result/result/result/tx_success/*/op_inner/manage_buy_offer/success/offer"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [],
+          "goldenExample": null
+        },
+        {
+          "shape": "offer-id-in-envelope",
+          "status": "elsewhere",
+          "entryLocations": [
+            "envelope/tx/tx/operations/*/body/manage_buy_offer/offer_id"
+          ],
+          "commonLocations": [],
+          "goldenLocations": [
+            "envelope/tx/tx/operations/*/body/manage_sell_offer/offer_id"
+          ],
+          "goldenExample": {
+            "file": "test-lcm-current/OfferTests/9a363b756ac27b94.xdr",
+            "test": "liabilities match created offer|protocol version 30|minimum limits"
+          }
+        }
+      ]
+    }
+  ]
+}

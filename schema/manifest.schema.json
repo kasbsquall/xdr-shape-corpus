@@ -113,7 +113,25 @@
           "properties": {
             "rsStellarXdrRoundTrip": { "type": "boolean" },
             "rsStellarXdrVersion": { "type": "string" },
-            "checkLcmGolden": { "enum": ["agrees", "differs", "not-applicable", "not-run"] }
+            "checkLcmGolden": {
+              "description": "Per-shape result of tools/check_lcm_goldens.py against stellar-core's --check-lcm golden LedgerCloseMeta, copied from the committed results file; \"not-run\" when that file has no current result for the entry.",
+              "oneOf": [
+                { "const": "not-run" },
+                {
+                  "type": "object",
+                  "required": ["results", "stellarCoreCommit", "shapes"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "results": { "type": "string", "description": "Repository path of the results file." },
+                    "stellarCoreCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+                    "shapes": {
+                      "type": "object",
+                      "additionalProperties": { "enum": ["agrees", "elsewhere", "no-golden", "no-predicate"] }
+                    }
+                  }
+                }
+              ]
+            }
           }
         }
       }

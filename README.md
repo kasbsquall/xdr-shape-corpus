@@ -47,6 +47,22 @@ Each entry lives in `corpus/entries/<id>/`. [corpus/manifest.json](corpus/manife
 
 The harness also surfaced one finding of its own: every commit in that window pins go-stellar-sdk v0.7.3, which cannot decode a protocol 30 ledger header (`STELLAR_VALUE_SIGNED_MS`, CAP-0088). An indexer left on that version stops at the upgrade. The fixes were measured by bumping only that dependency to v0.8.0.
 
+## stellar-core `--check-lcm` goldens
+
+stellar-core's `--check-lcm` mode ([stellar-core#5435](https://github.com/stellar/stellar-core/pull/5435)) re-runs core's own unit tests and compares the `LedgerCloseMeta` they produce with golden files checked into core under `test-lcm-current/`. It takes no outside ledger as input, and a testnet ledger can never be byte-equal to a golden made on core's test network, so [tools/check_lcm_goldens.py](tools/check_lcm_goldens.py) checks what agreement can mean for captured entries: every golden at a pinned core commit (866 files, 15,306 ledgers, protocol 30) decodes and re-encodes byte-identical with the same rs-stellar-xdr 30.0.0 the corpus uses, and each manifest shape is searched for in core's protocol 30 golden transactions with the same predicate that must match the entry's own transaction. A shape `agrees` when core emits it at the same place in the meta, is `elsewhere` when core emits it only at other places, is `no-golden` when core's CI does not exercise it yet, and is `no-predicate` until a predicate is written. The run fails on any decode, round-trip, index or tx-hash pairing error, or when an entry's own transaction lacks a shape it lists. Results are committed in [corpus/check-lcm.json](corpus/check-lcm.json) and copied into each entry's `checks.checkLcmGolden` by `tools/build_manifest.py`; CI ([check-lcm.yml](.github/workflows/check-lcm.yml)) fails if that file differs from a fresh run. Locally: `cargo build --release --locked --manifest-path tools/lcm-goldens/Cargo.toml && python tools/check_lcm_goldens.py --write && python tools/build_manifest.py`. Current results (2026-11-13), 32 shapes over 9 entries: 13 agree, 1 elsewhere, 18 no golden.
+
+| Entry | agrees | elsewhere | no-golden |
+| --- | --- | --- | --- |
+| `cap40-signed-payload-signer-max-payload` | 1 (`set-options-signer`) | 0 | 2 |
+| `cap27-muxed-source-and-destination-id-extremes` | 0 | 0 | 4 |
+| `cap73-sac-created-trustline` | 3 | 0 | 0 |
+| `cap67-sac-transfer-to-muxed-address-max-id` | 3 | 0 | 1 (`muxed-id-max-u64`) |
+| `cap38-pool-share-issuers-ordered-by-key-bytes` | 2 | 0 | 1 (issuer order) |
+| `cap46-scmap-keys-collide-after-native-conversion` | 1 (`contract-event-map-data`) | 0 | 3 |
+| `cap46-nested-authorization-contract-calls-sac` | 3 | 0 | 0 |
+| `cap21-vectors-at-max-length` | 0 | 0 | 6 |
+| `cap06-manage-buy-offer-update-by-id` | 0 | 1 (`offer-id-in-envelope`: the goldens carry a non-zero offer ID only in ManageSellOffer) | 1 |
+
 ## Run it
 
 ```bash

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1",
-  "generatedAt": "2026-11-13T04:44:43+00:00",
+  "generatedAt": "2026-11-13T04:59:29+00:00",
   "entries": [
     {
       "id": "cap40-signed-payload-signer-max-payload",
@@ -74,7 +74,15 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "signed-payload-signer": "no-golden",
+            "signed-payload-max-length-64": "no-golden",
+            "set-options-signer": "agrees"
+          }
+        }
       }
     },
     {
@@ -156,7 +164,16 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "muxed-source": "no-golden",
+            "muxed-destination": "no-golden",
+            "muxed-id-max-u64": "no-golden",
+            "muxed-id-zero": "no-golden"
+          }
+        }
       }
     },
     {
@@ -240,7 +257,15 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "sac-created-trustline": "agrees",
+            "trustline-without-change-trust": "agrees",
+            "no-contract-event": "agrees"
+          }
+        }
       }
     },
     {
@@ -324,7 +349,16 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "sc-address-muxed-account": "agrees",
+            "sac-transfer-to-muxed": "agrees",
+            "sep41-event-to-muxed-id": "agrees",
+            "muxed-id-max-u64": "no-golden"
+          }
+        }
       }
     },
     {
@@ -409,7 +443,15 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "asset-pair-issuer-order-differs-strkey-vs-bytes": "no-golden",
+            "pool-share-trustline": "agrees",
+            "liquidity-pool-deposit": "agrees"
+          }
+        }
       }
     },
     {
@@ -518,7 +560,16 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "scmap-key-collision": "no-golden",
+            "scmap-u32-string-symbol-same-text": "no-golden",
+            "contract-event-map-data": "agrees",
+            "contract-return-map": "no-golden"
+          }
+        }
       }
     },
     {
@@ -604,7 +655,15 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "nested-authorization": "agrees",
+            "auth-sub-invocation": "agrees",
+            "auth-address-credentials-signature": "agrees"
+          }
+        }
       }
     },
     {
@@ -696,7 +755,18 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "operations-at-max-100": "no-golden",
+            "extra-signers-at-max-2": "no-golden",
+            "signed-payload-max-length-64": "no-golden",
+            "manage-data-name-max-64": "no-golden",
+            "manage-data-value-max-64": "no-golden",
+            "memo-text-max-28": "no-golden"
+          }
+        }
       }
     },
     {
@@ -763,7 +833,14 @@
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
-        "checkLcmGolden": "not-run"
+        "checkLcmGolden": {
+          "results": "corpus/check-lcm.json",
+          "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
+          "shapes": {
+            "manage-buy-offer-update": "no-golden",
+            "offer-id-in-envelope": "elsewhere"
+          }
+        }
       }
     }
   ]

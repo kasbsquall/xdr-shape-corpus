@@ -2,6 +2,8 @@
 
 Every expected value is read back from the rs-stellar-xdr JSON form at build time and the build
 fails if it does not match, so the manifest cannot drift from the bytes it describes.
+checks.checkLcmGolden is copied from corpus/check-lcm.json, the committed output of
+tools/check_lcm_goldens.py --write.
 Usage: python tools/build_manifest.py [--check]
   --check  verify the committed manifest matches the bytes, without rewriting it (used in CI)
 """
@@ -14,6 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RT = ROOT / "tools" / "roundtrip" / "target" / "release" / ("xdr-roundtrip.exe" if sys.platform == "win32" else "xdr-roundtrip")
 RT_VERSION = "stellar-xdr 30.0.0"
+# Written by tools/check_lcm_goldens.py --write; its CI job fails if this file is stale.
+CHECK_LCM = ROOT / "corpus" / "check-lcm.json"
 
 SPEC = {
     "cap40-signed-payload-signer-max-payload": {
@@ -163,6 +167,19 @@ def pointer(doc, ptr):
     return doc
 
 
+def check_lcm_golden(entry_id, shapes):
+    """The entry's shape statuses from the committed results of tools/check_lcm_goldens.py, or
+    "not-run" when the file has no result for this entry's current shape list."""
+    if not CHECK_LCM.exists():
+        return "not-run"
+    results = json.loads(CHECK_LCM.read_text(encoding="utf-8"))
+    entry = next((e for e in results["entries"] if e["id"] == entry_id), None)
+    if entry is None or [s["shape"] for s in entry["shapes"]] != shapes:
+        return "not-run"
+    return {"results": CHECK_LCM.relative_to(ROOT).as_posix(), "stellarCoreCommit": results["stellarCoreCommit"],
+            "shapes": {s["shape"]: s["status"] for s in entry["shapes"]}}
+
+
 def main():
     entries = []
     for entry_id, spec in SPEC.items():
@@ -195,7 +212,7 @@ def main():
             "expected": {"file": f"corpus/entries/{entry_id}/{spec['expected_file']}", "values": values,
                          "roundTrip": True},
             "checks": {"rsStellarXdrRoundTrip": all_ok, "rsStellarXdrVersion": RT_VERSION,
-                       "checkLcmGolden": "not-run"},
+                       "checkLcmGolden": check_lcm_golden(entry_id, spec["shapes"])},
         })
     manifest = {"schemaVersion": "0.1", "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                 "entries": entries}
