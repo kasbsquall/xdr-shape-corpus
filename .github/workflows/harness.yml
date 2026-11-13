@@ -1,0 +1,51 @@
+name: wallet-backend replay
+
+# Rebuilds wallet-backend at every commit in harness/run.sh, replays the corpus through
+# its indexer over the mock getLedgers endpoint, once with each commit's pinned
+# go-stellar-sdk and once with only that dependency raised to v0.8.0, and fails if any
+# outcome differs from the committed harness/results.json.
+
+on:
+  push:
+    paths:
+      - "corpus/**"
+      - "harness/**"
+      - ".github/workflows/harness.yml"
+  pull_request:
+    paths:
+      - "corpus/**"
+      - "harness/**"
+      - ".github/workflows/harness.yml"
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Sightings reproduce on pre-fix commits and pass on fixed ones
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      TOOLS: ${{ runner.temp }}/tools
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
+        with:
+          go-version: "1.27.4"
+          cache: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12.10"
+      - name: Keep the committed results
+        run: cp harness/results.json "$RUNNER_TEMP/expected-results.json"
+      - name: Replay with each commit's pinned go-stellar-sdk
+        run: bash harness/run.sh
+      - name: Replay with go-stellar-sdk raised to v0.8.0
+        run: SDK=v0.8.0 bash harness/run.sh
+      - name: Outcomes match the committed results
+        run: |
+          python harness/aggregate.py
+          python harness/compare_results.py "$RUNNER_TEMP/expected-results.json" harness/results.json
