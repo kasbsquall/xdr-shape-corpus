@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "0.1",
+  "adapter": "xdr-kit/harness/etl/go/xdrkit_replay.go (stellar-etl cmd process* functions + ExportEntry, ledger entry changes via input.ExtractBatch + Transform*, no GCS or BigQuery)",
+  "outcomeVocabulary": [
+    "pass",
+    "mishandled",
+    "dropped"
+  ],
+  "indexer": "stellar/stellar-etl",
+  "commit": "2b24ec89ddce7fc0beb7795de982c93e6895eaf3",
+  "goVersion": "go1.27.3",
+  "goStellarSdk": "v0.8.1-0.20261106081502-e31e3b146d00",
+  "goStellarXdrJson": "v0.0.0-20261030210117-c68093a10a8a",
+  "ledgerSource": "getLedgers",
+  "generatedAt": "2026-11-13T09:11:36Z",
+  "entries": [
+    {
+      "id": "cap40-signed-payload-signer-max-payload",
+      "outcome": "pass",
+      "stage": "export-json",
+      "detail": "all 5 checks exact across 3 exports",
+      "perExport": {
+        "effects": "pass",
+        "operations": "pass",
+        "signers": "pass"
+      }
+    },
+    {
+      "id": "cap27-muxed-source-and-destination-id-extremes",
+      "outcome": "pass",
+      "stage": "export-json",
+      "detail": "all 13 checks exact across 4 exports",
+      "perExport": {
+        "effects": "pass",
+        "operations": "pass",
+        "token_transfers": "pass",
+        "transactions": "pass"
+      }
+    },
+    {
+      "id": "cap73-sac-created-trustline",
+      "outcome": "dropped",
+      "stage": "effects",
+      "detail": "effects: trustline_created effect for the trustor not in the export output [known: stellar/stellar-etl#460 (open)]; exact in trustlines",
+      "perExport": {
+        "effects": "dropped",
+        "trustlines": "pass"
+      }
+    },
+    {
+      "id": "cap67-sac-transfer-to-muxed-address-max-id",
+      "outcome": "mishandled",
+      "stage": "effects",
+      "detail": "effects: account_credited address_muxed (M address of the CAP-67 destination) is \"null\", expected \"MBQUFXJWWZZQN63BLN23J4CE6JP2O3TPNRJ73AEYAVJ45ELD4WYOX7777777777776XDY\" [known: stellar/stellar-etl#460 (open)]; exact in contract_events, operations, token_transfers",
+      "perExport": {
+        "contract_events": "pass",
+        "effects": "mishandled",
+        "operations": "pass",
+        "token_transfers": "pass"
+      }
+    },
+    {
+      "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "outcome": "pass",
+      "stage": "export-json",
+      "detail": "all 11 checks exact across 4 exports",
+      "perExport": {
+        "effects": "pass",
+        "liquidity_pools": "pass",
+        "operations": "pass",
+        "trustlines": "pass"
+      }
+    },
+    {
+      "id": "cap46-scmap-keys-collide-after-native-conversion",
+      "outcome": "mishandled",
+      "stage": "operations",
+      "detail": "operations: parameters_decoded (ScVal.String() rendering) keeps u32 1, string \"1\" and symbol \"1\" distinguishable is \"[{1 10} {1 20} {1 30}]\", expected \"three distinguishable keys\" [known: stellar/stellar-etl#330 (closed: added parameters_json_decoded; parameters_decoded is still written)]; exact in contract_events",
+      "perExport": {
+        "contract_events": "pass",
+        "operations": "mishandled"
+      }
+    },
+    {
+      "id": "cap46-nested-authorization-contract-calls-sac",
+      "outcome": "pass",
+      "stage": "export-json",
+      "detail": "all 7 checks exact across 4 exports",
+      "perExport": {
+        "ledger_transaction": "pass",
+        "operations": "pass",
+        "token_transfers": "pass",
+        "transactions": "pass"
+      }
+    },
+    {
+      "id": "cap21-vectors-at-max-length",
+      "outcome": "pass",
+      "stage": "export-json",
+      "detail": "all 9 checks exact across 3 exports",
+      "perExport": {
+        "effects": "pass",
+        "operations": "pass",
+        "transactions": "pass"
+      }
+    },
+    {
+      "id": "cap06-manage-buy-offer-update-by-id",
+      "outcome": "pass",
+      "stage": "export-json",
+      "detail": "all 4 checks exact across 2 exports",
+      "perExport": {
+        "offers": "pass",
+        "operations": "pass"
+      }
+    }
+  ],
+  "outcomes": {
+    "cap06-manage-buy-offer-update-by-id": "pass",
+    "cap21-vectors-at-max-length": "pass",
+    "cap27-muxed-source-and-destination-id-extremes": "pass",
+    "cap38-pool-share-issuers-ordered-by-key-bytes": "pass",
+    "cap40-signed-payload-signer-max-payload": "pass",
+    "cap46-nested-authorization-contract-calls-sac": "pass",
+    "cap46-scmap-keys-collide-after-native-conversion": "mishandled",
+    "cap67-sac-transfer-to-muxed-address-max-id": "mishandled",
+    "cap73-sac-created-trustline": "dropped"
+  },
+  "strictExportNote": "Runs with StrictExport=false so every export reports attempts/failures; with --strict-export any logged transform error would be fatal for the whole export.",
+  "amountPrecision": {
+    "check": "token_transfers.amount (float64) read back from the JSON line equals amount_raw / 10^7 exactly",
+    "integerFields": "amount_raw, to_muxed_id, muxed ids in operation details, trust_line_limit and contract-event u64/i128 values are exact in every entry (see facts)",
+    "knownIssue": "stellar/stellar-etl#454 (open)",
+    "notExact": 6,
+    "notExactRows": [
+      {
+        "amount": "0.000009999999999999999",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "100",
+        "entry": "cap40-signed-payload-signer-max-payload",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "0.000009999999999999999",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "100",
+        "entry": "cap27-muxed-source-and-destination-id-extremes",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "-0.00048049999999999997",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "-4805",
+        "entry": "cap73-sac-created-trustline",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "0.000019999999999999998",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "200",
+        "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "0.0007059999999999999",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "7060",
+        "entry": "cap46-scmap-keys-collide-after-native-conversion",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "0.000009999999999999999",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "100",
+        "entry": "cap06-manage-buy-offer-update-by-id",
+        "event_topic": "fee"
+      }
+    ],
+    "rows": 18
+  },
+  "entryFiles": "out/\u003centry-id\u003e.json"
+}

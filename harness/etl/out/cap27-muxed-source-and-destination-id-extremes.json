@@ -1,0 +1,731 @@
+{
+  "id": "cap27-muxed-source-and-destination-id-extremes",
+  "outcome": "pass",
+  "stage": "export-json",
+  "detail": "all 13 checks exact across 4 exports",
+  "shapes": [
+    "muxed-source",
+    "muxed-destination",
+    "muxed-id-max-u64",
+    "muxed-id-zero"
+  ],
+  "ledger": 5699707,
+  "txHash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+  "txId": 24480055161786368,
+  "ledgerSource": "getLedgers",
+  "perExport": {
+    "effects": "pass",
+    "operations": "pass",
+    "token_transfers": "pass",
+    "transactions": "pass"
+  },
+  "facts": [
+    {
+      "export": "transactions",
+      "check": "account_muxed (u64 max id)",
+      "want": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "got": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "source_account_muxed",
+      "want": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "got": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "details.from_muxed",
+      "want": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "got": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "details.from_muxed_id (u64 max)",
+      "want": "18446744073709551615",
+      "got": "18446744073709551615",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "details.to_muxed",
+      "want": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "got": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "details.to_muxed_id (0)",
+      "want": "0",
+      "got": "0",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "details.amount (1 XLM = 10000000 stroops)",
+      "want": "1",
+      "got": "1",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "Parquet OperationDetails from_muxed_id",
+      "want": "18446744073709551615",
+      "got": "18446744073709551615",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "Parquet OperationDetails to_muxed_id",
+      "want": "0",
+      "got": "0",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "effects",
+      "check": "account_credited address_muxed",
+      "want": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "got": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "effects",
+      "check": "account_debited address_muxed",
+      "want": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "got": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "token_transfers",
+      "check": "transfer to_muxed",
+      "want": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "got": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "token_transfers",
+      "check": "transfer to_muxed_id (0)",
+      "want": "0",
+      "got": "0",
+      "status": "exact",
+      "required": true
+    }
+  ],
+  "context": {
+    "amountPrecision": [
+      {
+        "amount": "0.000009999999999999999",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "100",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "1",
+        "amountEqualsRawOver1e7": true,
+        "amount_raw": "10000000",
+        "event_topic": "transfer"
+      }
+    ],
+    "ledgerEntryRowFilter": [
+      "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+      "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+      "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77"
+    ],
+    "ledger_transaction.tx_envelope == envelope.b64": true,
+    "ledger_transaction.tx_meta == meta.b64": true,
+    "transactions.tx_envelope == envelope.b64": true
+  },
+  "exports": {
+    "accounts": {
+      "attempts": 20,
+      "failures": 0,
+      "rowsInLedger": 20,
+      "rowsForEntry": [
+        {
+          "account_id": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "balance": 9998.99999,
+          "buying_liabilities": 0,
+          "selling_liabilities": 0,
+          "sequence_number": 24480046571847681,
+          "sequence_ledger": 5699707,
+          "sequence_time": 1794522179,
+          "num_subentries": 0,
+          "inflation_destination": "",
+          "flags": 0,
+          "home_domain": "",
+          "master_weight": 1,
+          "threshold_low": 0,
+          "threshold_medium": 0,
+          "threshold_high": 0,
+          "sponsor": null,
+          "num_sponsored": 0,
+          "num_sponsoring": 0,
+          "last_modified_ledger": 5699707,
+          "ledger_entry_change": 1,
+          "deleted": false,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "ledger_sequence": 5699707
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "AccountID": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "Balance": 9998.99999,
+          "BuyingLiabilities": 0,
+          "SellingLiabilities": 0,
+          "SequenceNumber": 24480046571847681,
+          "SequenceLedger": 5699707,
+          "SequenceTime": 1794522179,
+          "NumSubentries": 0,
+          "InflationDestination": "",
+          "Flags": 0,
+          "HomeDomain": "",
+          "MasterWeight": 1,
+          "ThresholdLow": 0,
+          "ThresholdMedium": 0,
+          "ThresholdHigh": 0,
+          "Sponsor": "",
+          "NumSponsored": 0,
+          "NumSponsoring": 0,
+          "LastModifiedLedger": 5699707,
+          "LedgerEntryChange": 1,
+          "Deleted": false,
+          "ClosedAt": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "LedgerSequence": 5699707
+        }
+      ]
+    },
+    "claimable_balances": {
+      "attempts": 1,
+      "failures": 0,
+      "rowsInLedger": 1
+    },
+    "config_settings": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "contract_code": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "contract_data": {
+      "attempts": 110,
+      "failures": 0,
+      "rowsInLedger": 110
+    },
+    "contract_events": {
+      "attempts": 15,
+      "failures": 0,
+      "rowsInLedger": 432,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "transaction_id": 24480055161786368,
+          "successful": true,
+          "ledger_sequence": 5699707,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5Aas="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77"
+            }
+          ],
+          "data": "AAAACgAAAAAAAAAAAAAAAAAAAGQ=",
+          "data_decoded": {
+            "i128": "100"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAAAoAAAAAAAAAAAAAAAAAAABk",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "transaction_id": 24480055161786368,
+          "successful": true,
+          "ledger_sequence": 5699707,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAAh0cmFuc2Zlcg==",
+            "AAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5Aas=",
+            "AAAAEgAAAAAAAAAAeKYmhIbhPolLS0HWxGQia8s01aH8tPQa+6YNVHd2OZ0=",
+            "AAAADgAAAAZuYXRpdmUAAA=="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "transfer"
+            },
+            {
+              "address": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77"
+            },
+            {
+              "address": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW"
+            },
+            {
+              "string": "native"
+            }
+          ],
+          "data": "AAAAEQAAAAEAAAACAAAADwAAAAZhbW91bnQAAAAAAAoAAAAAAAAAAAAAAAAAmJaAAAAADwAAAAt0b19tdXhlZF9pZAAAAAAFAAAAAAAAAAA=",
+          "data_decoded": {
+            "map": [
+              {
+                "key": {
+                  "symbol": "amount"
+                },
+                "val": {
+                  "i128": "10000000"
+                }
+              },
+              {
+                "key": {
+                  "symbol": "to_muxed_id"
+                },
+                "val": {
+                  "u64": "0"
+                }
+              }
+            ]
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAASAAAAAAAAAAB4piaEhuE+iUtLQdbEZCJryzTVofy09Br7pg1Ud3Y5nQAAAA4AAAAGbmF0aXZlAAAAAAARAAAAAQAAAAIAAAAPAAAABmFtb3VudAAAAAAACgAAAAAAAAAAAAAAAACYloAAAAAPAAAAC3RvX211eGVkX2lkAAAAAAUAAAAAAAAAAA==",
+          "operation_id": 24480055161786369
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "TransactionHash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "TransactionID": 24480055161786368,
+          "Successful": true,
+          "LedgerSequence": 5699707,
+          "ClosedAt": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5Aas="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77"
+            }
+          ],
+          "Data": "AAAACgAAAAAAAAAAAAAAAAAAAGQ=",
+          "DataDecoded": {
+            "i128": "100"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAAAoAAAAAAAAAAAAAAAAAAABk",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "TransactionID": 24480055161786368,
+          "Successful": true,
+          "LedgerSequence": 5699707,
+          "ClosedAt": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAAh0cmFuc2Zlcg==",
+            "AAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5Aas=",
+            "AAAAEgAAAAAAAAAAeKYmhIbhPolLS0HWxGQia8s01aH8tPQa+6YNVHd2OZ0=",
+            "AAAADgAAAAZuYXRpdmUAAA=="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "transfer"
+            },
+            {
+              "address": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77"
+            },
+            {
+              "address": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW"
+            },
+            {
+              "string": "native"
+            }
+          ],
+          "Data": "AAAAEQAAAAEAAAACAAAADwAAAAZhbW91bnQAAAAAAAoAAAAAAAAAAAAAAAAAmJaAAAAADwAAAAt0b19tdXhlZF9pZAAAAAAFAAAAAAAAAAA=",
+          "DataDecoded": {
+            "map": [
+              {
+                "key": {
+                  "symbol": "amount"
+                },
+                "val": {
+                  "i128": "10000000"
+                }
+              },
+              {
+                "key": {
+                  "symbol": "to_muxed_id"
+                },
+                "val": {
+                  "u64": "0"
+                }
+              }
+            ]
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAASAAAAAAAAAAB4piaEhuE+iUtLQdbEZCJryzTVofy09Br7pg1Ud3Y5nQAAAA4AAAAGbmF0aXZlAAAAAAARAAAAAQAAAAIAAAAPAAAABmFtb3VudAAAAAAACgAAAAAAAAAAAAAAAACYloAAAAAPAAAAC3RvX211eGVkX2lkAAAAAAUAAAAAAAAAAA==",
+          "OperationID": 0
+        }
+      ]
+    },
+    "effects": {
+      "attempts": 15,
+      "failures": 0,
+      "rowsInLedger": 34,
+      "rowsForEntry": [
+        {
+          "address": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "address_muxed": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+          "operation_id": 24480055161786369,
+          "details": {
+            "amount": "1.0000000",
+            "asset_type": "native"
+          },
+          "type": 2,
+          "type_string": "account_credited",
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "ledger_sequence": 5699707,
+          "index": 0,
+          "id": "24480055161786369-0"
+        },
+        {
+          "address": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "address_muxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+          "operation_id": 24480055161786369,
+          "details": {
+            "amount": "1.0000000",
+            "asset_type": "native"
+          },
+          "type": 3,
+          "type_string": "account_debited",
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "ledger_sequence": 5699707,
+          "index": 1,
+          "id": "24480055161786369-1"
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "Address": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "AddressMuxed": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+          "OperationID": 24480055161786369,
+          "Details": "{\"amount\":\"1.0000000\",\"asset_type\":\"native\"}",
+          "Type": 2,
+          "TypeString": "account_credited",
+          "LedgerClosed": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "LedgerSequence": 5699707,
+          "EffectIndex": 0,
+          "EffectId": "24480055161786369-0"
+        },
+        {
+          "Address": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "AddressMuxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+          "OperationID": 24480055161786369,
+          "Details": "{\"amount\":\"1.0000000\",\"asset_type\":\"native\"}",
+          "Type": 3,
+          "TypeString": "account_debited",
+          "LedgerClosed": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "LedgerSequence": 5699707,
+          "EffectIndex": 1,
+          "EffectId": "24480055161786369-1"
+        }
+      ]
+    },
+    "ledger_transaction": {
+      "attempts": 15,
+      "failures": 0,
+      "rowsInLedger": 15,
+      "rowsForEntry": [
+        {
+          "ledger_sequence": 5699707,
+          "tx_envelope": "AAAAAgAAAQD//////////41RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAD6ABW+HkAAAABAAAAAQAAAAAAAAAAAAAAAGr2PLYAAAAAAAAAAQAAAAAAAAABAAABAAAAAAAAAAAAeKYmhIbhPolLS0HWxGQia8s01aH8tPQa+6YNVHd2OZ0AAAAAAAAAAACYloAAAAAAAAAAAdl5AasAAABA5e0HFDLJJYRy/sAgZV3QH/eWg4ynZ+eYwE3jmNM7+GP+lgtgh5plcQCeVTeLBQgPa7x9nZDfLt87TxVjYVDjAw==",
+          "tx_result": "+uew8mdCKVQ+qG4UeQKSTFOO939IpUxAYMS66uwEibAAAAAAAAAAZAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAA==",
+          "tx_meta": "AAAABAAAAAAAAAACAAAAAwBW+HsAAAAAAAAAAI1RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAAF0h255wAVvh5AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQBW+HsAAAAAAAAAAI1RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAAF0h255wAVvh5AAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAMAAAAAAFb4ewAAAABq9jxDAAAAAAAAAAEAAAAAAAAABAAAAAMAVvh7AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIduecAFb4eQAAAAEAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABW+HsAAAAAavY8QwAAAAAAAAABAFb4ewAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAAXR95RHABW+HkAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVvh7AAAAAGr2PEMAAAAAAAAAAwBW+HoAAAAAAAAAAHimJoSG4T6JS0tB1sRkImvLNNWh/LT0GvumDVR3djmdAAAAF0h26AAAVvh6AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQBW+HsAAAAAAAAAAHimJoSG4T6JS0tB1sRkImvLNNWh/LT0GvumDVR3djmdAAAAF0kPfoAAVvh6AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAASAAAAAAAAAAB4piaEhuE+iUtLQdbEZCJryzTVofy09Br7pg1Ud3Y5nQAAAA4AAAAGbmF0aXZlAAAAAAARAAAAAQAAAAIAAAAPAAAABmFtb3VudAAAAAAACgAAAAAAAAAAAAAAAACYloAAAAAPAAAAC3RvX211eGVkX2lkAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAdeSi3LCcDzP6vfrn/TvTVBKVai5efybRQ6iyEK00c5hAAAAAQAAAAAAAAACAAAADwAAAANmZWUAAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAAKAAAAAAAAAAAAAAAAAAAAZAAAAAA=",
+          "tx_fee_meta": "AAAAAgAAAAMAVvh5AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIdugAAFb4eQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAVvh7AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIduecAFb4eQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA==",
+          "tx_ledger_history": "fALzOeyY54g9u2N5Myj7iSwLT+GZCXShggTXfbYWe04AAAAeTbRSgvLoF0bB6jhfaeRN5fG7m/lCb76nThBVCSvcVqbjbTOTiIaFaxkXivy7zmh/0MuV3PSpe/FmGchzIF6SxAAAAABq9jxDAAAAAAAAAAMAAAGh0dtmUQAAAACoJM0YvJ11Bk0pmltbrKQ7w6ovMmk4FT2ML5u1y23wMwAAAEAASBTSUZ3e+wpCJXw1wq81vSjPH3uzS8Fjdb5wKopo6DjmwZRiC3Wev3GVUW2PAHoyWCxyAFkoJdDqkFyhvGUDxGX4xAN7JmUi0db8liCqDO3TJ2luTtNNr0DnNNV+E82JkhZPbpyjv8+5wuFIOH56w6Cde0pib7w6Rc7Pq7q6pwBW+HsN4Lazp2QAAAAALQq0DicHAAAAAAAAAAAADtHtAAAAZABMS0AAAADITUYQfWiCYCVQTBdW6GRugDQDKgNBBFUykTpcdLd0MlI3t+mmjZRv/NdroHw9K+HPMVXe4yPIjUBrmEAg9dOaXNtWRvSJSFjkVn9r915O+Jbx2+cALXcXvi0j6CcLZJkIRMBoDPQBwpeD7Ri4S3ftkKh9f06Ejj/Mx09WJZoMPWgAAAAAAAAAAA==",
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z"
+        }
+      ]
+    },
+    "liquidity_pools": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "offers": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "operations": {
+      "attempts": 17,
+      "failures": 0,
+      "rowsInLedger": 17,
+      "rowsForEntry": [
+        {
+          "source_account": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "source_account_muxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+          "type": 1,
+          "type_string": "payment",
+          "details": {
+            "amount": 1,
+            "asset_id": -5706705804583548011,
+            "asset_type": "native",
+            "from": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+            "from_muxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+            "from_muxed_id": 18446744073709551615,
+            "to": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+            "to_muxed": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+            "to_muxed_id": 0
+          },
+          "transaction_id": 24480055161786368,
+          "id": 24480055161786369,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "operation_result_code": "OperationResultCodeOpInner",
+          "operation_trace_code": "PaymentResultCodePaymentSuccess",
+          "ledger_sequence": 5699707,
+          "details_json": {
+            "amount": 1,
+            "asset_id": -5706705804583548011,
+            "asset_type": "native",
+            "from": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+            "from_muxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+            "from_muxed_id": 18446744073709551615,
+            "to": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+            "to_muxed": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+            "to_muxed_id": 0
+          }
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "SourceAccount": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "SourceAccountMuxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+          "Type": 1,
+          "TypeString": "payment",
+          "OperationDetails": "{\"amount\":1,\"asset_id\":-5706705804583548011,\"asset_type\":\"native\",\"from\":\"GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77\",\"from_muxed\":\"MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4\",\"from_muxed_id\":18446744073709551615,\"to\":\"GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW\",\"to_muxed\":\"MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K\",\"to_muxed_id\":0}",
+          "TransactionID": 24480055161786368,
+          "OperationID": 24480055161786369,
+          "ClosedAt": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "OperationResultCode": "OperationResultCodeOpInner",
+          "OperationTraceCode": "PaymentResultCodePaymentSuccess",
+          "LedgerSequence": 5699707
+        }
+      ]
+    },
+    "restored_key": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "signers": {
+      "attempts": 2,
+      "failures": 0,
+      "rowsInLedger": 2
+    },
+    "token_transfers": {
+      "attempts": 1,
+      "failures": 0,
+      "rowsInLedger": 44,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "transaction_id": 24480055161786368,
+          "operation_id": null,
+          "event_topic": "fee",
+          "from": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "to": null,
+          "asset": "native",
+          "asset_type": "native",
+          "asset_code": null,
+          "asset_issuer": null,
+          "amount": 0.000009999999999999999,
+          "amount_raw": "100",
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "ledger_sequence": 5699707,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "to_muxed": null,
+          "to_muxed_id": null
+        },
+        {
+          "transaction_hash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "transaction_id": 24480055161786368,
+          "operation_id": 24480055161786369,
+          "event_topic": "transfer",
+          "from": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "to": "GB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2OQW",
+          "asset": "native",
+          "asset_type": "native",
+          "asset_code": null,
+          "asset_issuer": null,
+          "amount": 1,
+          "amount_raw": "10000000",
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "ledger_sequence": 5699707,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "to_muxed": "MB4KMJUEQ3QT5CKLJNA5NRDEEJV4WNGVUH6LJ5A27OTA2VDXOY4Z2AAAAAAAAAAAAB55K",
+          "to_muxed_id": "0"
+        }
+      ]
+    },
+    "trades": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "transactions": {
+      "attempts": 15,
+      "failures": 0,
+      "rowsInLedger": 15,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "ledger_sequence": 5699707,
+          "account": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "account_muxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+          "account_sequence": 24480046571847681,
+          "max_fee": 1000,
+          "fee_charged": 100,
+          "operation_count": 1,
+          "tx_envelope": "AAAAAgAAAQD//////////41RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAD6ABW+HkAAAABAAAAAQAAAAAAAAAAAAAAAGr2PLYAAAAAAAAAAQAAAAAAAAABAAABAAAAAAAAAAAAeKYmhIbhPolLS0HWxGQia8s01aH8tPQa+6YNVHd2OZ0AAAAAAAAAAACYloAAAAAAAAAAAdl5AasAAABA5e0HFDLJJYRy/sAgZV3QH/eWg4ynZ+eYwE3jmNM7+GP+lgtgh5plcQCeVTeLBQgPa7x9nZDfLt87TxVjYVDjAw==",
+          "tx_result": "AAAAAAAAAGQAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAA=",
+          "tx_meta": "AAAABAAAAAAAAAACAAAAAwBW+HsAAAAAAAAAAI1RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAAF0h255wAVvh5AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQBW+HsAAAAAAAAAAI1RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAAF0h255wAVvh5AAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAMAAAAAAFb4ewAAAABq9jxDAAAAAAAAAAEAAAAAAAAABAAAAAMAVvh7AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIduecAFb4eQAAAAEAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABW+HsAAAAAavY8QwAAAAAAAAABAFb4ewAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAAXR95RHABW+HkAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVvh7AAAAAGr2PEMAAAAAAAAAAwBW+HoAAAAAAAAAAHimJoSG4T6JS0tB1sRkImvLNNWh/LT0GvumDVR3djmdAAAAF0h26AAAVvh6AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQBW+HsAAAAAAAAAAHimJoSG4T6JS0tB1sRkImvLNNWh/LT0GvumDVR3djmdAAAAF0kPfoAAVvh6AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAASAAAAAAAAAAB4piaEhuE+iUtLQdbEZCJryzTVofy09Br7pg1Ud3Y5nQAAAA4AAAAGbmF0aXZlAAAAAAARAAAAAQAAAAIAAAAPAAAABmFtb3VudAAAAAAACgAAAAAAAAAAAAAAAACYloAAAAAPAAAAC3RvX211eGVkX2lkAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAdeSi3LCcDzP6vfrn/TvTVBKVai5efybRQ6iyEK00c5hAAAAAQAAAAAAAAACAAAADwAAAANmZWUAAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAAKAAAAAAAAAAAAAAAAAAAAZAAAAAA=",
+          "tx_fee_meta": "AAAAAgAAAAMAVvh5AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIdugAAFb4eQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAVvh7AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIduecAFb4eQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA==",
+          "created_at": "2026-11-12T22:22:59Z",
+          "memo_type": "MemoTypeMemoNone",
+          "memo": "",
+          "time_bounds": "[0,1794522294)",
+          "successful": true,
+          "id": 24480055161786368,
+          "ledger_bounds": "",
+          "min_account_sequence": null,
+          "min_account_sequence_age": null,
+          "min_account_sequence_ledger_gap": null,
+          "extra_signers": null,
+          "closed_at": "2026-11-12T22:22:59Z",
+          "closed_at_ms": "2026-11-12T22:22:59.153Z",
+          "resource_fee": 0,
+          "soroban_resources_instructions": 0,
+          "soroban_resources_read_bytes": 0,
+          "soroban_resources_disk_read_bytes": 0,
+          "soroban_resources_write_bytes": 0,
+          "soroban_resources_archived_entries": null,
+          "transaction_result_code": "TransactionResultCodeTxSuccess",
+          "inclusion_fee_bid": 0,
+          "inclusion_fee_charged": 0,
+          "resource_fee_refund": 0,
+          "non_refundable_resource_fee_charged": 0,
+          "refundable_resource_fee_charged": 0,
+          "rent_fee_charged": 0
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "TransactionHash": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+          "LedgerSequence": 5699707,
+          "Account": "GCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2XQ77",
+          "AccountMuxed": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+          "AccountSequence": 24480046571847681,
+          "MaxFee": 1000,
+          "FeeCharged": 100,
+          "OperationCount": 1,
+          "TxEnvelope": "AAAAAgAAAQD//////////41RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAD6ABW+HkAAAABAAAAAQAAAAAAAAAAAAAAAGr2PLYAAAAAAAAAAQAAAAAAAAABAAABAAAAAAAAAAAAeKYmhIbhPolLS0HWxGQia8s01aH8tPQa+6YNVHd2OZ0AAAAAAAAAAACYloAAAAAAAAAAAdl5AasAAABA5e0HFDLJJYRy/sAgZV3QH/eWg4ynZ+eYwE3jmNM7+GP+lgtgh5plcQCeVTeLBQgPa7x9nZDfLt87TxVjYVDjAw==",
+          "TxResult": "AAAAAAAAAGQAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAA=",
+          "TxMeta": "AAAABAAAAAAAAAACAAAAAwBW+HsAAAAAAAAAAI1RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAAF0h255wAVvh5AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQBW+HsAAAAAAAAAAI1RpLGKQeoGYeuEtPQp0e+J//CUDPDAHxdtA5DZeQGrAAAAF0h255wAVvh5AAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAMAAAAAAFb4ewAAAABq9jxDAAAAAAAAAAEAAAAAAAAABAAAAAMAVvh7AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIduecAFb4eQAAAAEAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABW+HsAAAAAavY8QwAAAAAAAAABAFb4ewAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAAXR95RHABW+HkAAAABAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVvh7AAAAAGr2PEMAAAAAAAAAAwBW+HoAAAAAAAAAAHimJoSG4T6JS0tB1sRkImvLNNWh/LT0GvumDVR3djmdAAAAF0h26AAAVvh6AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQBW+HsAAAAAAAAAAHimJoSG4T6JS0tB1sRkImvLNNWh/LT0GvumDVR3djmdAAAAF0kPfoAAVvh6AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAASAAAAAAAAAAB4piaEhuE+iUtLQdbEZCJryzTVofy09Br7pg1Ud3Y5nQAAAA4AAAAGbmF0aXZlAAAAAAARAAAAAQAAAAIAAAAPAAAABmFtb3VudAAAAAAACgAAAAAAAAAAAAAAAACYloAAAAAPAAAAC3RvX211eGVkX2lkAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAdeSi3LCcDzP6vfrn/TvTVBKVai5efybRQ6iyEK00c5hAAAAAQAAAAAAAAACAAAADwAAAANmZWUAAAAAEgAAAAAAAAAAjVGksYpB6gZh64S09CnR74n/8JQM8MAfF20DkNl5AasAAAAKAAAAAAAAAAAAAAAAAAAAZAAAAAA=",
+          "TxFeeMeta": "AAAAAgAAAAMAVvh5AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIdugAAFb4eQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAEAVvh7AAAAAAAAAACNUaSxikHqBmHrhLT0KdHvif/wlAzwwB8XbQOQ2XkBqwAAABdIduecAFb4eQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA==",
+          "CreatedAt": 1794522179000,
+          "MemoType": "MemoTypeMemoNone",
+          "Memo": "",
+          "TimeBounds": "[0,1794522294)",
+          "Successful": true,
+          "TransactionID": 24480055161786368,
+          "FeeAccount": "",
+          "FeeAccountMuxed": "",
+          "InnerTransactionHash": "",
+          "NewMaxFee": 0,
+          "LedgerBounds": "",
+          "MinAccountSequence": 0,
+          "MinAccountSequenceAge": 0,
+          "MinAccountSequenceLedgerGap": 0,
+          "ExtraSigners": null,
+          "ClosedAt": 1794522179000,
+          "ClosedAtMs": 1794522179153,
+          "ResourceFee": 0,
+          "SorobanResourcesInstructions": 0,
+          "SorobanResourcesReadBytes": 0,
+          "SorobanResourcesDiskReadBytes": 0,
+          "SorobanResourcesWriteBytes": 0,
+          "SorobanResourcesArchivedEntries": null,
+          "TransactionResultCode": "TransactionResultCodeTxSuccess",
+          "InclusionFeeBid": 0,
+          "InclusionFeeCharged": 0,
+          "ResourceFeeRefund": 0,
+          "TotalNonRefundableResourceFeeCharged": 0,
+          "TotalRefundableResourceFeeCharged": 0,
+          "RentFeeCharged": 0
+        }
+      ]
+    },
+    "trustlines": {
+      "attempts": 3,
+      "failures": 0,
+      "rowsInLedger": 3
+    },
+    "ttl": {
+      "attempts": 6,
+      "failures": 0,
+      "rowsInLedger": 6
+    }
+  }
+}

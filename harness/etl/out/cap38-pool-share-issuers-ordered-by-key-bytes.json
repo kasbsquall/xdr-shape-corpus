@@ -1,0 +1,1140 @@
+{
+  "id": "cap38-pool-share-issuers-ordered-by-key-bytes",
+  "outcome": "pass",
+  "stage": "export-json",
+  "detail": "all 11 checks exact across 4 exports",
+  "shapes": [
+    "asset-pair-issuer-order-differs-strkey-vs-bytes",
+    "pool-share-trustline",
+    "liquidity-pool-deposit"
+  ],
+  "ledger": 5704246,
+  "txHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+  "txId": 24499550018342912,
+  "ledgerSource": "getLedgers",
+  "perExport": {
+    "effects": "pass",
+    "liquidity_pools": "pass",
+    "operations": "pass",
+    "trustlines": "pass"
+  },
+  "facts": [
+    {
+      "export": "liquidity_pools",
+      "check": "pool row by liquidity_pool_id (hex)",
+      "want": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "got": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "liquidity_pools",
+      "check": "liquidity_pool_id_strkey",
+      "want": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+      "got": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "liquidity_pools",
+      "check": "asset_a_issuer (first by key bytes)",
+      "want": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+      "got": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "liquidity_pools",
+      "check": "asset_b_issuer (second by key bytes)",
+      "want": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+      "got": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "trustlines",
+      "check": "pool-share trustline liquidity_pool_id",
+      "want": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "got": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "trustlines",
+      "check": "pool-share trustline liquidity_pool_id_strkey",
+      "want": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+      "got": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "change_trust details.liquidity_pool_id",
+      "want": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "got": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "liquidity_pool_deposit details.liquidity_pool_id",
+      "want": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "got": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "liquidity_pool_deposit details.reserve_a_asset_issuer",
+      "want": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+      "got": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "liquidity_pool_deposit details.reserve_b_asset_issuer",
+      "want": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+      "got": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "effects",
+      "check": "liquidity_pool_deposited details.liquidity_pool.id",
+      "want": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "got": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "status": "exact",
+      "required": true
+    }
+  ],
+  "context": {
+    "amountPrecision": [
+      {
+        "amount": "0.000019999999999999998",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "200",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "100",
+        "amountEqualsRawOver1e7": true,
+        "amount_raw": "1000000000",
+        "event_topic": "transfer"
+      },
+      {
+        "amount": "200",
+        "amountEqualsRawOver1e7": true,
+        "amount_raw": "2000000000",
+        "event_topic": "transfer"
+      }
+    ],
+    "effects.liquidity_pool_deposited.details": {
+      "liquidity_pool": {
+        "fee_bp": 30,
+        "id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+        "reserves": [
+          {
+            "amount": "100.0000000",
+            "asset": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R"
+          },
+          {
+            "amount": "200.0000000",
+            "asset": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I"
+          }
+        ],
+        "total_shares": "141.4213562",
+        "total_trustlines": "1",
+        "type": "constant_product"
+      },
+      "reserves_deposited": [
+        {
+          "amount": "100.0000000",
+          "asset": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R"
+        },
+        {
+          "amount": "200.0000000",
+          "asset": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I"
+        }
+      ],
+      "shares_received": "141.4213562"
+    },
+    "ledgerEntryRowFilter": [
+      "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+      "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+      "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+      "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+      "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+    ],
+    "ledger_transaction.tx_envelope == envelope.b64": true,
+    "ledger_transaction.tx_meta == meta.b64": false,
+    "transactions.tx_envelope == envelope.b64": true
+  },
+  "exports": {
+    "accounts": {
+      "attempts": 16,
+      "failures": 0,
+      "rowsInLedger": 16,
+      "rowsForEntry": [
+        {
+          "account_id": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "balance": 9999.99996,
+          "buying_liabilities": 0,
+          "selling_liabilities": 0,
+          "sequence_number": 24499537133436930,
+          "sequence_ledger": 5704246,
+          "sequence_time": 1794544874,
+          "num_subentries": 4,
+          "inflation_destination": "",
+          "flags": 0,
+          "home_domain": "",
+          "master_weight": 1,
+          "threshold_low": 0,
+          "threshold_medium": 0,
+          "threshold_high": 0,
+          "sponsor": null,
+          "num_sponsored": 0,
+          "num_sponsoring": 0,
+          "last_modified_ledger": 5704246,
+          "ledger_entry_change": 1,
+          "deleted": false,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "AccountID": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "Balance": 9999.99996,
+          "BuyingLiabilities": 0,
+          "SellingLiabilities": 0,
+          "SequenceNumber": 24499537133436930,
+          "SequenceLedger": 5704246,
+          "SequenceTime": 1794544874,
+          "NumSubentries": 4,
+          "InflationDestination": "",
+          "Flags": 0,
+          "HomeDomain": "",
+          "MasterWeight": 1,
+          "ThresholdLow": 0,
+          "ThresholdMedium": 0,
+          "ThresholdHigh": 0,
+          "Sponsor": "",
+          "NumSponsored": 0,
+          "NumSponsoring": 0,
+          "LastModifiedLedger": 5704246,
+          "LedgerEntryChange": 1,
+          "Deleted": false,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246
+        }
+      ]
+    },
+    "claimable_balances": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "config_settings": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "contract_code": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "contract_data": {
+      "attempts": 90,
+      "failures": 0,
+      "rowsInLedger": 90
+    },
+    "contract_events": {
+      "attempts": 14,
+      "failures": 0,
+      "rowsInLedger": 359,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "transaction_id": 24499550018342912,
+          "successful": true,
+          "ledger_sequence": 5704246,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aY="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+            }
+          ],
+          "data": "AAAACgAAAAAAAAAAAAAAAAAAAMg=",
+          "data_decoded": {
+            "i128": "200"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAoAAAAAAAAAAAAAAAAAAADI",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "transaction_id": 24499550018342912,
+          "successful": true,
+          "ledger_sequence": 5704246,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CC6LMEAWSLJDGJEXEG7NJVUVQ4DMQZUY7MQPPFL5CQLRQ7NTRHQUIXJN",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAAh0cmFuc2Zlcg==",
+            "AAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aY=",
+            "AAAAEgAAAATVzK0KCsuFNblIMg/BjuLt2LAvALAZHxPQE3OL6w+fnA==",
+            "AAAADgAAAD1QQUlSOkdDUUwzV01NSEhQWldaU01CNUhSWjM1R09JT0U2RTZaN05MTkNJUVVCWEpLQzVaTUJOVE1NRTNSAAAA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "transfer"
+            },
+            {
+              "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+            },
+            {
+              "address": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+            },
+            {
+              "string": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R"
+            }
+          ],
+          "data": "AAAACgAAAAAAAAAAAAAAADuaygA=",
+          "data_decoded": {
+            "i128": "1000000000"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAABvLYQFpLSMySXIb7U1pWHBshmmPsg95V9FBcYfbOJ4UQAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAASAAAABNXMrQoKy4U1uUgyD8GO4u3YsC8AsBkfE9ATc4vrD5+cAAAADgAAAD1QQUlSOkdDUUwzV01NSEhQWldaU01CNUhSWjM1R09JT0U2RTZaN05MTkNJUVVCWEpLQzVaTUJOVE1NRTNSAAAAAAAACgAAAAAAAAAAAAAAADuaygA=",
+          "operation_id": 24499550018342914
+        },
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "transaction_id": 24499550018342912,
+          "successful": true,
+          "ledger_sequence": 5704246,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CDI7G25I5OCJIEOUMN7ILHQFE6ICIVCTY72WYMYIZY4W5THVF33DJNP5",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAAh0cmFuc2Zlcg==",
+            "AAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aY=",
+            "AAAAEgAAAATVzK0KCsuFNblIMg/BjuLt2LAvALAZHxPQE3OL6w+fnA==",
+            "AAAADgAAAD1QQUlSOkdDNU1WWDROU0ZOS1E2MzZKRUg3VTZORE9SWEdTMklFRDZLUUNSQUtUTEEyNEwzSEJMR0gyWjNJAAAA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "transfer"
+            },
+            {
+              "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+            },
+            {
+              "address": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+            },
+            {
+              "string": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I"
+            }
+          ],
+          "data": "AAAACgAAAAAAAAAAAAAAAHc1lAA=",
+          "data_decoded": {
+            "i128": "2000000000"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAB0fNrqOuElBHUY36FngUnkCRUU8f1bDMIzjluzPUu9jQAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAASAAAABNXMrQoKy4U1uUgyD8GO4u3YsC8AsBkfE9ATc4vrD5+cAAAADgAAAD1QQUlSOkdDNU1WWDROU0ZOS1E2MzZKRUg3VTZORE9SWEdTMklFRDZLUUNSQUtUTEEyNEwzSEJMR0gyWjNJAAAAAAAACgAAAAAAAAAAAAAAAHc1lAA=",
+          "operation_id": 24499550018342914
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "TransactionHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "TransactionID": 24499550018342912,
+          "Successful": true,
+          "LedgerSequence": 5704246,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aY="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+            }
+          ],
+          "Data": "AAAACgAAAAAAAAAAAAAAAAAAAMg=",
+          "DataDecoded": {
+            "i128": "200"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAoAAAAAAAAAAAAAAAAAAADI",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "TransactionID": 24499550018342912,
+          "Successful": true,
+          "LedgerSequence": 5704246,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CC6LMEAWSLJDGJEXEG7NJVUVQ4DMQZUY7MQPPFL5CQLRQ7NTRHQUIXJN",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAAh0cmFuc2Zlcg==",
+            "AAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aY=",
+            "AAAAEgAAAATVzK0KCsuFNblIMg/BjuLt2LAvALAZHxPQE3OL6w+fnA==",
+            "AAAADgAAAD1QQUlSOkdDUUwzV01NSEhQWldaU01CNUhSWjM1R09JT0U2RTZaN05MTkNJUVVCWEpLQzVaTUJOVE1NRTNSAAAA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "transfer"
+            },
+            {
+              "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+            },
+            {
+              "address": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+            },
+            {
+              "string": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R"
+            }
+          ],
+          "Data": "AAAACgAAAAAAAAAAAAAAADuaygA=",
+          "DataDecoded": {
+            "i128": "1000000000"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAABvLYQFpLSMySXIb7U1pWHBshmmPsg95V9FBcYfbOJ4UQAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAASAAAABNXMrQoKy4U1uUgyD8GO4u3YsC8AsBkfE9ATc4vrD5+cAAAADgAAAD1QQUlSOkdDUUwzV01NSEhQWldaU01CNUhSWjM1R09JT0U2RTZaN05MTkNJUVVCWEpLQzVaTUJOVE1NRTNSAAAAAAAACgAAAAAAAAAAAAAAADuaygA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "TransactionID": 24499550018342912,
+          "Successful": true,
+          "LedgerSequence": 5704246,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CDI7G25I5OCJIEOUMN7ILHQFE6ICIVCTY72WYMYIZY4W5THVF33DJNP5",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAAh0cmFuc2Zlcg==",
+            "AAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aY=",
+            "AAAAEgAAAATVzK0KCsuFNblIMg/BjuLt2LAvALAZHxPQE3OL6w+fnA==",
+            "AAAADgAAAD1QQUlSOkdDNU1WWDROU0ZOS1E2MzZKRUg3VTZORE9SWEdTMklFRDZLUUNSQUtUTEEyNEwzSEJMR0gyWjNJAAAA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "transfer"
+            },
+            {
+              "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+            },
+            {
+              "address": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+            },
+            {
+              "string": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I"
+            }
+          ],
+          "Data": "AAAACgAAAAAAAAAAAAAAAHc1lAA=",
+          "DataDecoded": {
+            "i128": "2000000000"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAB0fNrqOuElBHUY36FngUnkCRUU8f1bDMIzjluzPUu9jQAAAABAAAAAAAAAAQAAAAPAAAACHRyYW5zZmVyAAAAEgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAASAAAABNXMrQoKy4U1uUgyD8GO4u3YsC8AsBkfE9ATc4vrD5+cAAAADgAAAD1QQUlSOkdDNU1WWDROU0ZOS1E2MzZKRUg3VTZORE9SWEdTMklFRDZLUUNSQUtUTEEyNEwzSEJMR0gyWjNJAAAAAAAACgAAAAAAAAAAAAAAAHc1lAA=",
+          "OperationID": 0
+        }
+      ]
+    },
+    "effects": {
+      "attempts": 14,
+      "failures": 0,
+      "rowsInLedger": 13,
+      "rowsForEntry": [
+        {
+          "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "address_muxed": null,
+          "operation_id": 24499550018342913,
+          "details": {
+            "asset_type": "liquidity_pool_shares",
+            "limit": "922337203685.4775807",
+            "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+            "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+          },
+          "type": 20,
+          "type_string": "trustline_created",
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "index": 0,
+          "id": "24499550018342913-0"
+        },
+        {
+          "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "address_muxed": null,
+          "operation_id": 24499550018342913,
+          "details": {
+            "liquidity_pool": {
+              "fee_bp": 30,
+              "id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+              "reserves": [
+                {
+                  "asset": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+                  "amount": "0.0000000"
+                },
+                {
+                  "asset": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+                  "amount": "0.0000000"
+                }
+              ],
+              "total_shares": "0.0000000",
+              "total_trustlines": "1",
+              "type": "constant_product"
+            }
+          },
+          "type": 93,
+          "type_string": "liquidity_pool_created",
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "index": 1,
+          "id": "24499550018342913-1"
+        },
+        {
+          "address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "address_muxed": null,
+          "operation_id": 24499550018342914,
+          "details": {
+            "liquidity_pool": {
+              "fee_bp": 30,
+              "id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+              "reserves": [
+                {
+                  "asset": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+                  "amount": "100.0000000"
+                },
+                {
+                  "asset": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+                  "amount": "200.0000000"
+                }
+              ],
+              "total_shares": "141.4213562",
+              "total_trustlines": "1",
+              "type": "constant_product"
+            },
+            "reserves_deposited": [
+              {
+                "asset": "PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+                "amount": "100.0000000"
+              },
+              {
+                "asset": "PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+                "amount": "200.0000000"
+              }
+            ],
+            "shares_received": "141.4213562"
+          },
+          "type": 90,
+          "type_string": "liquidity_pool_deposited",
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "index": 0,
+          "id": "24499550018342914-0"
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "Address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AddressMuxed": "",
+          "OperationID": 24499550018342913,
+          "Details": "{\"asset_type\":\"liquidity_pool_shares\",\"limit\":\"922337203685.4775807\",\"liquidity_pool_id\":\"d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c\",\"liquidity_pool_id_strkey\":\"LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW\"}",
+          "Type": 20,
+          "TypeString": "trustline_created",
+          "LedgerClosed": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246,
+          "EffectIndex": 0,
+          "EffectId": "24499550018342913-0"
+        },
+        {
+          "Address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AddressMuxed": "",
+          "OperationID": 24499550018342913,
+          "Details": "{\"liquidity_pool\":{\"fee_bp\":30,\"id\":\"d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c\",\"reserves\":[{\"asset\":\"PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R\",\"amount\":\"0.0000000\"},{\"asset\":\"PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I\",\"amount\":\"0.0000000\"}],\"total_shares\":\"0.0000000\",\"total_trustlines\":\"1\",\"type\":\"constant_product\"}}",
+          "Type": 93,
+          "TypeString": "liquidity_pool_created",
+          "LedgerClosed": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246,
+          "EffectIndex": 1,
+          "EffectId": "24499550018342913-1"
+        },
+        {
+          "Address": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AddressMuxed": "",
+          "OperationID": 24499550018342914,
+          "Details": "{\"liquidity_pool\":{\"fee_bp\":30,\"id\":\"d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c\",\"reserves\":[{\"asset\":\"PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R\",\"amount\":\"100.0000000\"},{\"asset\":\"PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I\",\"amount\":\"200.0000000\"}],\"total_shares\":\"141.4213562\",\"total_trustlines\":\"1\",\"type\":\"constant_product\"},\"reserves_deposited\":[{\"asset\":\"PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R\",\"amount\":\"100.0000000\"},{\"asset\":\"PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I\",\"amount\":\"200.0000000\"}],\"shares_received\":\"141.4213562\"}",
+          "Type": 90,
+          "TypeString": "liquidity_pool_deposited",
+          "LedgerClosed": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246,
+          "EffectIndex": 0,
+          "EffectId": "24499550018342914-0"
+        }
+      ]
+    },
+    "ledger_transaction": {
+      "attempts": 14,
+      "failures": 0,
+      "rowsInLedger": 14,
+      "rowsForEntry": [
+        {
+          "ledger_sequence": 5704246,
+          "tx_envelope": "AAAAAgAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAB9AAVwozAAAAAgAAAAEAAAAAAAAAAAAAAABq9pVaAAAAAAAAAAIAAAAAAAAABgAAAAMAAAAAAAAAAVBBSVIAAAAAoL3ZjDnfm2ZMD08c76ZyHE8T2ftW0SIUDdKhdywLZsYAAAABUEFJUgAAAAC6yt+NkVqoe35JD/p5o3RuaWkEH5UBRAqawa4vZwrMfQAAAB5//////////wAAAAAAAAAW1cytCgrLhTW5SDIPwY7i7diwLwCwGR8T0BNzi+sPn5wAAAAAO5rKAAAAAAB3NZQAAAAAAgAAAAUAAAADAAAABQAAAAAAAAABP23lpgAAAEBIQhJlv6F4OK+mCHj+W2D+C4qFulKKUyiFds3ZeGgd4ENsoVH410bBINyBINX2NcH/THNmb2SscViPkS2zK/wM",
+          "tx_result": "oXh+J9hwgKNw5IHozVKo26txYyLz8KjEooQFblEnLhkAAAAAAAAAyAAAAAAAAAACAAAAAAAAAAYAAAAAAAAAAAAAABYAAAAAAAAAAA==",
+          "tx_meta": "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",
+          "tx_fee_meta": "AAAAAgAAAAMAVwo0AAAAAAAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAABdIduc4AFcKMwAAAAEAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABXCjQAAAAAavaU4AAAAAAAAAABAFcKNgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAAXSHbmcABXCjMAAAABAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVwo0AAAAAGr2lOAAAAAA",
+          "tx_ledger_history": "D+tm7IXbDY81sY51MCsVueuJAU8FL04HgdYeS5rP2n8AAAAe7sFUX7zaCtM3NQI7P4uD8M6KAZ+Kv5NY+QgnzZsHupOufxyBZaK3HVuhcwfYFx1BbH7hA3QArydAXc/OjjFDaQAAAABq9pTqAAAAAAAAAAMAAAGh0zWzHAAAAADVcmnZYlD3SW0Hm+LoNRI27//o05wuBr+rsUIfF/xnHAAAAEDYGhWlYCOC/d5KZnwydVwf6s244GS2ka6SqiGdnZVl2OtSjZ9dNq27gXBJvO6ImDfoRZ4tloEZ/uWi5BLImQ0EUftMIpCjUztpnGlP4N/4ROvFLhYrt5wEy1B3SR0F7YV0jt5ijU5fdvi7OPZAFoqU0f6oSct1LZdwxaCnlpf/+wBXCjYN4Lazp2QAAAAALQvSFAOhAAAAAAAAAAAADtJvAAAAZABMS0AAAADI/lvVVVA8eLQgIO2x7ddLatOW9k7ZphBT0lPMl7MViCbMVBdOtKdoRjtqgP2HWbf38nNDZVvZgurzhzDTCBaUUdtWRvSJSFjkVn9r915O+Jbx2+cALXcXvi0j6CcLZJkIRMBoDPQBwpeD7Ri4S3ftkKh9f06Ejj/Mx09WJZoMPWgAAAAAAAAAAA==",
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z"
+        }
+      ]
+    },
+    "liquidity_pools": {
+      "attempts": 1,
+      "failures": 0,
+      "rowsInLedger": 1,
+      "rowsForEntry": [
+        {
+          "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+          "type": "constant_product",
+          "fee": 30,
+          "trustline_count": 1,
+          "pool_share_count": 141.4213562,
+          "asset_a_type": "credit_alphanum4",
+          "asset_a_code": "PAIR",
+          "asset_a_issuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+          "asset_a_amount": 100,
+          "asset_a_id": 6818195392669921411,
+          "asset_b_type": "credit_alphanum4",
+          "asset_b_code": "PAIR",
+          "asset_b_issuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+          "asset_b_amount": 200,
+          "asset_b_id": 7875017910780780325,
+          "last_modified_ledger": 5704246,
+          "ledger_entry_change": 0,
+          "deleted": false,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "PoolID": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+          "PoolType": "constant_product",
+          "PoolFee": 30,
+          "TrustlineCount": 1,
+          "PoolShareCount": 141.4213562,
+          "AssetAType": "credit_alphanum4",
+          "AssetACode": "PAIR",
+          "AssetAIssuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+          "AssetAReserve": 100,
+          "AssetAID": 6818195392669921411,
+          "AssetBType": "credit_alphanum4",
+          "AssetBCode": "PAIR",
+          "AssetBIssuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+          "AssetBReserve": 200,
+          "AssetBID": 7875017910780780325,
+          "LastModifiedLedger": 5704246,
+          "LedgerEntryChange": 0,
+          "Deleted": false,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246
+        }
+      ]
+    },
+    "offers": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "operations": {
+      "attempts": 15,
+      "failures": 0,
+      "rowsInLedger": 15,
+      "rowsForEntry": [
+        {
+          "source_account": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "type": 6,
+          "type_string": "change_trust",
+          "details": {
+            "asset_type": "liquidity_pool_shares",
+            "limit": 922337203685.4775,
+            "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+            "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+            "trustor": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+          },
+          "transaction_id": 24499550018342912,
+          "id": 24499550018342913,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "operation_result_code": "OperationResultCodeOpInner",
+          "operation_trace_code": "ChangeTrustResultCodeChangeTrustSuccess",
+          "ledger_sequence": 5704246,
+          "details_json": {
+            "asset_type": "liquidity_pool_shares",
+            "limit": 922337203685.4775,
+            "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+            "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+            "trustor": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV"
+          }
+        },
+        {
+          "source_account": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "type": 22,
+          "type_string": "liquidity_pool_deposit",
+          "details": {
+            "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+            "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+            "max_price": 0.6,
+            "max_price_r": {
+              "n": 3,
+              "d": 5
+            },
+            "min_price": 0.4,
+            "min_price_r": {
+              "n": 2,
+              "d": 5
+            },
+            "reserve_a_asset_code": "PAIR",
+            "reserve_a_asset_id": 6818195392669921411,
+            "reserve_a_asset_issuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+            "reserve_a_asset_type": "credit_alphanum4",
+            "reserve_a_deposit_amount": 100,
+            "reserve_a_max_amount": 100,
+            "reserve_b_asset_code": "PAIR",
+            "reserve_b_asset_id": 7875017910780780325,
+            "reserve_b_asset_issuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+            "reserve_b_asset_type": "credit_alphanum4",
+            "reserve_b_deposit_amount": 200,
+            "reserve_b_max_amount": 200,
+            "shares_received": 141.4213562
+          },
+          "transaction_id": 24499550018342912,
+          "id": 24499550018342914,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "operation_result_code": "OperationResultCodeOpInner",
+          "operation_trace_code": "LiquidityPoolDepositResultCodeLiquidityPoolDepositSuccess",
+          "ledger_sequence": 5704246,
+          "details_json": {
+            "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+            "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+            "max_price": 0.6,
+            "max_price_r": {
+              "n": 3,
+              "d": 5
+            },
+            "min_price": 0.4,
+            "min_price_r": {
+              "n": 2,
+              "d": 5
+            },
+            "reserve_a_asset_code": "PAIR",
+            "reserve_a_asset_id": 6818195392669921411,
+            "reserve_a_asset_issuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+            "reserve_a_asset_type": "credit_alphanum4",
+            "reserve_a_deposit_amount": 100,
+            "reserve_a_max_amount": 100,
+            "reserve_b_asset_code": "PAIR",
+            "reserve_b_asset_id": 7875017910780780325,
+            "reserve_b_asset_issuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+            "reserve_b_asset_type": "credit_alphanum4",
+            "reserve_b_deposit_amount": 200,
+            "reserve_b_max_amount": 200,
+            "shares_received": 141.4213562
+          }
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "SourceAccount": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "SourceAccountMuxed": "",
+          "Type": 6,
+          "TypeString": "change_trust",
+          "OperationDetails": "{\"asset_type\":\"liquidity_pool_shares\",\"limit\":922337203685.4775,\"liquidity_pool_id\":\"d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c\",\"liquidity_pool_id_strkey\":\"LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW\",\"trustor\":\"GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV\"}",
+          "TransactionID": 24499550018342912,
+          "OperationID": 24499550018342913,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "OperationResultCode": "OperationResultCodeOpInner",
+          "OperationTraceCode": "ChangeTrustResultCodeChangeTrustSuccess",
+          "LedgerSequence": 5704246
+        },
+        {
+          "SourceAccount": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "SourceAccountMuxed": "",
+          "Type": 22,
+          "TypeString": "liquidity_pool_deposit",
+          "OperationDetails": "{\"liquidity_pool_id\":\"d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c\",\"liquidity_pool_id_strkey\":\"LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW\",\"max_price\":0.6,\"max_price_r\":{\"n\":3,\"d\":5},\"min_price\":0.4,\"min_price_r\":{\"n\":2,\"d\":5},\"reserve_a_asset_code\":\"PAIR\",\"reserve_a_asset_id\":6818195392669921411,\"reserve_a_asset_issuer\":\"GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R\",\"reserve_a_asset_type\":\"credit_alphanum4\",\"reserve_a_deposit_amount\":100,\"reserve_a_max_amount\":100,\"reserve_b_asset_code\":\"PAIR\",\"reserve_b_asset_id\":7875017910780780325,\"reserve_b_asset_issuer\":\"GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I\",\"reserve_b_asset_type\":\"credit_alphanum4\",\"reserve_b_deposit_amount\":200,\"reserve_b_max_amount\":200,\"shares_received\":141.4213562}",
+          "TransactionID": 24499550018342912,
+          "OperationID": 24499550018342914,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "OperationResultCode": "OperationResultCodeOpInner",
+          "OperationTraceCode": "LiquidityPoolDepositResultCodeLiquidityPoolDepositSuccess",
+          "LedgerSequence": 5704246
+        }
+      ]
+    },
+    "restored_key": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "signers": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "token_transfers": {
+      "attempts": 1,
+      "failures": 0,
+      "rowsInLedger": 34,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "transaction_id": 24499550018342912,
+          "operation_id": null,
+          "event_topic": "fee",
+          "from": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "to": null,
+          "asset": "native",
+          "asset_type": "native",
+          "asset_code": null,
+          "asset_issuer": null,
+          "amount": 0.000019999999999999998,
+          "amount_raw": "200",
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "ledger_sequence": 5704246,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "to_muxed": null,
+          "to_muxed_id": null
+        },
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "transaction_id": 24499550018342912,
+          "operation_id": 24499550018342914,
+          "event_topic": "transfer",
+          "from": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "to": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+          "asset": "credit_alphanum4:PAIR:GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+          "asset_type": "credit_alphanum4",
+          "asset_code": "PAIR",
+          "asset_issuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+          "amount": 100,
+          "amount_raw": "1000000000",
+          "contract_id": "CC6LMEAWSLJDGJEXEG7NJVUVQ4DMQZUY7MQPPFL5CQLRQ7NTRHQUIXJN",
+          "ledger_sequence": 5704246,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "to_muxed": null,
+          "to_muxed_id": null
+        },
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "transaction_id": 24499550018342912,
+          "operation_id": 24499550018342914,
+          "event_topic": "transfer",
+          "from": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "to": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW",
+          "asset": "credit_alphanum4:PAIR:GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+          "asset_type": "credit_alphanum4",
+          "asset_code": "PAIR",
+          "asset_issuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+          "amount": 200,
+          "amount_raw": "2000000000",
+          "contract_id": "CDI7G25I5OCJIEOUMN7ILHQFE6ICIVCTY72WYMYIZY4W5THVF33DJNP5",
+          "ledger_sequence": 5704246,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "to_muxed": null,
+          "to_muxed_id": null
+        }
+      ]
+    },
+    "trades": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "transactions": {
+      "attempts": 14,
+      "failures": 0,
+      "rowsInLedger": 14,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "ledger_sequence": 5704246,
+          "account": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "account_sequence": 24499537133436930,
+          "max_fee": 2000,
+          "fee_charged": 200,
+          "operation_count": 2,
+          "tx_envelope": "AAAAAgAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAB9AAVwozAAAAAgAAAAEAAAAAAAAAAAAAAABq9pVaAAAAAAAAAAIAAAAAAAAABgAAAAMAAAAAAAAAAVBBSVIAAAAAoL3ZjDnfm2ZMD08c76ZyHE8T2ftW0SIUDdKhdywLZsYAAAABUEFJUgAAAAC6yt+NkVqoe35JD/p5o3RuaWkEH5UBRAqawa4vZwrMfQAAAB5//////////wAAAAAAAAAW1cytCgrLhTW5SDIPwY7i7diwLwCwGR8T0BNzi+sPn5wAAAAAO5rKAAAAAAB3NZQAAAAAAgAAAAUAAAADAAAABQAAAAAAAAABP23lpgAAAEBIQhJlv6F4OK+mCHj+W2D+C4qFulKKUyiFds3ZeGgd4ENsoVH410bBINyBINX2NcH/THNmb2SscViPkS2zK/wM",
+          "tx_result": "AAAAAAAAAMgAAAAAAAAAAgAAAAAAAAAGAAAAAAAAAAAAAAAWAAAAAAAAAAA=",
+          "tx_meta": "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",
+          "tx_fee_meta": "AAAAAgAAAAMAVwo0AAAAAAAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAABdIduc4AFcKMwAAAAEAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABXCjQAAAAAavaU4AAAAAAAAAABAFcKNgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAAXSHbmcABXCjMAAAABAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVwo0AAAAAGr2lOAAAAAA",
+          "created_at": "2026-11-13T04:41:14Z",
+          "memo_type": "MemoTypeMemoNone",
+          "memo": "",
+          "time_bounds": "[0,1794544986)",
+          "successful": true,
+          "id": 24499550018342912,
+          "ledger_bounds": "",
+          "min_account_sequence": null,
+          "min_account_sequence_age": null,
+          "min_account_sequence_ledger_gap": null,
+          "extra_signers": null,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "resource_fee": 0,
+          "soroban_resources_instructions": 0,
+          "soroban_resources_read_bytes": 0,
+          "soroban_resources_disk_read_bytes": 0,
+          "soroban_resources_write_bytes": 0,
+          "soroban_resources_archived_entries": null,
+          "transaction_result_code": "TransactionResultCodeTxSuccess",
+          "inclusion_fee_bid": 0,
+          "inclusion_fee_charged": 0,
+          "resource_fee_refund": 0,
+          "non_refundable_resource_fee_charged": 0,
+          "refundable_resource_fee_charged": 0,
+          "rent_fee_charged": 0
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "TransactionHash": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+          "LedgerSequence": 5704246,
+          "Account": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AccountMuxed": "",
+          "AccountSequence": 24499537133436930,
+          "MaxFee": 2000,
+          "FeeCharged": 200,
+          "OperationCount": 2,
+          "TxEnvelope": "AAAAAgAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAB9AAVwozAAAAAgAAAAEAAAAAAAAAAAAAAABq9pVaAAAAAAAAAAIAAAAAAAAABgAAAAMAAAAAAAAAAVBBSVIAAAAAoL3ZjDnfm2ZMD08c76ZyHE8T2ftW0SIUDdKhdywLZsYAAAABUEFJUgAAAAC6yt+NkVqoe35JD/p5o3RuaWkEH5UBRAqawa4vZwrMfQAAAB5//////////wAAAAAAAAAW1cytCgrLhTW5SDIPwY7i7diwLwCwGR8T0BNzi+sPn5wAAAAAO5rKAAAAAAB3NZQAAAAAAgAAAAUAAAADAAAABQAAAAAAAAABP23lpgAAAEBIQhJlv6F4OK+mCHj+W2D+C4qFulKKUyiFds3ZeGgd4ENsoVH410bBINyBINX2NcH/THNmb2SscViPkS2zK/wM",
+          "TxResult": "AAAAAAAAAMgAAAAAAAAAAgAAAAAAAAAGAAAAAAAAAAAAAAAWAAAAAAAAAAA=",
+          "TxMeta": "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",
+          "TxFeeMeta": "AAAAAgAAAAMAVwo0AAAAAAAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAABdIduc4AFcKMwAAAAEAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABXCjQAAAAAavaU4AAAAAAAAAABAFcKNgAAAAAAAAAAIN8jvc2pLLEl6riloLfNP92OX26kZTyPMokezj9t5aYAAAAXSHbmcABXCjMAAAABAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVwo0AAAAAGr2lOAAAAAA",
+          "CreatedAt": 1794544874000,
+          "MemoType": "MemoTypeMemoNone",
+          "Memo": "",
+          "TimeBounds": "[0,1794544986)",
+          "Successful": true,
+          "TransactionID": 24499550018342912,
+          "FeeAccount": "",
+          "FeeAccountMuxed": "",
+          "InnerTransactionHash": "",
+          "NewMaxFee": 0,
+          "LedgerBounds": "",
+          "MinAccountSequence": 0,
+          "MinAccountSequenceAge": 0,
+          "MinAccountSequenceLedgerGap": 0,
+          "ExtraSigners": null,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "ResourceFee": 0,
+          "SorobanResourcesInstructions": 0,
+          "SorobanResourcesReadBytes": 0,
+          "SorobanResourcesDiskReadBytes": 0,
+          "SorobanResourcesWriteBytes": 0,
+          "SorobanResourcesArchivedEntries": null,
+          "TransactionResultCode": "TransactionResultCodeTxSuccess",
+          "InclusionFeeBid": 0,
+          "InclusionFeeCharged": 0,
+          "ResourceFeeRefund": 0,
+          "TotalNonRefundableResourceFeeCharged": 0,
+          "TotalRefundableResourceFeeCharged": 0,
+          "RentFeeCharged": 0
+        }
+      ]
+    },
+    "trustlines": {
+      "attempts": 4,
+      "failures": 0,
+      "rowsInLedger": 4,
+      "rowsForEntry": [
+        {
+          "ledger_key": "AAAAAQAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAFQQUlSAAAAAKC92Yw535tmTA9PHO+mchxPE9n7VtEiFA3SoXcsC2bG",
+          "account_id": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "asset_code": "PAIR",
+          "asset_issuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+          "asset_type": "credit_alphanum4",
+          "asset_id": 6483880796692100122,
+          "balance": 900,
+          "trust_line_limit": 9223372036854775807,
+          "liquidity_pool_id": "",
+          "buying_liabilities": 0,
+          "selling_liabilities": 0,
+          "flags": 1,
+          "last_modified_ledger": 5704246,
+          "ledger_entry_change": 1,
+          "sponsor": null,
+          "deleted": false,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "liquidity_pool_id_strkey": ""
+        },
+        {
+          "ledger_key": "AAAAAQAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAFQQUlSAAAAALrK342RWqh7fkkP+nmjdG5paQQflQFECprBri9nCsx9",
+          "account_id": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "asset_code": "PAIR",
+          "asset_issuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+          "asset_type": "credit_alphanum4",
+          "asset_id": 2843199739884876461,
+          "balance": 800,
+          "trust_line_limit": 9223372036854775807,
+          "liquidity_pool_id": "",
+          "buying_liabilities": 0,
+          "selling_liabilities": 0,
+          "flags": 1,
+          "last_modified_ledger": 5704246,
+          "ledger_entry_change": 1,
+          "sponsor": null,
+          "deleted": false,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "liquidity_pool_id_strkey": ""
+        },
+        {
+          "ledger_key": "AAAAAQAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAPVzK0KCsuFNblIMg/BjuLt2LAvALAZHxPQE3OL6w+fnA==",
+          "account_id": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "asset_code": "",
+          "asset_issuer": "",
+          "asset_type": "pool_share",
+          "asset_id": -1967220342708457407,
+          "balance": 141.4213562,
+          "trust_line_limit": 9223372036854775807,
+          "liquidity_pool_id": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+          "buying_liabilities": 0,
+          "selling_liabilities": 0,
+          "flags": 0,
+          "last_modified_ledger": 5704246,
+          "ledger_entry_change": 0,
+          "sponsor": null,
+          "deleted": false,
+          "closed_at": "2026-11-13T04:41:14Z",
+          "closed_at_ms": "2026-11-13T04:41:14.268Z",
+          "ledger_sequence": 5704246,
+          "liquidity_pool_id_strkey": "LDK4ZLIKBLFYKNNZJAZA7QMO4LW5RMBPACYBSHYT2AJXHC7LB6PZYJYW"
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "LedgerKey": "AAAAAQAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAFQQUlSAAAAAKC92Yw535tmTA9PHO+mchxPE9n7VtEiFA3SoXcsC2bG",
+          "AccountID": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AssetCode": "PAIR",
+          "AssetIssuer": "GCQL3WMMHHPZWZSMB5HRZ35GOIOE6E6Z7NLNCIQUBXJKC5ZMBNTMME3R",
+          "AssetType": "credit_alphanum4",
+          "AssetID": 6483880796692100122,
+          "Balance": 900,
+          "TrustlineLimit": 9223372036854775807,
+          "LiquidityPoolID": "",
+          "BuyingLiabilities": 0,
+          "SellingLiabilities": 0,
+          "Flags": 1,
+          "LastModifiedLedger": 5704246,
+          "LedgerEntryChange": 1,
+          "Sponsor": "",
+          "Deleted": false,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246
+        },
+        {
+          "LedgerKey": "AAAAAQAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAFQQUlSAAAAALrK342RWqh7fkkP+nmjdG5paQQflQFECprBri9nCsx9",
+          "AccountID": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AssetCode": "PAIR",
+          "AssetIssuer": "GC5MVX4NSFNKQ636JEH7U6NDORXGS2IED6KQCRAKTLA24L3HBLGH2Z3I",
+          "AssetType": "credit_alphanum4",
+          "AssetID": 2843199739884876461,
+          "Balance": 800,
+          "TrustlineLimit": 9223372036854775807,
+          "LiquidityPoolID": "",
+          "BuyingLiabilities": 0,
+          "SellingLiabilities": 0,
+          "Flags": 1,
+          "LastModifiedLedger": 5704246,
+          "LedgerEntryChange": 1,
+          "Sponsor": "",
+          "Deleted": false,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246
+        },
+        {
+          "LedgerKey": "AAAAAQAAAAAg3yO9zakssSXquKWgt80/3Y5fbqRlPI8yiR7OP23lpgAAAAPVzK0KCsuFNblIMg/BjuLt2LAvALAZHxPQE3OL6w+fnA==",
+          "AccountID": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+          "AssetCode": "",
+          "AssetIssuer": "",
+          "AssetType": "pool_share",
+          "AssetID": -1967220342708457407,
+          "Balance": 141.4213562,
+          "TrustlineLimit": 9223372036854775807,
+          "LiquidityPoolID": "d5ccad0a0acb8535b948320fc18ee2edd8b02f00b0191f13d013738beb0f9f9c",
+          "BuyingLiabilities": 0,
+          "SellingLiabilities": 0,
+          "Flags": 0,
+          "LastModifiedLedger": 5704246,
+          "LedgerEntryChange": 0,
+          "Sponsor": "",
+          "Deleted": false,
+          "ClosedAt": 1794544874000,
+          "ClosedAtMs": 1794544874268,
+          "LedgerSequence": 5704246
+        }
+      ]
+    },
+    "ttl": {
+      "attempts": 24,
+      "failures": 0,
+      "rowsInLedger": 24
+    }
+  }
+}

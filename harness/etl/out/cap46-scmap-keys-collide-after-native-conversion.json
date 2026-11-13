@@ -1,0 +1,2252 @@
+{
+  "id": "cap46-scmap-keys-collide-after-native-conversion",
+  "outcome": "mishandled",
+  "stage": "operations",
+  "detail": "operations: parameters_decoded (ScVal.String() rendering) keeps u32 1, string \"1\" and symbol \"1\" distinguishable is \"[{1 10} {1 20} {1 30}]\", expected \"three distinguishable keys\" [known: stellar/stellar-etl#330 (closed: added parameters_json_decoded; parameters_decoded is still written)]; exact in contract_events",
+  "shapes": [
+    "scmap-key-collision",
+    "scmap-u32-string-symbol-same-text",
+    "contract-event-map-data",
+    "contract-return-map"
+  ],
+  "ledger": 5704261,
+  "txHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+  "txId": 24499614442868736,
+  "ledgerSource": "getLedgers",
+  "perExport": {
+    "contract_events": "pass",
+    "operations": "mishandled"
+  },
+  "facts": [
+    {
+      "export": "contract_events",
+      "check": "data_decoded map keeps u32 1, string \"1\" and symbol \"1\" as three entries",
+      "want": "[{\"key\":{\"u32\":1},\"val\":{\"u32\":10}},{\"key\":{\"string\":\"1\"},\"val\":{\"u32\":20}},{\"key\":{\"symbol\":\"1\"},\"val\":{\"u32\":30}}]",
+      "got": "[{\"key\":{\"u32\":1},\"val\":{\"u32\":10}},{\"key\":{\"string\":\"1\"},\"val\":{\"u32\":20}},{\"key\":{\"symbol\":\"1\"},\"val\":{\"u32\":30}}]",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "parameters_json_decoded map argument keeps the three keys",
+      "want": "[{\"u32\":1},{\"string\":\"1\"},{\"symbol\":\"1\"}]",
+      "got": "[{\"u32\":1},{\"string\":\"1\"},{\"symbol\":\"1\"}]",
+      "status": "exact",
+      "required": true
+    },
+    {
+      "export": "operations",
+      "check": "parameters_decoded (ScVal.String() rendering) keeps u32 1, string \"1\" and symbol \"1\" distinguishable",
+      "want": "three distinguishable keys",
+      "got": "[{1 10} {1 20} {1 30}]",
+      "status": "altered",
+      "required": true,
+      "knownIssue": "stellar/stellar-etl#330 (closed: added parameters_json_decoded; parameters_decoded is still written)"
+    }
+  ],
+  "context": {
+    "amountPrecision": [
+      {
+        "amount": "0.0007059999999999999",
+        "amountEqualsRawOver1e7": false,
+        "amount_raw": "7060",
+        "event_topic": "fee"
+      },
+      {
+        "amount": "-0.0004877",
+        "amountEqualsRawOver1e7": true,
+        "amount_raw": "-4877",
+        "event_topic": "fee"
+      }
+    ],
+    "ledgerEntryRowFilter": [
+      "920a2c772354ede715ab3fa418fafc7bec5efa3108cfc98376656adf4cb698e7",
+      "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+      "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC"
+    ],
+    "ledger_transaction.tx_envelope == envelope.b64": true,
+    "ledger_transaction.tx_meta == meta.b64": false,
+    "operations.parameters_decoded[map argument]": {
+      "type": "Map",
+      "value": "[{1 10} {1 20} {1 30}]"
+    },
+    "operations.parameters_json_decoded[map argument]": "[{\"key\":{\"u32\":1},\"val\":{\"u32\":10}},{\"key\":{\"string\":\"1\"},\"val\":{\"u32\":20}},{\"key\":{\"symbol\":\"1\"},\"val\":{\"u32\":30}}]",
+    "returnValueExported": "no transform output carries the Soroban return value (no reference to ReturnValue in internal/transform)",
+    "transactions.tx_envelope == envelope.b64": true
+  },
+  "exports": {
+    "accounts": {
+      "attempts": 15,
+      "failures": 0,
+      "rowsInLedger": 15,
+      "rowsForEntry": [
+        {
+          "account_id": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "balance": 9999.9977843,
+          "buying_liabilities": 0,
+          "selling_liabilities": 0,
+          "sequence_number": 24499601557946371,
+          "sequence_ledger": 5704261,
+          "sequence_time": 1794544949,
+          "num_subentries": 0,
+          "inflation_destination": "",
+          "flags": 0,
+          "home_domain": "",
+          "master_weight": 1,
+          "threshold_low": 0,
+          "threshold_medium": 0,
+          "threshold_high": 0,
+          "sponsor": null,
+          "num_sponsored": 0,
+          "num_sponsoring": 0,
+          "last_modified_ledger": 5704261,
+          "ledger_entry_change": 1,
+          "deleted": false,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "ledger_sequence": 5704261
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "AccountID": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "Balance": 9999.9977843,
+          "BuyingLiabilities": 0,
+          "SellingLiabilities": 0,
+          "SequenceNumber": 24499601557946371,
+          "SequenceLedger": 5704261,
+          "SequenceTime": 1794544949,
+          "NumSubentries": 0,
+          "InflationDestination": "",
+          "Flags": 0,
+          "HomeDomain": "",
+          "MasterWeight": 1,
+          "ThresholdLow": 0,
+          "ThresholdMedium": 0,
+          "ThresholdHigh": 0,
+          "Sponsor": "",
+          "NumSponsored": 0,
+          "NumSponsoring": 0,
+          "LastModifiedLedger": 5704261,
+          "LedgerEntryChange": 1,
+          "Deleted": false,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "LedgerSequence": 5704261
+        }
+      ]
+    },
+    "claimable_balances": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "config_settings": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "contract_code": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "contract_data": {
+      "attempts": 40,
+      "failures": 0,
+      "rowsInLedger": 40
+    },
+    "contract_events": {
+      "attempts": 13,
+      "failures": 0,
+      "rowsInLedger": 434,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQU="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC"
+            }
+          ],
+          "data": "AAAACgAAAAAAAAAAAAAAAAAAG5Q=",
+          "data_decoded": {
+            "i128": "7060"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAAAoAAAAAAAAAAAAAAAAAABuU",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQU="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC"
+            }
+          ],
+          "data": "AAAACv//////////////////7PM=",
+          "data_decoded": {
+            "i128": "-4877"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAAAr//////////////////+zz",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAARlY2hv"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "echo"
+            }
+          ],
+          "data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "data_decoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAABAAAAAAAAAAEAAAAPAAAABGVjaG8AAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHg==",
+          "operation_id": 24499614442868737
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAdmbl9jYWxsAA==",
+            "AAAADQAAACA4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA==",
+            "AAAADwAAAARlY2hv"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "fn_call"
+            },
+            {
+              "bytes": "3874acfdaf36cfe2adf4eff74323bc94a2ba79de9d33a76fd087301e3cec2430"
+            },
+            {
+              "symbol": "echo"
+            }
+          ],
+          "data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "data_decoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAADAAAADwAAAAdmbl9jYWxsAAAAAA0AAAAgOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAAPAAAABGVjaG8AAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHg==",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+          "type": 1,
+          "type_string": "ContractEventTypeContract",
+          "topics": [
+            "AAAADwAAAARlY2hv"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "echo"
+            }
+          ],
+          "data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "data_decoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAABAAAAAAAAAAEAAAAPAAAABGVjaG8AAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHg==",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAlmbl9yZXR1cm4AAAA=",
+            "AAAADwAAAARlY2hv"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "fn_return"
+            },
+            {
+              "symbol": "echo"
+            }
+          ],
+          "data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "data_decoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAACAAAAAAAAAAIAAAAPAAAACWZuX3JldHVybgAAAAAAAA8AAAAEZWNobwAAABEAAAABAAAAAwAAAAMAAAABAAAAAwAAAAoAAAAOAAAAATEAAAAAAAADAAAAFAAAAA8AAAABMQAAAAAAAAMAAAAe",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAApyZWFkX2VudHJ5AAA="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_entry"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAC",
+          "data_decoded": {
+            "u64": "2"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACnJlYWRfZW50cnkAAAAAAAUAAAAAAAAAAg==",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAt3cml0ZV9lbnRyeQA="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_entry"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAC3dyaXRlX2VudHJ5AAAAAAUAAAAAAAAAAA==",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABBsZWRnZXJfcmVhZF9ieXRl"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "ledger_read_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEGxlZGdlcl9yZWFkX2J5dGUAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABFsZWRnZXJfd3JpdGVfYnl0ZQAAAA=="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "ledger_write_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEWxlZGdlcl93cml0ZV9ieXRlAAAAAAAABQAAAAAAAAAA",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA1yZWFkX2tleV9ieXRlAAAA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_key_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADXJlYWRfa2V5X2J5dGUAAAAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA53cml0ZV9rZXlfYnl0ZQAA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_key_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADndyaXRlX2tleV9ieXRlAAAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA5yZWFkX2RhdGFfYnl0ZQAA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_data_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADnJlYWRfZGF0YV9ieXRlAAAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA93cml0ZV9kYXRhX2J5dGUA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_data_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD3dyaXRlX2RhdGFfYnl0ZQAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA5yZWFkX2NvZGVfYnl0ZQAA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_code_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADnJlYWRfY29kZV9ieXRlAAAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA93cml0ZV9jb2RlX2J5dGUA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_code_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD3dyaXRlX2NvZGVfYnl0ZQAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAplbWl0X2V2ZW50AAA="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "emit_event"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAB",
+          "data_decoded": {
+            "u64": "1"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACmVtaXRfZXZlbnQAAAAAAAUAAAAAAAAAAQ==",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA9lbWl0X2V2ZW50X2J5dGUA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "emit_event_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAADI",
+          "data_decoded": {
+            "u64": "200"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD2VtaXRfZXZlbnRfYnl0ZQAAAAAFAAAAAAAAAMg=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAhjcHVfaW5zbg=="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "cpu_insn"
+            }
+          ],
+          "data": "AAAABQAAAAAABNYI",
+          "data_decoded": {
+            "u64": "316936"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACGNwdV9pbnNuAAAABQAAAAAABNYI",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAhtZW1fYnl0ZQ=="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "mem_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAEVwE",
+          "data_decoded": {
+            "u64": "1137668"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACG1lbV9ieXRlAAAABQAAAAAAEVwE",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABFpbnZva2VfdGltZV9uc2VjcwAAAA=="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "invoke_time_nsecs"
+            }
+          ],
+          "data": "AAAABQAAAAAAAmgd",
+          "data_decoded": {
+            "u64": "157725"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEWludm9rZV90aW1lX25zZWNzAAAAAAAABQAAAAAAAmgd",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA9tYXhfcndfa2V5X2J5dGUA"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_rw_key_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD21heF9yd19rZXlfYnl0ZQAAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABBtYXhfcndfZGF0YV9ieXRl"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_rw_data_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEG1heF9yd19kYXRhX2J5dGUAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABBtYXhfcndfY29kZV9ieXRl"
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_rw_code_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAAAA",
+          "data_decoded": {
+            "u64": "0"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEG1heF9yd19jb2RlX2J5dGUAAAAFAAAAAAAAAAA=",
+          "operation_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "successful": true,
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "in_successful_contract_call": true,
+          "contract_id": "",
+          "type": 2,
+          "type_string": "ContractEventTypeDiagnostic",
+          "topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABNtYXhfZW1pdF9ldmVudF9ieXRlAA=="
+          ],
+          "topics_decoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_emit_event_byte"
+            }
+          ],
+          "data": "AAAABQAAAAAAAACE",
+          "data_decoded": {
+            "u64": "132"
+          },
+          "contract_event_xdr": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAE21heF9lbWl0X2V2ZW50X2J5dGUAAAAABQAAAAAAAACE",
+          "operation_id": null
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQU="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC"
+            }
+          ],
+          "Data": "AAAACgAAAAAAAAAAAAAAAAAAG5Q=",
+          "DataDecoded": {
+            "i128": "7060"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAAAoAAAAAAAAAAAAAAAAAABuU",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAANmZWUA",
+            "AAAAEgAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQU="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "fee"
+            },
+            {
+              "address": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC"
+            }
+          ],
+          "Data": "AAAACv//////////////////7PM=",
+          "DataDecoded": {
+            "i128": "-4877"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAB15KLcsJwPM/q9+uf9O9NUEpVqLl5/JtFDqLIQrTRzmEAAAABAAAAAAAAAAIAAAAPAAAAA2ZlZQAAAAASAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAAAr//////////////////+zz",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAARlY2hv"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "echo"
+            }
+          ],
+          "Data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "DataDecoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAABAAAAAAAAAAEAAAAPAAAABGVjaG8AAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHg==",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAdmbl9jYWxsAA==",
+            "AAAADQAAACA4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA==",
+            "AAAADwAAAARlY2hv"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "fn_call"
+            },
+            {
+              "bytes": "3874acfdaf36cfe2adf4eff74323bc94a2ba79de9d33a76fd087301e3cec2430"
+            },
+            {
+              "symbol": "echo"
+            }
+          ],
+          "Data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "DataDecoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAADAAAADwAAAAdmbl9jYWxsAAAAAA0AAAAgOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAAPAAAABGVjaG8AAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHg==",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+          "Type": 1,
+          "TypeString": "ContractEventTypeContract",
+          "Topics": [
+            "AAAADwAAAARlY2hv"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "echo"
+            }
+          ],
+          "Data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "DataDecoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAABAAAAAAAAAAEAAAAPAAAABGVjaG8AAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHg==",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAlmbl9yZXR1cm4AAAA=",
+            "AAAADwAAAARlY2hv"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "fn_return"
+            },
+            {
+              "symbol": "echo"
+            }
+          ],
+          "Data": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=",
+          "DataDecoded": {
+            "map": [
+              {
+                "key": {
+                  "u32": 1
+                },
+                "val": {
+                  "u32": 10
+                }
+              },
+              {
+                "key": {
+                  "string": "1"
+                },
+                "val": {
+                  "u32": 20
+                }
+              },
+              {
+                "key": {
+                  "symbol": "1"
+                },
+                "val": {
+                  "u32": 30
+                }
+              }
+            ]
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAACAAAAAAAAAAIAAAAPAAAACWZuX3JldHVybgAAAAAAAA8AAAAEZWNobwAAABEAAAABAAAAAwAAAAMAAAABAAAAAwAAAAoAAAAOAAAAATEAAAAAAAADAAAAFAAAAA8AAAABMQAAAAAAAAMAAAAe",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAApyZWFkX2VudHJ5AAA="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_entry"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAC",
+          "DataDecoded": {
+            "u64": "2"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACnJlYWRfZW50cnkAAAAAAAUAAAAAAAAAAg==",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAt3cml0ZV9lbnRyeQA="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_entry"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAC3dyaXRlX2VudHJ5AAAAAAUAAAAAAAAAAA==",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABBsZWRnZXJfcmVhZF9ieXRl"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "ledger_read_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEGxlZGdlcl9yZWFkX2J5dGUAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABFsZWRnZXJfd3JpdGVfYnl0ZQAAAA=="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "ledger_write_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEWxlZGdlcl93cml0ZV9ieXRlAAAAAAAABQAAAAAAAAAA",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA1yZWFkX2tleV9ieXRlAAAA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_key_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADXJlYWRfa2V5X2J5dGUAAAAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA53cml0ZV9rZXlfYnl0ZQAA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_key_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADndyaXRlX2tleV9ieXRlAAAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA5yZWFkX2RhdGFfYnl0ZQAA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_data_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADnJlYWRfZGF0YV9ieXRlAAAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA93cml0ZV9kYXRhX2J5dGUA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_data_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD3dyaXRlX2RhdGFfYnl0ZQAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA5yZWFkX2NvZGVfYnl0ZQAA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "read_code_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAADnJlYWRfY29kZV9ieXRlAAAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA93cml0ZV9jb2RlX2J5dGUA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "write_code_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD3dyaXRlX2NvZGVfYnl0ZQAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAplbWl0X2V2ZW50AAA="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "emit_event"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAB",
+          "DataDecoded": {
+            "u64": "1"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACmVtaXRfZXZlbnQAAAAAAAUAAAAAAAAAAQ==",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA9lbWl0X2V2ZW50X2J5dGUA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "emit_event_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAADI",
+          "DataDecoded": {
+            "u64": "200"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD2VtaXRfZXZlbnRfYnl0ZQAAAAAFAAAAAAAAAMg=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAhjcHVfaW5zbg=="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "cpu_insn"
+            }
+          ],
+          "Data": "AAAABQAAAAAABNYI",
+          "DataDecoded": {
+            "u64": "316936"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACGNwdV9pbnNuAAAABQAAAAAABNYI",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAAhtZW1fYnl0ZQ=="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "mem_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAEVwE",
+          "DataDecoded": {
+            "u64": "1137668"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAACG1lbV9ieXRlAAAABQAAAAAAEVwE",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABFpbnZva2VfdGltZV9uc2VjcwAAAA=="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "invoke_time_nsecs"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAmgd",
+          "DataDecoded": {
+            "u64": "157725"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEWludm9rZV90aW1lX25zZWNzAAAAAAAABQAAAAAAAmgd",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAAA9tYXhfcndfa2V5X2J5dGUA"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_rw_key_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAD21heF9yd19rZXlfYnl0ZQAAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABBtYXhfcndfZGF0YV9ieXRl"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_rw_data_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEG1heF9yd19kYXRhX2J5dGUAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABBtYXhfcndfY29kZV9ieXRl"
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_rw_code_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAAAA",
+          "DataDecoded": {
+            "u64": "0"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAEG1heF9yd19jb2RlX2J5dGUAAAAFAAAAAAAAAAA=",
+          "OperationID": 0
+        },
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "TransactionID": 24499614442868736,
+          "Successful": true,
+          "LedgerSequence": 5704261,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "InSuccessfulContractCall": true,
+          "ContractId": "",
+          "Type": 2,
+          "TypeString": "ContractEventTypeDiagnostic",
+          "Topics": [
+            "AAAADwAAAAxjb3JlX21ldHJpY3M=",
+            "AAAADwAAABNtYXhfZW1pdF9ldmVudF9ieXRlAA=="
+          ],
+          "TopicsDecoded": [
+            {
+              "symbol": "core_metrics"
+            },
+            {
+              "symbol": "max_emit_event_byte"
+            }
+          ],
+          "Data": "AAAABQAAAAAAAACE",
+          "DataDecoded": {
+            "u64": "132"
+          },
+          "ContractEventXDR": "AAAAAQAAAAAAAAAAAAAAAgAAAAAAAAACAAAADwAAAAxjb3JlX21ldHJpY3MAAAAPAAAAE21heF9lbWl0X2V2ZW50X2J5dGUAAAAABQAAAAAAAACE",
+          "OperationID": 0
+        }
+      ]
+    },
+    "effects": {
+      "attempts": 13,
+      "failures": 0,
+      "rowsInLedger": 28
+    },
+    "ledger_transaction": {
+      "attempts": 13,
+      "failures": 0,
+      "rowsInLedger": 13,
+      "rowsForEntry": [
+        {
+          "ledger_sequence": 5704261,
+          "tx_envelope": "AAAAAgAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAHxgAVwpCAAAAAwAAAAEAAAAAAAAAAAAAAABq9pWnAAAAAAAAAAEAAAAAAAAAGAAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAAEZWNobwAAAAEAAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHgAAAAAAAAABAAAAAAAAAAIAAAAGAAAAATh0rP2vNs/irfTv90MjvJSiunnenTOnb9CHMB487CQwAAAAFAAAAAEAAAAHkgosdyNU7ecVqz+kGPr8e+xe+jEIz8mDdmVq30y2mOcAAAAAAAWW6AAAAAAAAAAAAAAAAAAAGzAAAAAByxjBBQAAAEC6rYgvbWc5b0mGg4k+sRgCPYc5E4ClE7WsW5nLwpMmvRmIYZxWNorfPPZMYMRQiTWgkz3aUqs1QFZjaRRftyEE",
+          "tx_result": "mfJY3FJXqXSm7db75sCT528d0w0oj6j1+/rLmb705ZsAAAAAAAAIhwAAAAAAAAABAAAAAAAAABgAAAAAYSWdJe+pnHMPCFYDRq3+xhZGmk/LpHImkgm/t/0p33MAAAAA",
+          "tx_meta": "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",
+          "tx_fee_meta": "AAAAAgAAAAMAVwpEAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAABdIdpn6AFcKQgAAAAIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABXCkQAAAAAavaVMAAAAAAAAAABAFcKRQAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQUAAAAXSHZ+ZgBXCkIAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVwpEAAAAAGr2lTAAAAAA",
+          "tx_ledger_history": "ZrRKrB8+Vcs429+yetJS4rDVPAgZ/WC717lFH//ea3oAAAAeh/R4DsXTScXkYlIbNKGSXKE04V7DWoMl4P1wYo95praT5LCevLhmSh3WK81Ez/OMPNJpufb10n0gRgbNLLvrngAAAABq9pU1AAAAAAAAAAMAAAGh0zbYFQAAAACoJM0YvJ11Bk0pmltbrKQ7w6ovMmk4FT2ML5u1y23wMwAAAEDDY4ZvPu9xIpxqHrfydMDlGkm0ghJO1IAZBsGMza3XuAmbvZAV1CD9keNCcbRh8FvdauWInXhFU9Rm/Ztba/sKKE6Ye5avhmvhOSJIqimyyDzpAY8rNSfmqBaIMdolslM/CqvuHDN79kYJhyyD1+N+eAM9pMDRUoDurrzx0EzFgABXCkUN4Lazp2QAAAAALQvSz9jTAAAAAAAAAAAADtJvAAAAZABMS0AAAADI9FqtUn5FNCST7wM5t+xwyb6tglPWTLrIMz139Y5aB0XMVBdOtKdoRjtqgP2HWbf38nNDZVvZgurzhzDTCBaUUdtWRvSJSFjkVn9r915O+Jbx2+cALXcXvi0j6CcLZJkIRMBoDPQBwpeD7Ri4S3ftkKh9f06Ejj/Mx09WJZoMPWgAAAAAAAAAAA==",
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z"
+        }
+      ]
+    },
+    "liquidity_pools": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "offers": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "operations": {
+      "attempts": 13,
+      "failures": 0,
+      "rowsInLedger": 13,
+      "rowsForEntry": [
+        {
+          "source_account": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "type": 24,
+          "type_string": "invoke_host_function",
+          "details": {
+            "asset_balance_changes": [],
+            "contract_code_hash": null,
+            "contract_id": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+            "function": "HostFunctionTypeHostFunctionTypeInvokeContract",
+            "ledger_key_hash": [
+              "9d229d03049c75e92e1a3296d6967b54100d5fd55932fadd2fdbcd8fe5908775",
+              "051e35557833e25a8f999e9cd6cc01d447b5c25d1d2babefbcb20f179d60a7c5"
+            ],
+            "parameters": [
+              {
+                "type": "Address",
+                "value": "AAAAEgAAAAE4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA=="
+              },
+              {
+                "type": "Sym",
+                "value": "AAAADwAAAARlY2hv"
+              },
+              {
+                "type": "Map",
+                "value": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4="
+              }
+            ],
+            "parameters_decoded": [
+              {
+                "type": "Address",
+                "value": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK"
+              },
+              {
+                "type": "Sym",
+                "value": "echo"
+              },
+              {
+                "type": "Map",
+                "value": "[{1 10} {1 20} {1 30}]"
+              }
+            ],
+            "parameters_json": [
+              "AAAAEgAAAAE4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA==",
+              "AAAADwAAAARlY2hv",
+              "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4="
+            ],
+            "parameters_json_decoded": [
+              {
+                "address": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK"
+              },
+              {
+                "symbol": "echo"
+              },
+              {
+                "map": [
+                  {
+                    "key": {
+                      "u32": 1
+                    },
+                    "val": {
+                      "u32": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "string": "1"
+                    },
+                    "val": {
+                      "u32": 20
+                    }
+                  },
+                  {
+                    "key": {
+                      "symbol": "1"
+                    },
+                    "val": {
+                      "u32": 30
+                    }
+                  }
+                ]
+              }
+            ],
+            "type": "invoke_contract"
+          },
+          "transaction_id": 24499614442868736,
+          "id": 24499614442868737,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "operation_result_code": "OperationResultCodeOpInner",
+          "operation_trace_code": "InvokeHostFunctionResultCodeInvokeHostFunctionSuccess",
+          "ledger_sequence": 5704261,
+          "details_json": {
+            "asset_balance_changes": [],
+            "contract_code_hash": null,
+            "contract_id": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK",
+            "function": "HostFunctionTypeHostFunctionTypeInvokeContract",
+            "ledger_key_hash": [
+              "9d229d03049c75e92e1a3296d6967b54100d5fd55932fadd2fdbcd8fe5908775",
+              "051e35557833e25a8f999e9cd6cc01d447b5c25d1d2babefbcb20f179d60a7c5"
+            ],
+            "parameters": [
+              {
+                "type": "Address",
+                "value": "AAAAEgAAAAE4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA=="
+              },
+              {
+                "type": "Sym",
+                "value": "AAAADwAAAARlY2hv"
+              },
+              {
+                "type": "Map",
+                "value": "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4="
+              }
+            ],
+            "parameters_decoded": [
+              {
+                "type": "Address",
+                "value": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK"
+              },
+              {
+                "type": "Sym",
+                "value": "echo"
+              },
+              {
+                "type": "Map",
+                "value": "[{1 10} {1 20} {1 30}]"
+              }
+            ],
+            "parameters_json": [
+              "AAAAEgAAAAE4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA==",
+              "AAAADwAAAARlY2hv",
+              "AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4="
+            ],
+            "parameters_json_decoded": [
+              {
+                "address": "CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK"
+              },
+              {
+                "symbol": "echo"
+              },
+              {
+                "map": [
+                  {
+                    "key": {
+                      "u32": 1
+                    },
+                    "val": {
+                      "u32": 10
+                    }
+                  },
+                  {
+                    "key": {
+                      "string": "1"
+                    },
+                    "val": {
+                      "u32": 20
+                    }
+                  },
+                  {
+                    "key": {
+                      "symbol": "1"
+                    },
+                    "val": {
+                      "u32": 30
+                    }
+                  }
+                ]
+              }
+            ],
+            "type": "invoke_contract"
+          }
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "SourceAccount": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "SourceAccountMuxed": "",
+          "Type": 24,
+          "TypeString": "invoke_host_function",
+          "OperationDetails": "{\"asset_balance_changes\":[],\"contract_code_hash\":null,\"contract_id\":\"CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK\",\"function\":\"HostFunctionTypeHostFunctionTypeInvokeContract\",\"ledger_key_hash\":[\"9d229d03049c75e92e1a3296d6967b54100d5fd55932fadd2fdbcd8fe5908775\",\"051e35557833e25a8f999e9cd6cc01d447b5c25d1d2babefbcb20f179d60a7c5\"],\"parameters\":[{\"type\":\"Address\",\"value\":\"AAAAEgAAAAE4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA==\"},{\"type\":\"Sym\",\"value\":\"AAAADwAAAARlY2hv\"},{\"type\":\"Map\",\"value\":\"AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=\"}],\"parameters_decoded\":[{\"type\":\"Address\",\"value\":\"CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK\"},{\"type\":\"Sym\",\"value\":\"echo\"},{\"type\":\"Map\",\"value\":\"[{1 10} {1 20} {1 30}]\"}],\"parameters_json\":[\"AAAAEgAAAAE4dKz9rzbP4q307/dDI7yUorp53p0zp2/QhzAePOwkMA==\",\"AAAADwAAAARlY2hv\",\"AAAAEQAAAAEAAAADAAAAAwAAAAEAAAADAAAACgAAAA4AAAABMQAAAAAAAAMAAAAUAAAADwAAAAExAAAAAAAAAwAAAB4=\"],\"parameters_json_decoded\":[{\"address\":\"CA4HJLH5V43M7YVN6TX7OQZDXSKKFOTZ32OTHJ3P2CDTAHR45QSDARJK\"},{\"symbol\":\"echo\"},{\"map\":[{\"key\":{\"u32\":1},\"val\":{\"u32\":10}},{\"key\":{\"string\":\"1\"},\"val\":{\"u32\":20}},{\"key\":{\"symbol\":\"1\"},\"val\":{\"u32\":30}}]}],\"type\":\"invoke_contract\"}",
+          "TransactionID": 24499614442868736,
+          "OperationID": 24499614442868737,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "OperationResultCode": "OperationResultCodeOpInner",
+          "OperationTraceCode": "InvokeHostFunctionResultCodeInvokeHostFunctionSuccess",
+          "LedgerSequence": 5704261
+        }
+      ]
+    },
+    "restored_key": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "signers": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "token_transfers": {
+      "attempts": 1,
+      "failures": 0,
+      "rowsInLedger": 38,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "operation_id": null,
+          "event_topic": "fee",
+          "from": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "to": null,
+          "asset": "native",
+          "asset_type": "native",
+          "asset_code": null,
+          "asset_issuer": null,
+          "amount": 0.0007059999999999999,
+          "amount_raw": "7060",
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "to_muxed": null,
+          "to_muxed_id": null
+        },
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "transaction_id": 24499614442868736,
+          "operation_id": null,
+          "event_topic": "fee",
+          "from": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "to": null,
+          "asset": "native",
+          "asset_type": "native",
+          "asset_code": null,
+          "asset_issuer": null,
+          "amount": -0.0004877,
+          "amount_raw": "-4877",
+          "contract_id": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
+          "ledger_sequence": 5704261,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "to_muxed": null,
+          "to_muxed_id": null
+        }
+      ]
+    },
+    "trades": {
+      "attempts": 0,
+      "failures": 0,
+      "rowsInLedger": 0
+    },
+    "transactions": {
+      "attempts": 13,
+      "failures": 0,
+      "rowsInLedger": 13,
+      "rowsForEntry": [
+        {
+          "transaction_hash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "ledger_sequence": 5704261,
+          "account": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "account_sequence": 24499601557946371,
+          "max_fee": 7960,
+          "fee_charged": 2183,
+          "operation_count": 1,
+          "tx_envelope": "AAAAAgAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAHxgAVwpCAAAAAwAAAAEAAAAAAAAAAAAAAABq9pWnAAAAAAAAAAEAAAAAAAAAGAAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAAEZWNobwAAAAEAAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHgAAAAAAAAABAAAAAAAAAAIAAAAGAAAAATh0rP2vNs/irfTv90MjvJSiunnenTOnb9CHMB487CQwAAAAFAAAAAEAAAAHkgosdyNU7ecVqz+kGPr8e+xe+jEIz8mDdmVq30y2mOcAAAAAAAWW6AAAAAAAAAAAAAAAAAAAGzAAAAAByxjBBQAAAEC6rYgvbWc5b0mGg4k+sRgCPYc5E4ClE7WsW5nLwpMmvRmIYZxWNorfPPZMYMRQiTWgkz3aUqs1QFZjaRRftyEE",
+          "tx_result": "AAAAAAAACIcAAAAAAAAAAQAAAAAAAAAYAAAAAGElnSXvqZxzDwhWA0at/sYWRppPy6RyJpIJv7f9Kd9zAAAAAA==",
+          "tx_meta": "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",
+          "tx_fee_meta": "AAAAAgAAAAMAVwpEAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAABdIdpn6AFcKQgAAAAIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABXCkQAAAAAavaVMAAAAAAAAAABAFcKRQAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQUAAAAXSHZ+ZgBXCkIAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVwpEAAAAAGr2lTAAAAAA",
+          "created_at": "2026-11-13T04:42:29Z",
+          "memo_type": "MemoTypeMemoNone",
+          "memo": "",
+          "time_bounds": "[0,1794545063)",
+          "successful": true,
+          "id": 24499614442868736,
+          "ledger_bounds": "",
+          "min_account_sequence": null,
+          "min_account_sequence_age": null,
+          "min_account_sequence_ledger_gap": null,
+          "extra_signers": null,
+          "closed_at": "2026-11-13T04:42:29Z",
+          "closed_at_ms": "2026-11-13T04:42:29.269Z",
+          "resource_fee": 6960,
+          "soroban_resources_instructions": 366312,
+          "soroban_resources_read_bytes": 0,
+          "soroban_resources_disk_read_bytes": 0,
+          "soroban_resources_write_bytes": 0,
+          "soroban_resources_archived_entries": null,
+          "transaction_result_code": "TransactionResultCodeTxSuccess",
+          "inclusion_fee_bid": 1000,
+          "inclusion_fee_charged": 100,
+          "resource_fee_refund": 4877,
+          "non_refundable_resource_fee_charged": 1594,
+          "refundable_resource_fee_charged": 489,
+          "rent_fee_charged": 0
+        }
+      ],
+      "parquetRowsForEntry": [
+        {
+          "TransactionHash": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+          "LedgerSequence": 5704261,
+          "Account": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+          "AccountMuxed": "",
+          "AccountSequence": 24499601557946371,
+          "MaxFee": 7960,
+          "FeeCharged": 2183,
+          "OperationCount": 1,
+          "TxEnvelope": "AAAAAgAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAHxgAVwpCAAAAAwAAAAEAAAAAAAAAAAAAAABq9pWnAAAAAAAAAAEAAAAAAAAAGAAAAAAAAAABOHSs/a82z+Kt9O/3QyO8lKK6ed6dM6dv0IcwHjzsJDAAAAAEZWNobwAAAAEAAAARAAAAAQAAAAMAAAADAAAAAQAAAAMAAAAKAAAADgAAAAExAAAAAAAAAwAAABQAAAAPAAAAATEAAAAAAAADAAAAHgAAAAAAAAABAAAAAAAAAAIAAAAGAAAAATh0rP2vNs/irfTv90MjvJSiunnenTOnb9CHMB487CQwAAAAFAAAAAEAAAAHkgosdyNU7ecVqz+kGPr8e+xe+jEIz8mDdmVq30y2mOcAAAAAAAWW6AAAAAAAAAAAAAAAAAAAGzAAAAAByxjBBQAAAEC6rYgvbWc5b0mGg4k+sRgCPYc5E4ClE7WsW5nLwpMmvRmIYZxWNorfPPZMYMRQiTWgkz3aUqs1QFZjaRRftyEE",
+          "TxResult": "AAAAAAAACIcAAAAAAAAAAQAAAAAAAAAYAAAAAGElnSXvqZxzDwhWA0at/sYWRppPy6RyJpIJv7f9Kd9zAAAAAA==",
+          "TxMeta": "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",
+          "TxFeeMeta": "AAAAAgAAAAMAVwpEAAAAAAAAAAC3ULzYKdFGWgrmU4l+mKIYwju/1Y8EQkeh1/VYyxjBBQAAABdIdpn6AFcKQgAAAAIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABXCkQAAAAAavaVMAAAAAAAAAABAFcKRQAAAAAAAAAAt1C82CnRRloK5lOJfpiiGMI7v9WPBEJHodf1WMsYwQUAAAAXSHZ+ZgBXCkIAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAAVwpEAAAAAGr2lTAAAAAA",
+          "CreatedAt": 1794544949000,
+          "MemoType": "MemoTypeMemoNone",
+          "Memo": "",
+          "TimeBounds": "[0,1794545063)",
+          "Successful": true,
+          "TransactionID": 24499614442868736,
+          "FeeAccount": "",
+          "FeeAccountMuxed": "",
+          "InnerTransactionHash": "",
+          "NewMaxFee": 0,
+          "LedgerBounds": "",
+          "MinAccountSequence": 0,
+          "MinAccountSequenceAge": 0,
+          "MinAccountSequenceLedgerGap": 0,
+          "ExtraSigners": null,
+          "ClosedAt": 1794544949000,
+          "ClosedAtMs": 1794544949269,
+          "ResourceFee": 6960,
+          "SorobanResourcesInstructions": 366312,
+          "SorobanResourcesReadBytes": 0,
+          "SorobanResourcesDiskReadBytes": 0,
+          "SorobanResourcesWriteBytes": 0,
+          "SorobanResourcesArchivedEntries": null,
+          "TransactionResultCode": "TransactionResultCodeTxSuccess",
+          "InclusionFeeBid": 1000,
+          "InclusionFeeCharged": 100,
+          "ResourceFeeRefund": 4877,
+          "TotalNonRefundableResourceFeeCharged": 1594,
+          "TotalRefundableResourceFeeCharged": 489,
+          "RentFeeCharged": 0
+        }
+      ]
+    },
+    "trustlines": {
+      "attempts": 3,
+      "failures": 0,
+      "rowsInLedger": 3
+    },
+    "ttl": {
+      "attempts": 17,
+      "failures": 0,
+      "rowsInLedger": 17
+    }
+  }
+}
