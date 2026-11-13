@@ -106,6 +106,16 @@
             "mustReject": { "type": "boolean", "description": "For negative entries: a conforming decoder must reject the bytes." }
           }
         },
+        "expectedLedger": {
+          "type": "object",
+          "description": "Values a conforming decoder must produce from the entry's LedgerCloseMeta: ledger header, transaction set position and apply-order result. Keys are JSON Pointers into the xdr-json form of `file`.",
+          "required": ["file", "values"],
+          "additionalProperties": false,
+          "properties": {
+            "file": { "type": "string" },
+            "values": { "$ref": "#/$defs/entry/properties/expected/properties/values" }
+          }
+        },
         "checks": {
           "type": "object",
           "description": "Results of reference checks at generation time.",
@@ -113,6 +123,11 @@
           "properties": {
             "rsStellarXdrRoundTrip": { "type": "boolean" },
             "rsStellarXdrVersion": { "type": "string" },
+            "lcmEmbedsEntryFiles": { "type": "boolean", "description": "The entry's LedgerCloseMeta contains its envelope in the transaction set and its result at the transaction's apply position, equal to the entry's own files." },
+            "lcmMetaVsEntryMeta": {
+              "enum": ["identical", "core-metrics-timing-differs", "operation-change-order-differs"],
+              "description": "How the meta inside the LedgerCloseMeta (getLedgers) compares with meta.b64 (getTransaction). Meta is not part of consensus: core_metrics diagnostic events carry each node's measured time, and the order of an operation's ledger entry changes can differ between the two."
+            },
             "checkLcmGolden": {
               "description": "Per-shape result of tools/check_lcm_goldens.py against stellar-core's --check-lcm golden LedgerCloseMeta, copied from the committed results file; \"not-run\" when that file has no current result for the entry.",
               "oneOf": [

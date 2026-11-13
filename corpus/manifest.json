@@ -1,6 +1,6 @@
 {
   "schemaVersion": "0.1",
-  "generatedAt": "2026-11-13T04:59:29+00:00",
+  "generatedAt": "2026-11-13T08:46:44+00:00",
   "entries": [
     {
       "id": "cap40-signed-payload-signer-max-payload",
@@ -71,9 +71,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5699703,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794522159",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794522159153",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/3/tx/tx/source_account",
+            "value": "GCV2KRRAOWNTUUXH7CSB24JBUOIJ5UJ74JZEHGVBBRFC7FXBEY5GU2PT",
+            "note": "the envelope sits in the classic phase of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/5/result/transaction_hash",
+            "value": "68e7d54926b8265a33c76cc12dd9338569b1190e7081c10c9b5677ec42346928",
+            "note": "position 5 of 15 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/5/result/result/fee_charged",
+            "value": "100",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "identical",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -161,9 +203,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5699707,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794522179",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794522179153",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/4/tx/tx/source_account",
+            "value": "MCGVDJFRRJA6UBTB5OCLJ5BJ2HXYT77QSQGPBQA7C5WQHEGZPEA2X77777777777777F4",
+            "note": "the envelope sits in the classic phase of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/0/result/transaction_hash",
+            "value": "fae7b0f2674229543ea86e147902924c538ef77f48a54c4060c4baeaec0489b0",
+            "note": "position 0 of 15 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/0/result/result/fee_charged",
+            "value": "100",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "identical",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -254,9 +338,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5699714,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794522214",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794522214153",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/9/tx/tx/source_account",
+            "value": "GA5T7ZTSLQPUHKW7H6O6LA3UPU52Z7Z3OB43O5JGBTZISRFSDCB7OONJ",
+            "note": "the envelope sits in the parallel Soroban phase (CAP-0063) of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/6/result/transaction_hash",
+            "value": "dab291a4c551aec6811085e9d0598038a66635a0ae01533af3ac230ae89d77b4",
+            "note": "position 6 of 15 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/6/result/result/fee_charged",
+            "value": "7146",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "core-metrics-timing-differs",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -346,9 +472,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5701159,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794529439",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794529439193",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/0/tx/tx/source_account",
+            "value": "GCZZSITAXJDQZTAI6Z7VPGFJ5HXWNKI2ONRKT4GO7YEWV76TXV572LOZ",
+            "note": "the envelope sits in the parallel Soroban phase (CAP-0063) of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/8/result/transaction_hash",
+            "value": "713e56b3d26dbe9c20e2fc556f2375bad07221d4eb1d04f0401ae637a919d41c",
+            "note": "position 8 of 12 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/8/result/result/fee_charged",
+            "value": "7109",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "identical",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -440,9 +608,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5704246,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794544874",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794544874268",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/3/tx/tx/source_account",
+            "value": "GAQN6I55ZWUSZMJF5K4KLIFXZU753DS7N2SGKPEPGKER5TR7NXS2NXPV",
+            "note": "the envelope sits in the classic phase of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/0/result/transaction_hash",
+            "value": "a1787e27d87080a370e481e8cd52a8dbab716322f3f0a8c4a284056e51272e19",
+            "note": "position 0 of 14 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/0/result/result/fee_charged",
+            "value": "200",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "operation-change-order-differs",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -557,9 +767,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5704261,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794544949",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794544949269",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/9/tx/tx/source_account",
+            "value": "GC3VBPGYFHIUMWQK4ZJYS7UYUIMMEO572WHQIQSHUHL7KWGLDDAQLGOC",
+            "note": "the envelope sits in the parallel Soroban phase (CAP-0063) of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/4/result/transaction_hash",
+            "value": "99f258dc5257a974a6edd6fbe6c093e76f1dd30d288fa8f5fbfacb99bef4e59b",
+            "note": "position 4 of 13 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/4/result/result/fee_charged",
+            "value": "2183",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "core-metrics-timing-differs",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -652,9 +904,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5704270,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794544994",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794544994269",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/9/tx/tx/source_account",
+            "value": "GAE2LQWBJSRCCPNDLTNB6HYXKBJ7GCEL7MRZL5LKLB4E2SJIRGLADNJT",
+            "note": "the envelope sits in the parallel Soroban phase (CAP-0063) of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/15/result/transaction_hash",
+            "value": "de6c1555994c0e8ca5d839b9ba3b7af95be5b3cb0f77a5446020defe5c249e11",
+            "note": "position 15 of 20 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/15/result/result/fee_charged",
+            "value": "11197",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "core-metrics-timing-differs",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -752,9 +1046,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5704274,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794545014",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794545014269",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/4/tx/tx/source_account",
+            "value": "GDUHHQZCEJKMUWFDFUKLTW6KZFB3RN32FPN2GN3RYRJP6ISF4OUFRX2Q",
+            "note": "the envelope sits in the classic phase of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/3/result/transaction_hash",
+            "value": "55b5451757aa5770281b43e8b25c6730b03f565288d80f3e2f80b40fe5b416fb",
+            "note": "position 3 of 17 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/3/result/result/fee_charged",
+            "value": "10000",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "identical",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",
@@ -830,9 +1166,51 @@
         ],
         "roundTrip": true
       },
+      "expectedLedger": {
+        "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+        "values": [
+          {
+            "pointer": "/v2/ledger_header/header/ledger_seq",
+            "value": 5704280,
+            "note": "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/ledger_version",
+            "value": 30,
+            "note": "protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/close_time",
+            "value": "1794545044",
+            "note": "seconds, as before protocol 30"
+          },
+          {
+            "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+            "value": "1794545044270",
+            "note": "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"
+          },
+          {
+            "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/1/tx/tx/source_account",
+            "value": "GADS2BBRSQYYJQ5QI2ITSOCRGUS6LQOFY4A7GESP4FFPSJAU4YWBFBTM",
+            "note": "the envelope sits in the classic phase of the GeneralizedTransactionSet v1 (CAP-0042)"
+          },
+          {
+            "pointer": "/v2/tx_processing/1/result/transaction_hash",
+            "value": "10ac5cc19088debe082cad46e728f385e8ff78c114a7de839bf4a453e2e5149c",
+            "note": "position 1 of 12 in apply order"
+          },
+          {
+            "pointer": "/v2/tx_processing/1/result/result/fee_charged",
+            "value": "100",
+            "note": "from the entry's result.b64"
+          }
+        ]
+      },
       "checks": {
         "rsStellarXdrRoundTrip": true,
         "rsStellarXdrVersion": "stellar-xdr 30.0.0",
+        "lcmEmbedsEntryFiles": true,
+        "lcmMetaVsEntryMeta": "identical",
         "checkLcmGolden": {
           "results": "corpus/check-lcm.json",
           "stellarCoreCommit": "36fa0b71c3442875a2dc17d1b9d6020e50d33ff1",

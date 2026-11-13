@@ -167,6 +167,99 @@ def pointer(doc, ptr):
     return doc
 
 
+def find(doc, want, path=""):
+    """JSON Pointer of the first node in doc equal to want, or None."""
+    if doc == want:
+        return path
+    items = enumerate(doc) if isinstance(doc, list) else doc.items() if isinstance(doc, dict) else []
+    for k, v in items:
+        hit = find(v, want, f"{path}/{k}")
+        if hit is not None:
+            return hit
+    return None
+
+
+def without_timing(meta):
+    """meta with the value of every core_metrics diagnostic event blanked: those report measured
+    host time (for example invoke_time_nsecs), which each stellar-core node measures for itself."""
+    meta = json.loads(json.dumps(meta))
+    for e in meta.get("v4", {}).get("diagnostic_events", []):
+        body = e["event"]["body"]["v0"]
+        if body["topics"] and body["topics"][0] == {"symbol": "core_metrics"}:
+            body["data"] = None
+    return meta
+
+
+def with_sorted_changes(meta):
+    meta = json.loads(json.dumps(meta))
+    for op in meta.get("v4", {}).get("operations", []):
+        op["changes"] = sorted(op["changes"], key=lambda c: json.dumps(c, sort_keys=True))
+    return meta
+
+
+def compare_meta(in_lcm, in_file):
+    """How the meta inside the LedgerCloseMeta compares with meta.b64 (from getTransaction). Meta is
+    not part of consensus, so two nodes can return different bytes for the same transaction."""
+    if in_lcm == in_file:
+        return "identical"
+    a, b = without_timing(in_lcm), without_timing(in_file)
+    if a == b:
+        return "core-metrics-timing-differs"
+    if with_sorted_changes(a) == with_sorted_changes(b):
+        return "operation-change-order-differs"
+    return None
+
+
+def ledger_values(entry_id, cap, d):
+    """Expected values in the entry's LedgerCloseMeta. Each one is checked against something read
+    independently of the LCM bytes: the RPC capture, the entry's own envelope, result and meta files,
+    or the seconds/milliseconds relation of CAP-0088. Also returns whether the LCM embeds the entry's
+    envelope and result unchanged, and how its meta compares with meta.b64 (see compare_meta)."""
+    lcm = rt("LedgerCloseMeta", d / "ledger-close-meta.b64", as_json=True)
+    env = rt("TransactionEnvelope", d / "envelope.b64", as_json=True)
+    res = rt("TransactionResult", d / "result.b64", as_json=True)
+    meta = rt("TransactionMeta", d / "meta.b64", as_json=True)
+    if list(lcm) != ["v2"]:
+        sys.exit(f"{entry_id}: LedgerCloseMeta arm is {list(lcm)}, expected v2")
+    v2 = lcm["v2"]
+    close_ms = pointer(lcm, "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms")
+    if int(close_ms) // 1000 != int(cap["ledgerCloseTime"]):
+        sys.exit(f"{entry_id}: close_time_ms {close_ms} does not match ledgerCloseTime {cap['ledgerCloseTime']}")
+    txs = v2["tx_processing"]
+    i = next((n for n, t in enumerate(txs) if t["result"]["transaction_hash"] == cap["txHash"]), None)
+    if i is None:
+        sys.exit(f"{entry_id}: transaction {cap['txHash']} is not in the LedgerCloseMeta")
+    in_set = find(v2["tx_set"], env)
+    if in_set is None:
+        sys.exit(f"{entry_id}: the envelope is not in the LedgerCloseMeta transaction set")
+    phase = in_set.split("/")[3]
+    embeds = txs[i]["result"]["result"] == res
+    meta_vs = compare_meta(txs[i]["tx_apply_processing"], meta)
+    if meta_vs is None:
+        sys.exit(f"{entry_id}: the LedgerCloseMeta meta differs from meta.b64 beyond timing and change order")
+    soroban = phase == "1"
+    spec = [
+        ("/v2/ledger_header/header/ledger_seq", cap["ledger"], "LedgerCloseMeta v2 (CAP-0063); ledger from the RPC capture"),
+        ("/v2/ledger_header/header/ledger_version", 30, "protocol 30"),
+        ("/v2/ledger_header/header/scp_value/close_time", cap["ledgerCloseTime"], "seconds, as before protocol 30"),
+        ("/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms", close_ms,
+         "CAP-0088 STELLAR_VALUE_SIGNED_MS arm; its value divided by 1000, rounded down, is close_time"),
+        (f"/v2/tx_set{in_set}/tx/tx/source_account",
+         env["tx"]["tx"]["source_account"],
+         "the envelope sits in the " + ("parallel Soroban phase (CAP-0063)" if soroban else "classic phase")
+         + " of the GeneralizedTransactionSet v1 (CAP-0042)"),
+        (f"/v2/tx_processing/{i}/result/transaction_hash", cap["txHash"], f"position {i} of {len(txs)} in apply order"),
+        (f"/v2/tx_processing/{i}/result/result/fee_charged", res["fee_charged"], "from the entry's result.b64"),
+    ]
+    values = []
+    for ptr, want, note in spec:
+        got = pointer(lcm, ptr)
+        if got != want:
+            sys.exit(f"{entry_id}: {ptr} is {got!r}, expected {want!r}")
+        values.append({"pointer": ptr, "value": want, "note": note})
+    return values, embeds, meta_vs
+
+
 def check_lcm_golden(entry_id, shapes):
     """The entry's shape statuses from the committed results of tools/check_lcm_goldens.py, or
     "not-run" when the file has no result for this entry's current shape list."""
@@ -189,6 +282,7 @@ def main():
         all_ok = all(r.get("roundTripIdentical") for r in roundtrips)
         lcm = rt("LedgerCloseMeta", d / "ledger-close-meta.b64", as_json=True)
         header = next(iter(lcm.values()))["ledger_header"]["header"]
+        ledger_vals, embeds, meta_vs = ledger_values(entry_id, cap, d)
         target = rt(XDR_TYPES[spec["expected_file"]], d / spec["expected_file"], as_json=True)
         values = []
         for ptr, want, note in spec["values"]:
@@ -211,7 +305,9 @@ def main():
             "files": cap["files"],
             "expected": {"file": f"corpus/entries/{entry_id}/{spec['expected_file']}", "values": values,
                          "roundTrip": True},
+            "expectedLedger": {"file": f"corpus/entries/{entry_id}/ledger-close-meta.b64", "values": ledger_vals},
             "checks": {"rsStellarXdrRoundTrip": all_ok, "rsStellarXdrVersion": RT_VERSION,
+                       "lcmEmbedsEntryFiles": embeds, "lcmMetaVsEntryMeta": meta_vs,
                        "checkLcmGolden": check_lcm_golden(entry_id, spec["shapes"])},
         })
     manifest = {"schemaVersion": "0.1", "generatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -220,6 +316,8 @@ def main():
     if "--check" in sys.argv:
         if json.loads(path.read_text())["entries"] != entries:
             sys.exit("corpus/manifest.json does not match the corpus bytes; run tools/build_manifest.py")
+        if not all(e["checks"]["lcmEmbedsEntryFiles"] for e in entries):
+            sys.exit("a LedgerCloseMeta does not embed its entry's envelope and result")
         if not all(e["checks"]["rsStellarXdrRoundTrip"] for e in entries):
             sys.exit("a corpus file does not round-trip byte-identical")
         print(f"manifest check ok: {len(entries)} entries, all round-trips identical")
