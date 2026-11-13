@@ -87,5 +87,9 @@ jobs:
         run: |
           pip install -r conformance/python/requirements.txt
           python conformance/python/run.py conformance/results/python-17.0.1.json
+      - name: py-stellar-xdr 0.2.0
+        run: |
+          pip install -r conformance/python-xdr/requirements.txt
+          python conformance/python-xdr/run.py conformance/results/python-xdr-0.2.0.json
       - name: Divergence matrix and expectations
         run: python conformance/matrix.py

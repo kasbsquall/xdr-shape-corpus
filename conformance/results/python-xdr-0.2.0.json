@@ -1,0 +1,947 @@
+{
+  "sdk": "py-stellar-xdr",
+  "version": "0.2.0",
+  "protocolVersion": 30,
+  "corpus": [
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "path": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "path": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "path": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "path": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "path": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "path": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "path": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "path": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/result.b64",
+      "xdrType": "TransactionResult",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/meta.b64",
+      "xdrType": "TransactionMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "path": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "jsonEqualsRust": true,
+      "rustJsonReadsBackIdentical": true
+    }
+  ],
+  "expectedValues": [
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "pointer": "/v4/operations/0/changes/1/updated/data/account/signers/0/key",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/meta.b64",
+      "pointer": "/v4/operations/0/changes/1/updated/data/account/signers/0/weight",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/3/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/5/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "file": "corpus/entries/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/5/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "pointer": "/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/payment/destination",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/payment/amount",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/4/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/0/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "file": "corpus/entries/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/0/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "pointer": "/v4/operations/0/changes/0/created/data/trustline/account_id",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "pointer": "/v4/operations/0/changes/0/created/data/trustline/asset/credit_alphanum4/asset_code",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "pointer": "/v4/operations/0/changes/0/created/data/trustline/limit",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/meta.b64",
+      "pointer": "/v4/operations/0/events",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/9/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/6/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap73-sac-created-trustline",
+      "file": "corpus/entries/cap73-sac-created-trustline/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/6/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "pointer": "/v4/operations/0/events/0/body/v0/topics/0/symbol",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "pointer": "/v4/operations/0/events/0/body/v0/topics/2/address",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "pointer": "/v4/operations/0/events/0/body/v0/data/map/1/key/symbol",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/meta.b64",
+      "pointer": "/v4/operations/0/events/0/body/v0/data/map/1/val/u64",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/0/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/8/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap67-sac-transfer-to-muxed-address-max-id",
+      "file": "corpus/entries/cap67-sac-transfer-to-muxed-address-max-id/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/8/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/change_trust/line/pool_share/liquidity_pool_constant_product/asset_a/credit_alphanum4/issuer",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/change_trust/line/pool_share/liquidity_pool_constant_product/asset_b/credit_alphanum4/issuer",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/change_trust/line/pool_share/liquidity_pool_constant_product/asset_a/credit_alphanum4/asset_code",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/envelope.b64",
+      "pointer": "/tx/tx/operations/1/body/liquidity_pool_deposit/liquidity_pool_id",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/3/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/0/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap38-pool-share-issuers-ordered-by-key-bytes",
+      "file": "corpus/entries/cap38-pool-share-issuers-ordered-by-key-bytes/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/0/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "pointer": "/v4/operations/0/events/0/body/v0/data/map",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "pointer": "/v4/soroban_meta/return_value/map/0/key/u32",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "pointer": "/v4/soroban_meta/return_value/map/1/key/string",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/meta.b64",
+      "pointer": "/v4/soroban_meta/return_value/map/2/key/symbol",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/9/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/4/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap46-scmap-keys-collide-after-native-conversion",
+      "file": "corpus/entries/cap46-scmap-keys-collide-after-native-conversion/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/4/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/credentials/address_v2/address",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/function/contract_fn/function_name",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/sub_invocations/0/function/contract_fn/contract_address",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/sub_invocations/0/function/contract_fn/function_name",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/invoke_host_function/auth/0/root_invocation/sub_invocations/0/sub_invocations",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/1/v1/execution_stages/0/0/9/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/15/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap46-nested-authorization-contract-calls-sac",
+      "file": "corpus/entries/cap46-nested-authorization-contract-calls-sac/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/15/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "pointer": "/tx/tx/operations/99/body/manage_data/data_name",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "pointer": "/tx/tx/operations/99/body/manage_data/data_value",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "pointer": "/tx/tx/memo/text",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "pointer": "/tx/tx/cond/v2/extra_signers/0",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/envelope.b64",
+      "pointer": "/tx/tx/cond/v2/extra_signers/1",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/4/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/3/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap21-vectors-at-max-length",
+      "file": "corpus/entries/cap21-vectors-at-max-length/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/3/result/result/fee_charged",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/envelope.b64",
+      "pointer": "/tx/tx/operations/0/body/manage_buy_offer/offer_id",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_seq",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/ledger_version",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/close_time",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/ledger_header/header/scp_value/ext/signed_ms/close_time_ms",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/tx_set/v1/phases/0/v0/0/txset_comp_txs_maybe_discounted_fee/txs/1/tx/tx/source_account",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/1/result/transaction_hash",
+      "match": true
+    },
+    {
+      "entry": "cap06-manage-buy-offer-update-by-id",
+      "file": "corpus/entries/cap06-manage-buy-offer-update-by-id/ledger-close-meta.b64",
+      "pointer": "/v2/tx_processing/1/result/result/fee_charged",
+      "match": true
+    }
+  ],
+  "vectors": [
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-u32-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "n/a",
+      "detail": "an XDR library has no API for this; it is SDK behaviour"
+    },
+    {
+      "sighting": "js-stellar-sdk#1789",
+      "file": "vectors/js-1789-map-string-and-symbol-key.b64",
+      "decode": "ok",
+      "roundTripIdentical": true,
+      "check": "native-map-conversion-keeps-every-entry",
+      "result": "n/a",
+      "detail": "an XDR library has no API for this; it is SDK behaviour"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "asset-pair-ordered-by-issuer-bytes",
+      "result": "n/a",
+      "detail": "an XDR library has no API for this; it is SDK behaviour"
+    },
+    {
+      "sighting": "js-stellar-sdk#1766",
+      "check": "scmap-keys-sorted-like-host",
+      "result": "n/a",
+      "detail": "an XDR library has no API for this; it is SDK behaviour"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "muxed-id-encodes-the-id-given",
+      "result": "ok",
+      "detail": "MuxedAccountMed25519 encodes [16, 18446744073709551615] as given and raises for [-1, 18446744073709551616] (outside the XDR type)"
+    },
+    {
+      "sighting": "js-stellar-sdk#1785",
+      "check": "offer-id-encodes-the-id-given",
+      "result": "ok",
+      "detail": "ManageSellOfferOp encodes [-1, 9007199254740993, 9223372036854775807] as given and raises for [9223372036854775808, 18446744073709551616] (outside the XDR type)"
+    }
+  ]
+}

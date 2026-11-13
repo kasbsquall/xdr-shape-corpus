@@ -1,0 +1,2 @@
+stellar-strkey==0.2.0
+stellar-xdr==0.2.0

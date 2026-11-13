@@ -8,6 +8,7 @@ Runs the same corpus and sighting checks through the JavaScript, Go, Rust and Py
 | go-stellar-sdk | `go/main.go` | v0.9.0 |
 | rs-stellar-xdr | `rust.py`: round trips through `tools/roundtrip`, API checks through `rust/` | 30.0.0 |
 | py-stellar-base | `python/run.py` | stellar-sdk 17.0.1 |
+| py-stellar-xdr | `python-xdr/run.py`: also compares its SEP-51 JSON with rs-stellar-xdr's and checks every manifest expected value | stellar-xdr 0.2.0 |
 
 Each runner writes `results/<sdk>-<version>.json` with two parts:
 
@@ -35,20 +36,22 @@ A sighting in `sightings.json` takes one of two forms:
 
 ## Current result
 
-| Sighting | Vector or check | JS 17.2.0 | JS 17.2.1 | JS 17.4.0 | Go v0.9.0 | Rust 30.0.0 | Python 17.0.1 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| #1789 | `js-1789-map-u32-and-symbol-key.b64` | `defect` | `defect` | `ok` | `n/a` | `n/a` | `ok` |
-| #1789 | `js-1789-map-string-and-symbol-key.b64` | `defect` | `defect` | `ok` | `n/a` | `n/a` | `defect` |
-| #1766 | `asset-pair-ordered-by-issuer-bytes` | `defect` | `ok` | `ok` | `ok` | `ok` | `ok` |
-| #1766 | `scmap-keys-sorted-like-host` | `defect` | `ok` | `ok` | `n/a` | `ok` | `ok` |
-| #1785 | `muxed-id-encodes-the-id-given` | `defect` | `defect` | `ok` | `n/a` | `n/a` | `defect` |
-| #1785 | `offer-id-encodes-the-id-given` | `defect` | `defect` | `ok` | `ok` | `n/a` | `defect` |
+| Sighting | Vector or check | JS 17.2.0 | JS 17.2.1 | JS 17.4.0 | Go v0.9.0 | Rust 30.0.0 | Python 17.0.1 | py-stellar-xdr 0.2.0 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| #1789 | `js-1789-map-u32-and-symbol-key.b64` | `defect` | `defect` | `ok` | `n/a` | `n/a` | `ok` | `n/a` |
+| #1789 | `js-1789-map-string-and-symbol-key.b64` | `defect` | `defect` | `ok` | `n/a` | `n/a` | `defect` | `n/a` |
+| #1766 | `asset-pair-ordered-by-issuer-bytes` | `defect` | `ok` | `ok` | `ok` | `ok` | `ok` | `n/a` |
+| #1766 | `scmap-keys-sorted-like-host` | `defect` | `ok` | `ok` | `n/a` | `ok` | `ok` | `n/a` |
+| #1785 | `muxed-id-encodes-the-id-given` | `defect` | `defect` | `ok` | `n/a` | `n/a` | `defect` | `ok` |
+| #1785 | `offer-id-encodes-the-id-given` | `defect` | `defect` | `ok` | `ok` | `n/a` | `defect` | `ok` |
 
 The pre-fix tags reproduce all three js-stellar-sdk sightings, and 17.4.0 passes them. [MATRIX.md](MATRIX.md) has the detail of every cell, including why each `n/a` does not apply.
 
 The Python defects are open issues filed in py-stellar-base, and `matrix.py` expects them until they are fixed: StellarCN/py-stellar-base#1250 (`scval.to_native` drops entries whose keys collide, here string `"1"` and symbol `"1"`) and StellarCN/py-stellar-base#1251 (an offer ID or muxed ID above the 64-bit range wraps, so 2^64 encodes as 0). Python also accepts an offer ID of -1.
 
-All 36 corpus files round-trip byte-identical in JS 17.4.0, Go v0.9.0, Rust 30.0.0 and Python 17.0.1. JS 17.2.0 and 17.2.1 decode the transaction files but not the protocol 30 ledger headers, which they predate.
+py-stellar-xdr, the XDR library the next major version of py-stellar-base will use, enforces the range of each XDR integer type: an ID outside uint64 or int64 raises `ValueError` instead of wrapping. -1 is a valid `int64` at the XDR layer, so rejecting a negative offer ID stays an SDK rule. It has no native-conversion or asset-ordering API, hence the `n/a` cells. Its SEP-51 JSON equals rs-stellar-xdr's for all 36 corpus files, rs-stellar-xdr's JSON reads back into the same bytes, and all 95 manifest expected values match.
+
+All 36 corpus files round-trip byte-identical in JS 17.4.0, Go v0.9.0, Rust 30.0.0, Python 17.0.1 and py-stellar-xdr 0.2.0. JS 17.2.0 and 17.2.1 decode the transaction files but not the protocol 30 ledger headers, which they predate.
 
 ## Run
 
@@ -63,6 +66,8 @@ cargo build --release --locked --manifest-path conformance/rust/Cargo.toml
 python conformance/rust.py conformance/results/rust-30.0.0.json
 pip install -r conformance/python/requirements.txt  # in a virtual environment
 python conformance/python/run.py conformance/results/python-17.0.1.json
+pip install -r conformance/python-xdr/requirements.txt
+python conformance/python-xdr/run.py conformance/results/python-xdr-0.2.0.json
 python conformance/matrix.py
 ```
 

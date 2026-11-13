@@ -15,8 +15,9 @@ COLUMNS = [  # (results file, column label, role)
     ("go-v0.9.0.json", "Go v0.9.0", "current"),
     ("rust-30.0.0.json", "Rust stellar-xdr 30.0.0", "current"),
     ("python-17.0.1.json", "Python 17.0.1", "current"),
+    ("python-xdr-0.2.0.json", "py-stellar-xdr 0.2.0", "current"),
 ]
-JS_17_2_0, JS_17_2_1, JS_17_4_0, GO, RUST, PY = (label for _, label, _ in COLUMNS)
+JS_17_2_0, JS_17_2_1, JS_17_4_0, GO, RUST, PY, PYX = (label for _, label, _ in COLUMNS)
 
 # Behaviour each row must show per column. A row is a sighting plus its vector file or, for an API check,
 # its check name. Pre-fix tags reproduce the defect; current releases do not, unless a sibling issue is open.
@@ -24,25 +25,29 @@ EXPECT = {
     "js-stellar-sdk#1789 js-1789-map-u32-and-symbol-key.b64": {
         JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "n/a", RUST: "n/a",
         PY: "ok",  # u32 1 and symbol "1" become int 1 and str "1", which are distinct dict keys
+        PYX: "n/a",
     },
     "js-stellar-sdk#1789 js-1789-map-string-and-symbol-key.b64": {
         JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "n/a", RUST: "n/a",
         PY: "defect",  # open: https://github.com/StellarCN/py-stellar-base/issues/1250
+        PYX: "n/a",
     },
     "js-stellar-sdk#1766 asset-pair-ordered-by-issuer-bytes": {
-        JS_17_2_0: "defect", JS_17_2_1: "ok", JS_17_4_0: "ok", GO: "ok", RUST: "ok", PY: "ok",
+        JS_17_2_0: "defect", JS_17_2_1: "ok", JS_17_4_0: "ok", GO: "ok", RUST: "ok", PY: "ok", PYX: "n/a",
     },
     "js-stellar-sdk#1766 scmap-keys-sorted-like-host": {
-        JS_17_2_0: "defect", JS_17_2_1: "ok", JS_17_4_0: "ok", GO: "n/a", RUST: "ok", PY: "ok",
+        JS_17_2_0: "defect", JS_17_2_1: "ok", JS_17_4_0: "ok", GO: "n/a", RUST: "ok", PY: "ok", PYX: "n/a",
     },
     "js-stellar-sdk#1785 muxed-id-encodes-the-id-given": {
         JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "n/a", RUST: "n/a",
         PY: "defect",  # open: https://github.com/StellarCN/py-stellar-base/issues/1251 (2^64 wraps to 0)
+        PYX: "ok",  # the XDR type range is enforced: -1 and 2^64 raise ValueError
     },
     "js-stellar-sdk#1785 offer-id-encodes-the-id-given": {
         JS_17_2_0: "defect", JS_17_2_1: "defect", JS_17_4_0: "ok", GO: "ok", RUST: "n/a",
         # open: https://github.com/StellarCN/py-stellar-base/issues/1251 (2^63 and 2^64 wrap); -1 is also accepted
         PY: "defect",
+        PYX: "ok",  # 2^63 and 2^64 raise ValueError; -1 is a valid int64 at the XDR layer
     },
 }
 
