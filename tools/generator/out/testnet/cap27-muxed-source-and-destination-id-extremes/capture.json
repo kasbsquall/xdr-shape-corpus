@@ -1,0 +1,45 @@
+{
+  "id": "cap27-muxed-source-and-destination-id-extremes",
+  "txHash": "d3c0192737ded4d591fb25be8476672ac08c7cb2f40d27716d38676c346f294b",
+  "ledger": 7,
+  "ledgerCloseTime": "1794560431",
+  "capturedAt": "2026-11-13T09:00:30.029Z",
+  "capturedVia": "local single-validator stellar-core (RUN_STANDALONE), HTTP tx, METADATA_OUTPUT_STREAM",
+  "generator": "tools/generator/generate.mjs",
+  "image": "stellar/stellar-core:30.0.0-3642.0e49751aa.noble@sha256:eb7a7c81a29b8665c8878d55e1b3979f0d7527426350c4ff258a9c7647ae5c51",
+  "coreVersion": "stellar-core 30.0.0 (0e49751aa9ddf892302cca02cea7f3f5d97df9f1)",
+  "network": {
+    "name": "local-testnet-passphrase",
+    "passphrase": "Test SDF Network ; September 2015"
+  },
+  "files": [
+    {
+      "path": "testnet/cap27-muxed-source-and-destination-id-extremes/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "3e17fe7e26dba986a4697e60e1c2af7485f2245dde6bff411e14989abcfb43bf"
+    },
+    {
+      "path": "testnet/cap27-muxed-source-and-destination-id-extremes/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "af84e88b1979ab15bfcdbfde2fcd6c9d3a070d86f80cf0ee7fbe11107f998e06"
+    },
+    {
+      "path": "testnet/cap27-muxed-source-and-destination-id-extremes/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "558af64ed6a904b0f98d6a9313ce5f9b8840e9d2501c75ea5849b49010f8b243"
+    },
+    {
+      "path": "testnet/cap27-muxed-source-and-destination-id-extremes/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "35b8721303d3e8c64fc1a948eb0c55014f9006d90647acf1f34535bcdcedd93b"
+    }
+  ],
+  "muxedSource": "MD4XM5SR5O57HSYVTPZP6UVXUYXMUFI6DT5UCCQ4KFGFIMM444CUN77777777777747TO",
+  "muxedSourceId": "18446744073709551615",
+  "muxedDestination": "MAJSYUIVGE5JSLWBQ7FBINAPQFYCULXUGW4EVUMZPUA2LD3PAGASKAAAAAAAAAAAADHRM",
+  "muxedDestinationId": "0"
+}

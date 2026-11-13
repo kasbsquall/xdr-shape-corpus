@@ -1,0 +1,43 @@
+{
+  "id": "cap40-signed-payload-signer-max-payload",
+  "txHash": "34baac54fd08a8d65436eedb2af7d800dacd30030f0c87036c4d401fdb388fdc",
+  "ledger": 5,
+  "ledgerCloseTime": "1794560421",
+  "capturedAt": "2026-11-13T09:00:30.024Z",
+  "capturedVia": "local single-validator stellar-core (RUN_STANDALONE), HTTP tx, METADATA_OUTPUT_STREAM",
+  "generator": "tools/generator/generate.mjs",
+  "image": "stellar/stellar-core:30.0.0-3642.0e49751aa.noble@sha256:eb7a7c81a29b8665c8878d55e1b3979f0d7527426350c4ff258a9c7647ae5c51",
+  "coreVersion": "stellar-core 30.0.0 (0e49751aa9ddf892302cca02cea7f3f5d97df9f1)",
+  "network": {
+    "name": "local-testnet-passphrase",
+    "passphrase": "Test SDF Network ; September 2015"
+  },
+  "files": [
+    {
+      "path": "testnet/cap40-signed-payload-signer-max-payload/envelope.b64",
+      "xdrType": "TransactionEnvelope",
+      "encoding": "base64",
+      "sha256": "00030cd1da75143858e50f45b98c1693cf223440660c3312b3de372a313653e2"
+    },
+    {
+      "path": "testnet/cap40-signed-payload-signer-max-payload/result.b64",
+      "xdrType": "TransactionResult",
+      "encoding": "base64",
+      "sha256": "3b504316f80a7d32281ccdfd08b911ed624bed698151af5eedafefe003e263cd"
+    },
+    {
+      "path": "testnet/cap40-signed-payload-signer-max-payload/meta.b64",
+      "xdrType": "TransactionMeta",
+      "encoding": "base64",
+      "sha256": "2fd84a46a715a7c5bc108737578809f88a3b24b2860cf03dbbc2b5bd12a05b1d"
+    },
+    {
+      "path": "testnet/cap40-signed-payload-signer-max-payload/ledger-close-meta.b64",
+      "xdrType": "LedgerCloseMeta",
+      "encoding": "base64",
+      "sha256": "eb9b7cabdc547e0e5dc6c4766e5b7d9bf957e92647cf597052a331420b046d2a"
+    }
+  ],
+  "signedPayloadSigner": "PDHX4XJIMITVWKOOFDTORAADKJCAICG5ZDD4JTYHAFJLVHMGOD7ICAAAABAHQZDSFVZWQYLQMUWWG33SOB2XGIDDMFYDIMBAONQW24DMMUQHAYLZNRXWCZBMEA3DIIDCPF2GK4ZANVQXQIBOFYXC4LROFYXC4LROFZSAW",
+  "payloadLength": 64
+}

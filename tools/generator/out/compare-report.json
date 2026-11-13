@@ -1,0 +1,820 @@
+{
+  "entries": [
+    [
+      "mainnet",
+      "cap27-muxed-source-and-destination-id-extremes"
+    ],
+    [
+      "mainnet",
+      "cap40-signed-payload-signer-max-payload"
+    ],
+    [
+      "testnet",
+      "cap27-muxed-source-and-destination-id-extremes"
+    ],
+    [
+      "testnet",
+      "cap40-signed-payload-signer-max-payload"
+    ]
+  ],
+  "rows": [
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionEnvelope"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "result.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionResult"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionMeta"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "ledger-close-meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "LedgerCloseMeta"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LedgerCloseMeta variant",
+      "status": "MATCH",
+      "detail": "v2"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "ledger protocol version",
+      "status": "MATCH",
+      "detail": "30"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "StellarValue ext arm (CAP-0088 signed close value)",
+      "status": "MATCH",
+      "detail": "signed_ms"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LedgerCloseMeta ext",
+      "status": "MATCH",
+      "detail": "v0"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transaction applied in this LedgerCloseMeta",
+      "status": "MATCH",
+      "detail": "1 of 1 transactions in ledger 7"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LCM tx_apply_processing equals meta.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LCM transaction result equals result.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 is in the LCM tx set",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "TransactionMeta version",
+      "status": "MATCH",
+      "detail": "v4"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "tx hash recomputed under \"Public Global Stellar Network ; September 2015\" equals the applied hash",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "tx hash under \"Test SDF Network ; September 2015\" does not",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "expected /tx/tx/source_account",
+      "status": "SKIP",
+      "detail": "depends on generated keys (capture.json muxedSource); regenerated value equals its own capture.json"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "expected /tx/tx/operations/0/body/payment/destination",
+      "status": "SKIP",
+      "detail": "depends on generated keys (capture.json muxedDestination); regenerated value equals its own capture.json"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "expected /tx/tx/operations/0/body/payment/amount",
+      "status": "MATCH",
+      "detail": "10000000"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transaction source is a muxed account (M... strkey)",
+      "status": "MATCH",
+      "detail": "M"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "muxed source id (u64 max)",
+      "status": "MATCH",
+      "detail": "18446744073709551615"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "payment destination is a muxed account (M... strkey)",
+      "status": "MATCH",
+      "detail": "M"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "muxed destination id (zero)",
+      "status": "MATCH",
+      "detail": "0"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transfer event topic 1 is the source's base G account",
+      "status": "MATCH",
+      "detail": "True"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transfer event topic 2 is the destination's base G account",
+      "status": "MATCH",
+      "detail": "True"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 2 generated key, 2 ledger sequence or time, 1 signature by a generated key, 1 signature hint (last 4 bytes of a generated key)"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "result.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "result.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: all leaves equal"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "meta.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "meta.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 2 contract id (derives from the network id), 9 generated key, 18 ledger sequence or time"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionEnvelope"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "result.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionResult"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionMeta"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "ledger-close-meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "LedgerCloseMeta"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LedgerCloseMeta variant",
+      "status": "MATCH",
+      "detail": "v2"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "ledger protocol version",
+      "status": "MATCH",
+      "detail": "30"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "StellarValue ext arm (CAP-0088 signed close value)",
+      "status": "MATCH",
+      "detail": "signed_ms"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LedgerCloseMeta ext",
+      "status": "MATCH",
+      "detail": "v0"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "transaction applied in this LedgerCloseMeta",
+      "status": "MATCH",
+      "detail": "1 of 1 transactions in ledger 5"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LCM tx_apply_processing equals meta.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LCM transaction result equals result.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 is in the LCM tx set",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "TransactionMeta version",
+      "status": "MATCH",
+      "detail": "v4"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "tx hash recomputed under \"Public Global Stellar Network ; September 2015\" equals the applied hash",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "tx hash under \"Test SDF Network ; September 2015\" does not",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "expected /v4/operations/0/changes/1/updated/data/account/signers/0/key",
+      "status": "SKIP",
+      "detail": "depends on generated keys (capture.json signedPayloadSigner); regenerated value equals its own capture.json"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "expected /v4/operations/0/changes/1/updated/data/account/signers/0/weight",
+      "status": "MATCH",
+      "detail": "1"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signer key type is signed payload (P... strkey)",
+      "status": "MATCH",
+      "detail": "P"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signed payload length",
+      "status": "MATCH",
+      "detail": "64"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signed payload bytes (hex)",
+      "status": "MATCH",
+      "detail": "7864722d73686170652d636f727075732063617034302073616d706c65207061796c6f61642c203634206279746573206d6178202e2e2e2e2e2e2e2e2e2e2e2e"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signer's ed25519 key is the transaction source account",
+      "status": "MATCH",
+      "detail": "True"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 2 generated key, 2 ledger sequence or time, 1 signature by a generated key, 1 signature hint (last 4 bytes of a generated key)"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "result.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "result.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: all leaves equal"
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "meta.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "mainnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "meta.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 1 contract id (derives from the network id), 6 generated key, 14 ledger sequence or time"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionEnvelope"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "result.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionResult"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionMeta"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "ledger-close-meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "LedgerCloseMeta"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LedgerCloseMeta variant",
+      "status": "MATCH",
+      "detail": "v2"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "ledger protocol version",
+      "status": "MATCH",
+      "detail": "30"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "StellarValue ext arm (CAP-0088 signed close value)",
+      "status": "MATCH",
+      "detail": "signed_ms"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LedgerCloseMeta ext",
+      "status": "MATCH",
+      "detail": "v0"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transaction applied in this LedgerCloseMeta",
+      "status": "MATCH",
+      "detail": "1 of 1 transactions in ledger 7"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LCM tx_apply_processing equals meta.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "LCM transaction result equals result.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 is in the LCM tx set",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "TransactionMeta version",
+      "status": "MATCH",
+      "detail": "v4"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "tx hash recomputed under \"Test SDF Network ; September 2015\" equals the applied hash",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "tx hash under \"Public Global Stellar Network ; September 2015\" does not",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "expected /tx/tx/source_account",
+      "status": "SKIP",
+      "detail": "depends on generated keys (capture.json muxedSource); regenerated value equals its own capture.json"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "expected /tx/tx/operations/0/body/payment/destination",
+      "status": "SKIP",
+      "detail": "depends on generated keys (capture.json muxedDestination); regenerated value equals its own capture.json"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "expected /tx/tx/operations/0/body/payment/amount",
+      "status": "MATCH",
+      "detail": "10000000"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transaction source is a muxed account (M... strkey)",
+      "status": "MATCH",
+      "detail": "M"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "muxed source id (u64 max)",
+      "status": "MATCH",
+      "detail": "18446744073709551615"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "payment destination is a muxed account (M... strkey)",
+      "status": "MATCH",
+      "detail": "M"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "muxed destination id (zero)",
+      "status": "MATCH",
+      "detail": "0"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transfer event topic 1 is the source's base G account",
+      "status": "MATCH",
+      "detail": "True"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "transfer event topic 2 is the destination's base G account",
+      "status": "MATCH",
+      "detail": "True"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "envelope.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 2 generated key, 2 ledger sequence or time, 1 signature by a generated key, 1 signature hint (last 4 bytes of a generated key)"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "result.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "result.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: all leaves equal"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "meta.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap27-muxed-source-and-destination-id-extremes",
+      "check": "meta.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 9 generated key, 18 ledger sequence or time"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionEnvelope"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "result.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionResult"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "TransactionMeta"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "ledger-close-meta.b64 decodes and re-encodes byte-identical",
+      "status": "MATCH",
+      "detail": "LedgerCloseMeta"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LedgerCloseMeta variant",
+      "status": "MATCH",
+      "detail": "v2"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "ledger protocol version",
+      "status": "MATCH",
+      "detail": "30"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "StellarValue ext arm (CAP-0088 signed close value)",
+      "status": "MATCH",
+      "detail": "signed_ms"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LedgerCloseMeta ext",
+      "status": "MATCH",
+      "detail": "v0"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "transaction applied in this LedgerCloseMeta",
+      "status": "MATCH",
+      "detail": "1 of 1 transactions in ledger 5"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LCM tx_apply_processing equals meta.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "LCM transaction result equals result.b64",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 is in the LCM tx set",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "TransactionMeta version",
+      "status": "MATCH",
+      "detail": "v4"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "tx hash recomputed under \"Test SDF Network ; September 2015\" equals the applied hash",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "tx hash under \"Public Global Stellar Network ; September 2015\" does not",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "expected /v4/operations/0/changes/1/updated/data/account/signers/0/key",
+      "status": "SKIP",
+      "detail": "depends on generated keys (capture.json signedPayloadSigner); regenerated value equals its own capture.json"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "expected /v4/operations/0/changes/1/updated/data/account/signers/0/weight",
+      "status": "MATCH",
+      "detail": "1"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signer key type is signed payload (P... strkey)",
+      "status": "MATCH",
+      "detail": "P"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signed payload length",
+      "status": "MATCH",
+      "detail": "64"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signed payload bytes (hex)",
+      "status": "MATCH",
+      "detail": "7864722d73686170652d636f727075732063617034302073616d706c65207061796c6f61642c203634206279746573206d6178202e2e2e2e2e2e2e2e2e2e2e2e"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "signer's ed25519 key is the transaction source account",
+      "status": "MATCH",
+      "detail": "True"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "envelope.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 2 generated key, 2 ledger sequence or time, 1 signature by a generated key, 1 signature hint (last 4 bytes of a generated key)"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "result.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "result.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: all leaves equal"
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "meta.b64 shape (keys, union arms, array lengths) equals committed",
+      "status": "MATCH",
+      "detail": ""
+    },
+    {
+      "network": "testnet",
+      "entry": "cap40-signed-payload-signer-max-payload",
+      "check": "meta.b64 leaf values equal committed, except explained",
+      "status": "MATCH",
+      "detail": "skipped: 6 generated key, 14 ledger sequence or time"
+    }
+  ]
+}
