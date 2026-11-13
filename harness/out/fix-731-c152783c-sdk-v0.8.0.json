@@ -3,6 +3,7 @@
   "module": "github.com/stellar/wallet-backend",
   "vcsRevision": "c152783c054c765c8b51fd26ed313fd1ebc1c50c",
   "goStellarSdk": "v0.8.0",
+  "ledgerSource": "getLedgers",
   "entries": [
     {
       "id": "cap40-signed-payload-signer-max-payload",

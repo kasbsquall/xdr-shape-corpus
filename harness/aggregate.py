@@ -40,6 +40,7 @@ def main():
             "commit": d.get("vcsRevision"),
             "goStellarSdk": d.get("goStellarSdk"),
             "dependencyMode": tag,
+            "ledgerSource": d.get("ledgerSource", "file"),
             "outcomes": {e["id"]: e["outcome"] for e in d["entries"]},
         })
 

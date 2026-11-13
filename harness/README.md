@@ -6,9 +6,9 @@ It targets the RFP acceptance check for the replay harness: the reference adapte
 
 ## What the adapter does
 
-Input: a `corpus/entries/<id>/` folder with `ledger-close-meta.b64`, `capture.json`, and the expected values from `manifest.json`.
+Input: the entry's ledger, served by the harness mock RPC over `getLedgers` (see below), plus `capture.json` and the expected values from `manifest.json`. The adapter contract is in [ADAPTER.md](ADAPTER.md).
 
-1. Decodes the full `LedgerCloseMeta` with the Go XDR package pinned by the commit (`github.com/stellar/go-stellar-sdk/xdr`).
+1. Fetches the entry's ledger with go-stellar-sdk's `RPCLedgerBackend`, the backend wallet-backend's ingest uses with `LedgerBackendType` `rpc`, and decodes the full `LedgerCloseMeta` with the Go XDR package pinned by the commit (`github.com/stellar/go-stellar-sdk/xdr`).
 2. Extracts the transaction by hash with `ingest.NewLedgerTransactionReaderFromLedgerCloseMeta` and the testnet passphrase.
 3. Processes it with wallet-backend's real indexer (`indexer.NewIndexer` + `ProcessLedgerTransactions` over an in-memory `IndexerBuffer`). All processors run: participants, effects, SAC events, token transfer, trustlines, accounts.
 4. For every state change and participant, calls the same `Value()` (driver.Valuer) that `BatchCopy` hands to pgx before COPY, then the `Scan()` that reads the column back. This shows which bytes would be stored and what would be read back, without a database.
@@ -28,8 +28,10 @@ Input: a `corpus/entries/<id>/` folder with `ledger-close-meta.b64`, `capture.js
 
 | File | Content |
 | --- | --- |
+| `ADAPTER.md` | Adapter interface: what the harness provides, what an adapter outputs, checklist for another indexer. |
+| `mockrpc/` | Mock Stellar RPC serving the corpus over `getLedgers`, `getLatestLedger` and `getHealth`, with tests. |
 | `go/xdrkitreplay/main.go` | Canonical copy of the adapter. `run.sh` copies it to `internal/xdrkitreplay/main.go` in each checkout, because `internal` packages can only be imported from inside the module. |
-| `run.sh` | Creates one `git worktree` per commit, copies the adapter in and runs it. |
+| `run.sh` | Starts `mockrpc`, creates one `git worktree` per commit, copies the adapter in and runs it against the mock. |
 | `aggregate.py` | Merges the runs in `out/` into `results.json`. |
 | `out/<label>-<sha>-<mode>.json` | Full per-commit result with evidence (state changes, per-column round trip). |
 | `results.json` | Machine-readable result per (sighting, entry, commit). |
@@ -41,10 +43,20 @@ Input: a `corpus/entries/<id>/` folder with `ledger-close-meta.b64`, `capture.js
 bash run.sh                      # every commit with its pinned go-stellar-sdk
 SDK=v0.8.0 bash run.sh           # same commits, bumping ONLY go-stellar-sdk to v0.8.0
 bash run.sh 79ea2acd c152783c    # selected commits
+INPUT=file bash run.sh           # adapter reads the .b64 files instead of the mock RPC
 python aggregate.py              # writes results.json
+(cd mockrpc && go test ./...)    # mock RPC tests
 ```
 
-No Docker or Postgres needed. Network access is needed the first time for `go mod download`.
+No Docker or Postgres needed. Network access is needed the first time for `go mod download`; after that the run is offline.
+
+## Ledger input: mock `getLedgers`
+
+`run.sh` builds `mockrpc`, starts it on `127.0.0.1` with a free port, and passes its URL to the adapter with `-rpc`. The mock serves each corpus `LedgerCloseMeta` as a Stellar RPC `getLedgers` item (`hash`, `sequence`, `ledgerCloseTime`, `headerXdr`, `metadataXdr`), using the request and response types of go-stellar-sdk `protocols/rpc`. The adapter fetches each entry's ledger through `RPCLedgerBackend`, which calls `getHealth` and then `getLedgers`. The field mapping and the mock's limits are in [ADAPTER.md](ADAPTER.md).
+
+`mockrpc`'s tests walk the corpus page by page with go-stellar-sdk's RPC client, check every field against the corpus files and against the close times testnet RPC returned at capture, pin the JSON field names, read every ledger through `RPCLedgerBackend`, and check that invalid requests and non-loopback addresses are refused.
+
+Every commit in `run.sh` gives the same outcome per entry over `getLedgers` as from the files, in both dependency modes. The runs in `out/` record `"ledgerSource": "getLedgers"`.
 
 ## Commits
 

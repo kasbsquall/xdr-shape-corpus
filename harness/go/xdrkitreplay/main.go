@@ -9,7 +9,12 @@
 // It must live inside the wallet-backend module (internal packages), e.g. at
 // internal/xdrkitreplay/main.go, and is run with:
 //
-//	go run ./internal/xdrkitreplay -corpus <xdr-kit/corpus> -label <commit> -out <file.json>
+//	go run ./internal/xdrkitreplay -corpus <xdr-kit/corpus> -rpc <mock RPC URL> -label <commit> -out <file.json>
+//
+// With -rpc, each entry's ledger is fetched from the harness mock RPC (harness/mockrpc)
+// through go-stellar-sdk's RPCLedgerBackend, the ledger backend wallet-backend's ingest
+// builds when LedgerBackendType is "rpc" (internal/ingest/ledger_backend.go). Without
+// -rpc, the ledger is read from the entry's ledger-close-meta.b64 file.
 //
 // Per entry it reports one outcome in the RFP vocabulary:
 //
@@ -25,6 +30,7 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -33,10 +39,12 @@ import (
 	"runtime/debug"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/alitto/pond/v2"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/stellar/go-stellar-sdk/ingest"
+	"github.com/stellar/go-stellar-sdk/ingest/ledgerbackend"
 	"github.com/stellar/go-stellar-sdk/strkey"
 	"github.com/stellar/go-stellar-sdk/xdr"
 
@@ -92,6 +100,7 @@ type runResult struct {
 	VCSRevision      string        `json:"vcsRevision,omitempty"`
 	GoStellarSDK     string        `json:"goStellarSdk"`
 	GoStellarSDKRepl string        `json:"goStellarSdkReplace,omitempty"`
+	LedgerSource     string        `json:"ledgerSource"` // "getLedgers" or "file"
 	Entries          []entryResult `json:"entries"`
 }
 
@@ -101,6 +110,7 @@ func main() {
 	out := flag.String("out", "", "output JSON file (default stdout)")
 	only := flag.String("entry", "", "run only this entry id")
 	commit := flag.String("commit", "", "full commit sha of the checkout")
+	rpcURL := flag.String("rpc", "", "mock RPC URL serving the corpus over getLedgers (default: read the .b64 files)")
 	flag.Parse()
 	if *corpus == "" {
 		fmt.Fprintln(os.Stderr, "-corpus is required")
@@ -112,7 +122,10 @@ func main() {
 	var m manifest
 	must(json.Unmarshal(raw, &m))
 
-	rr := runResult{Label: *label, VCSRevision: *commit}
+	rr := runResult{Label: *label, VCSRevision: *commit, LedgerSource: "file"}
+	if *rpcURL != "" {
+		rr.LedgerSource = "getLedgers"
+	}
 	if bi, ok := debug.ReadBuildInfo(); ok {
 		rr.Module = bi.Main.Path
 		for _, s := range bi.Settings {
@@ -135,7 +148,7 @@ func main() {
 			continue
 		}
 		dir := filepath.Join(*corpus, "entries", e.ID)
-		res := runEntry(dir, e.ID, e.Network.Passphrase, e.Source.TxHash, expectedStrings(e.Expected.Values))
+		res := runEntry(*rpcURL, dir, e.ID, e.Source.Ledger, e.Network.Passphrase, e.Source.TxHash, expectedStrings(e.Expected.Values))
 		rr.Entries = append(rr.Entries, res)
 	}
 
@@ -165,14 +178,12 @@ func expectedStrings(vals []struct {
 	return out
 }
 
-func runEntry(dir, id, passphrase, txHash string, expected map[string]string) entryResult {
+func runEntry(rpcURL, dir, id string, ledger uint32, passphrase, txHash string, expected map[string]string) entryResult {
 	res := entryResult{ID: id, Evidence: map[string]any{}}
 
-	// 1. Decode the full-ledger LedgerCloseMeta exactly as captured from core.
-	b64, err := os.ReadFile(filepath.Join(dir, "ledger-close-meta.b64"))
-	must(err)
-	var lcm xdr.LedgerCloseMeta
-	if err := xdr.SafeUnmarshalBase64(strings.TrimSpace(string(b64)), &lcm); err != nil {
+	// 1. Get and decode the full-ledger LedgerCloseMeta exactly as captured from core.
+	lcm, err := getLedger(rpcURL, dir, ledger)
+	if err != nil {
 		// Record whether the per-transaction XDR still decodes, to locate the break.
 		parts := map[string]string{}
 		for name, target := range map[string]any{"envelope.b64": &xdr.TransactionEnvelope{}, "result.b64": &xdr.TransactionResult{}, "meta.b64": &xdr.TransactionMeta{}} {
@@ -241,6 +252,32 @@ func runEntry(dir, id, passphrase, txHash string, expected map[string]string) en
 	default:
 		return genericCheck(res)
 	}
+}
+
+// getLedger returns the entry's LedgerCloseMeta. A fetch error ends the run; the
+// returned error is always the XDR decode error, so both inputs report the same detail.
+func getLedger(rpcURL, dir string, seq uint32) (xdr.LedgerCloseMeta, error) {
+	var lcm xdr.LedgerCloseMeta
+	if rpcURL == "" {
+		b64, err := os.ReadFile(filepath.Join(dir, "ledger-close-meta.b64"))
+		must(err)
+		return lcm, xdr.SafeUnmarshalBase64(strings.TrimSpace(string(b64)), &lcm)
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+	// BufferSize 1: one getLedgers call per entry, holding one ledger at a time.
+	backend := ledgerbackend.NewRPCLedgerBackend(ledgerbackend.RPCLedgerBackendOptions{RPCServerURL: rpcURL, BufferSize: 1})
+	defer backend.Close()
+	must(backend.PrepareRange(ctx, ledgerbackend.BoundedRange(seq, seq))) // calls getHealth and getLedgers
+	lcm, err := backend.GetLedger(ctx, seq)
+	const decodeFailed = "failed to unmarshal cached ledger: " // RPCLedgerBackend's wrapper for XDR errors
+	if err != nil && !strings.HasPrefix(err.Error(), decodeFailed) {
+		must(err)
+	}
+	if inner := errors.Unwrap(err); inner != nil {
+		err = inner
+	}
+	return lcm, err
 }
 
 // --- entry checks ---------------------------------------------------------------

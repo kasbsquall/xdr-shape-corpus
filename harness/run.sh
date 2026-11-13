@@ -4,6 +4,9 @@
 #        bash run.sh <sha> ...  (only those)
 #        SDK=v0.8.0 bash run.sh  (same, but bump ONLY github.com/stellar/go-stellar-sdk
 #                                 to that version in each checkout's go.mod first)
+#        INPUT=file bash run.sh  (adapter reads the .b64 files instead of the mock RPC)
+# By default the corpus is served by mockrpc on 127.0.0.1 and the adapter ingests it
+# over getLedgers.
 # Needs: git, the portable Go toolchain in tools-local, network for `go mod download`.
 set -euo pipefail
 
@@ -38,6 +41,20 @@ fi
 mkdir -p "$HERE/out"
 [ -d "$SRC/.git" ] || git clone -q https://github.com/stellar/wallet-backend.git "$SRC"
 
+RPC_FLAG=()
+if [ "${INPUT:-rpc}" != "file" ]; then
+  tmp="$(mktemp -d)"
+  mock="$tmp/mockrpc$(go env GOEXE)"
+  (cd "$HERE/mockrpc" && go build -o "$mock" .)
+  "$mock" -corpus "$KIT/corpus" -addr 127.0.0.1:0 > "$tmp/url" &
+  mock_pid=$!
+  trap 'kill "$mock_pid" 2>/dev/null; rm -rf "$tmp"' EXIT
+  for _ in $(seq 100); do [ -s "$tmp/url" ] && break; sleep 0.1; done
+  [ -s "$tmp/url" ] || { echo "mockrpc did not start" >&2; exit 1; }
+  RPC_FLAG=(-rpc "$(head -n1 "$tmp/url")")
+  echo "== mockrpc serving the corpus at ${RPC_FLAG[1]}"
+fi
+
 for pair in "${COMMITS[@]}"; do
   label="${pair%%=*}"; sha="${pair#*=}"
   wt="$TOOLS/src/wb-$sha"
@@ -51,6 +68,6 @@ for pair in "${COMMITS[@]}"; do
     tag="sdk-$SDK"
   fi
   echo "== $label ($sha) [$tag]"
-  (cd "$wt" && go run ./internal/xdrkitreplay -corpus "$KIT/corpus" -label "$label" -commit "$(git -C "$wt" rev-parse HEAD)" -out "$HERE/out/$label-$sha-$tag.json")
+  (cd "$wt" && go run ./internal/xdrkitreplay -corpus "$KIT/corpus" "${RPC_FLAG[@]}" -label "$label" -commit "$(git -C "$wt" rev-parse HEAD)" -out "$HERE/out/$label-$sha-$tag.json")
   git -C "$wt" diff --stat -- go.mod go.sum
 done
