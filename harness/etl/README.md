@@ -2,7 +2,7 @@
 
 This adapter runs the corpus through the transform and export code of [stellar/stellar-etl](https://github.com/stellar/stellar-etl), the pipeline that feeds SDF's Hubble dataset, and reports `pass`, `mishandled` or `dropped` per entry with the same vocabulary as the wallet-backend adapter ([../README.md](../README.md), [../ADAPTER.md](../ADAPTER.md)).
 
-Result on 2026-11-13: 6 entries pass, 2 are `mishandled` and 1 is `dropped`. All three non-pass results reproduce issues that are already open or were already addressed upstream (#460, #330). None is a new stellar-etl defect. One more observation is new as far as this search went: stellar-etl did not compile with Go 1.27.4 on Windows, and the same check should stop it on Linux ([below](#go-1274-cannot-build-stellar-etl-on-windows-linux-inferred)).
+Result on 2026-11-13: 6 entries pass, 2 are `mishandled` and 1 is `dropped`. All three non-pass results reproduce issues that are already open or were already addressed upstream (#460, #330). None is a new stellar-etl defect. One more observation is new as far as this search went: stellar-etl does not compile with Go 1.27.4, on Windows or on Linux ([below](#go-1274-cannot-build-stellar-etl)).
 
 ## Pinned versions
 
@@ -119,7 +119,7 @@ Cause, at `2b24ec89`: `internal/transform/token_transfer.go` lines 57-58 (and th
 
 Known: [stellar/stellar-etl#454](https://github.com/stellar/stellar-etl/issues/454), open, which cites the same `100 → 9.999999999999999e-06` from the unit test golden. Here it is reproduced on real ledgers. The corpus holds no amount above 2^53 stroops, so the larger loss #454 describes is not exercised.
 
-## Go 1.27.4 cannot build stellar-etl on Windows (Linux inferred)
+## Go 1.27.4 cannot build stellar-etl
 
 Observed on Windows amd64, with go1.27.4 and `CGO_ENABLED=1`:
 
@@ -131,7 +131,7 @@ github.com/stellar/go-stellar-xdr-json/xdrjson: disallowed LTO section ".llvmbc"
 
 Cause: go1.27.4's `cmd/go` scans every library under a `-L` directory named in a `#cgo LDFLAGS` line and rejects archives with LTO sections (`src/cmd/go/internal/work/security.go` in go1.27.4: `isDisallowedLTOSection` at lines 728-734, PE/COFF check at line 1119, ELF check at line 1211). The go1.27.3 toolchain has no such check. go-stellar-xdr-json's `xdrjson/conversion.go` lines 9-13 point `-L` at its prebuilt `libs/<triple>/` directories, and the archives there carry `.llvmbc` sections. A scan with the same predicate finds them in 227 of 352 members of the Windows archive, 292 of 409 of `x86_64-unknown-linux-gnu` and 285 of 503 of `aarch64-unknown-linux-gnu`.
 
-Observed vs inferred: the failure was observed on Windows only. That Linux builds fail the same way is inferred from the archive scan above and from the ELF branch of the same check. stellar-rpc hit the same check on Linux with its own Rust libraries and fixed it in [stellar/stellar-rpc#1190](https://github.com/stellar/stellar-rpc/pull/1190) (merged 2026-11-12), which links them only after stripping the bitcode sections. That PR attributes the check to Go 1.26.11 and 1.27.4. As of 2026-11-13, go-stellar-xdr-json's latest commit is the `c68093a10a8a` that stellar-etl pins, and searches of the stellar-etl and go-stellar-xdr-json issues and PRs for "LTO", "llvmbc" and "1.27.4" found nothing. Today stellar-etl builds with 1.27.3 (go.mod, Dockerfile, CI `go-version-file`), so the break shows up when it moves to 1.27.4.
+Observed on Linux too: the `stellar-etl replay` workflow builds stellar-etl with go1.27.4 as an informational step, and on ubuntu-24.04 it fails with the same error on `libs/x86_64-unknown-linux-gnu/libxdrjson.a` ([run 43399457612](https://github.com/kasbsquall/xdr-shape-corpus/actions/runs/43399457612), 2026-11-13). stellar-rpc hit the same check on Linux with its own Rust libraries and fixed it in [stellar/stellar-rpc#1190](https://github.com/stellar/stellar-rpc/pull/1190) (merged 2026-11-12), which links them only after stripping the bitcode sections. That PR attributes the check to Go 1.26.11 and 1.27.4. As of 2026-11-13, go-stellar-xdr-json's latest commit is the `c68093a10a8a` that stellar-etl pins, and searches of the stellar-etl and go-stellar-xdr-json issues and PRs for "LTO", "llvmbc" and "1.27.4" found nothing. Today stellar-etl builds with 1.27.3 (go.mod, Dockerfile, CI `go-version-file`), so the break shows up when it moves to 1.27.4.
 
 Reproduce: `ETL_GO=go1.27.4 bash harness/etl/run.sh`.
 

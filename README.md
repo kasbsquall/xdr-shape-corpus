@@ -12,7 +12,8 @@ This repository is the working prototype for the SCF RFP *XDR/CAP-Coverage Audit
 | Corpus | 9 entries captured on testnet at protocol 30, each with envelope, result, `TransactionMeta` v4 and the full `LedgerCloseMeta`; none synthetic |
 | Byte check | Every file decodes and re-encodes byte-identical with rs-stellar-xdr 30.0.0; checked in CI |
 | stellar-core goldens | Every `--check-lcm` golden at a pinned core commit decodes byte-identical, and each entry's shapes are reported against what core emits: 13 agree, 1 elsewhere, 18 with no golden ([below](#stellar-core---check-lcm-goldens)) |
-| Replay harness | Reference adapter for `stellar/wallet-backend`; reproduces #731, #729, #716 (signed-payload) and the muxed-destination gap closed by #792 on pre-fix commits, and passes on the fixed ones |
+| Replay harness | Reference adapter for `stellar/wallet-backend`; reproduces #731, #729, #716 (signed-payload) and the muxed-destination gap closed by #792 on pre-fix commits, and passes on the fixed ones. Second adapter for `stellar/stellar-etl`: 6 entries pass, 3 reproduce known issues ([harness/etl/README.md](harness/etl/README.md)). Both run in CI |
+| Generator | `cap40` and `cap27` regenerate on a local stellar-core under the testnet and mainnet passphrases and match the committed entries; in CI ([tools/generator/](tools/generator/)) |
 | Conformance runner | Every corpus file and six sighting checks through js-stellar-sdk, go-stellar-sdk, rs-stellar-xdr and py-stellar-base in CI; js-stellar-sdk#1766, #1785 and #1789 reproduce on their pre-fix tags and pass on 17.4.0 ([conformance/MATRIX.md](conformance/MATRIX.md)) |
 | Linter | `xdrlint`, rule XDRL002 working; XDRL001 and XDRL003 are outside the current scope, and the guide checklist covers all three by hand |
 | Guide | Outline ([guide/OUTLINE.md](guide/OUTLINE.md)) |
@@ -47,6 +48,12 @@ Each entry lives in `corpus/entries/<id>/`. [corpus/manifest.json](corpus/manife
 | wallet-backend#792 (`to_muxed_id` on a muxed destination) | `mishandled` at `a9bac8d2` | `pass` at `09303667` |
 
 A note on method: every commit in that window pins go-stellar-sdk v0.7.3, which cannot decode a protocol 30 ledger header (`STELLAR_VALUE_SIGNED_MS`, CAP-0088). The go-stellar-sdk v0.8.0 changelog says versions before it cannot decode those headers, so this is expected and is not reported as a finding. The fixes were measured by bumping only that dependency to v0.8.0, on both sides of each fix.
+
+[harness/etl/](harness/etl/) is the second adapter. It runs every corpus ledger, served by the same mock `getLedgers`, through stellar-etl's own export functions at a pinned commit and checks the JSON lines and Parquet structs they produce. 6 entries pass. `cap73` is `dropped` and `cap67` `mishandled` in the `effects` table, both stellar-etl#460 (open); `cap46-scmap-keys-collide-after-native-conversion` is `mishandled` in the legacy `parameters_decoded` column, which #330 complemented with an exact column. CI fails if any outcome changes.
+
+## Generator
+
+[tools/generator/](tools/generator/) rebuilds entries on a local stellar-core 30.0.0 (image pinned by digest, standalone validator, port on 127.0.0.1 only, memory, CPU and pid limits, keys generated in memory), once under the testnet passphrase and once under the mainnet passphrase, with no network contacted. `compare.py` checks each regenerated entry against the committed one: shapes, union arms and every expected value, skipping only values that depend on generated keys, ledger or time. Today it covers `cap40` and `cap27`: 108 checks match, 6 are skipped, 0 differ, and the transaction hash only verifies under its own passphrase. CI repeats it on every corpus change.
 
 ## stellar-core `--check-lcm` goldens
 
@@ -90,7 +97,8 @@ cd tools && npm ci && node capture-testnet.mjs cap40
 | `tools/contracts/probe/` | Minimal Soroban contract the capture script deploys for the map and nested-authorization entries |
 | `tools/roundtrip/` | `xdr-roundtrip`: decode, re-encode and JSON output with rs-stellar-xdr |
 | `tools/build_manifest.py`, `tools/check_schema.py` | Manifest generation and validation |
-| `harness/` | Replay harness and the wallet-backend reference adapter |
+| `harness/` | Replay harness, the wallet-backend reference adapter and the stellar-etl adapter (`harness/etl/`) |
+| `tools/generator/` | Regenerates entries on a local stellar-core under both passphrases and compares them with the corpus |
 | `conformance/` | Conformance runner for JS, Go, Rust and Python, sighting checks and the divergence matrix |
 | `linter/` | `xdrlint` (go/analysis) |
 | `guide/` | Indexer-hardening guide outline |
